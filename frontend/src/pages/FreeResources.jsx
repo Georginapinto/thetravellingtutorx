@@ -1,17 +1,20 @@
 import React from "react";
 import PageHero from "@/components/PageHero";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
-import { ClipboardList, FileText, BookOpenCheck, Target, Mail, Sparkles, Compass } from "lucide-react";
+import { BRAND } from "@/constants/testIds";
+import { ClipboardList, FileText, BookOpenCheck, Target, Mail, Sparkles, Compass, FileDown } from "lucide-react";
 
 const packs = [
   {
     audience: "student",
-    magnet: "revision-starter-pack",
-    title: "Sociology Revision Starter Pack",
-    desc: "For students. Examiner essay tips, revision checklist, command words guide, essay planner and weekly revision emails.",
+    magnet: "essay-super-structure-families",
+    title: "Essay Super Structure: Families & Households (10m)",
+    desc: "For students. Georgina's recommended essay structure with a full annotated model answer for the AQA Sociology Families & Households 10-marker.",
     color: "bg-brand-pinkSoft",
-    icon: ClipboardList,
-    cta: "Download Free Pack",
+    icon: FileDown,
+    cta: "Get my free essay guide",
+    downloadUrl: BRAND.essayStructurePdf,
+    downloadFilename: "Essay-Super-Structure-Families-and-Households-10m.pdf",
   },
   {
     audience: "parent",
@@ -47,10 +50,17 @@ export default function FreeResources() {
           {packs.map((p) => (
             <div key={p.audience} className={`rounded-[2rem] p-7 ${p.color} border border-white shadow-soft`}>
               <div className="w-14 h-14 rounded-2xl bg-white grid place-items-center text-brand-pink"><p.icon className="w-6 h-6" /></div>
-              <h3 className="mt-5 text-2xl font-semibold text-brand-ink">{p.title}</h3>
+              <span className="inline-block mt-4 text-xs px-3 py-1 rounded-full bg-white/70 text-brand-ink font-semibold tracking-wide uppercase">For {p.audience}s</span>
+              <h3 className="mt-3 text-2xl font-semibold text-brand-ink leading-tight">{p.title}</h3>
               <p className="text-brand-mute mt-2">{p.desc}</p>
               <div className="mt-6 bg-white rounded-2xl p-5">
-                <LeadMagnetForm audience={p.audience} magnet={p.magnet} ctaLabel={p.cta} />
+                <LeadMagnetForm
+                  audience={p.audience}
+                  magnet={p.magnet}
+                  ctaLabel={p.cta}
+                  downloadUrl={p.downloadUrl}
+                  downloadFilename={p.downloadFilename}
+                />
               </div>
             </div>
           ))}

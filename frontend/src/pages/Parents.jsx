@@ -22,7 +22,7 @@ export default function Parents() {
         accent="sage"
       >
         <Button asChild className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white">
-          <Link to="/contact">Book a parent consultation</Link>
+          <Link to="/contact">Send a message</Link>
         </Button>
       </PageHero>
 

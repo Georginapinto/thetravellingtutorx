@@ -1,10 +1,9 @@
 import React, { useState } from "react";
 import { Link, NavLink, useLocation } from "react-router-dom";
-import { Menu, X, Plane } from "lucide-react";
+import { Menu, X, Mail } from "lucide-react";
 import { Button } from "./ui/button";
 import { NAV } from "../constants/testIds";
 import { SignatureLogo } from "./SignatureLogo";
-import BookingDialog from "./BookingDialog";
 
 const links = [
   { to: "/", label: "Home", id: NAV.home },
@@ -20,7 +19,6 @@ const links = [
 
 export const Navbar = () => {
   const [open, setOpen] = useState(false);
-  const [bookOpen, setBookOpen] = useState(false);
   const location = useLocation();
 
   return (
@@ -50,10 +48,10 @@ export const Navbar = () => {
         <div className="flex items-center gap-3">
           <Button
             data-testid={NAV.bookCta}
-            onClick={() => setBookOpen(true)}
+            asChild
             className="hidden md:inline-flex bg-brand-pink hover:bg-brand-pinkDeep text-white rounded-full px-5 h-11 shadow-soft"
           >
-            <Plane className="w-4 h-4 mr-2 -rotate-12" /> Book Free Consultation
+            <Link to="/contact"><Mail className="w-4 h-4 mr-2" /> Get in Touch</Link>
           </Button>
           <button
             data-testid={NAV.mobileToggle}
@@ -84,16 +82,15 @@ export const Navbar = () => {
               </NavLink>
             ))}
             <Button
-              onClick={() => { setOpen(false); setBookOpen(true); }}
+              asChild
+              onClick={() => setOpen(false)}
               className="mt-3 bg-brand-pink hover:bg-brand-pinkDeep text-white rounded-full h-12"
             >
-              Book Free Consultation
+              <Link to="/contact">Get in Touch</Link>
             </Button>
           </div>
         </div>
       )}
-
-      <BookingDialog open={bookOpen} onOpenChange={setBookOpen} />
     </header>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   GraduationCap, Users, BookOpenCheck, ArrowUpRight, Compass, Sparkles, Heart,
@@ -6,7 +6,6 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HOME, BRAND } from "@/constants/testIds";
-import BookingDialog from "@/components/BookingDialog";
 import { SignatureLogo } from "@/components/SignatureLogo";
 
 const audiences = [
@@ -28,7 +27,7 @@ const audiences = [
     color: "bg-brand-sageSoft",
     iconBg: "bg-brand-sageDeep text-white",
     href: "/parents",
-    links: ["GCSE Support", "A-Level Support", "Results", "Testimonials", "Book Consultation"],
+    links: ["GCSE Support", "A-Level Support", "Results", "Testimonials", "Get in Touch"],
   },
   {
     id: HOME.cardTeacher,
@@ -59,8 +58,6 @@ const services = [
 ];
 
 export default function Home() {
-  const [bookOpen, setBookOpen] = useState(false);
-
   return (
     <>
       {/* HERO */}
@@ -88,8 +85,8 @@ export default function Home() {
                 <Button data-testid={HOME.heroExplore} asChild className="h-13 px-7 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white shadow-soft">
                   <Link to="/students">Explore How I Can Help <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
                 </Button>
-                <Button data-testid={HOME.heroBook} onClick={() => setBookOpen(true)} variant="outline" className="h-13 px-7 rounded-full border-brand-pink/40 text-brand-pink hover:bg-brand-pinkSoft">
-                  Book a Free Consultation
+                <Button data-testid={HOME.heroBook} asChild variant="outline" className="h-13 px-7 rounded-full border-brand-pink/40 text-brand-pink hover:bg-brand-pinkSoft">
+                  <Link to="/contact">Get in Touch</Link>
                 </Button>
               </div>
 
@@ -254,7 +251,28 @@ export default function Home() {
               </Button>
             </div>
             <div className="relative">
-              <img src={BRAND.advert} alt="Tutor Partner Opportunity" className="rounded-[2rem] w-full shadow-medium" />
+              <div className="grid grid-cols-2 gap-4">
+                <div className="rounded-3xl p-6 bg-white border border-white shadow-soft">
+                  <p className="font-handwritten text-2xl text-brand-pink">teach</p>
+                  <p className="font-semibold text-brand-ink mt-1">1-1 & group Sociology sessions</p>
+                  <p className="text-sm text-brand-mute mt-2">£40-80/hour 1-1 · £100-200/hour group</p>
+                </div>
+                <div className="rounded-3xl p-6 bg-white border border-white shadow-soft mt-8">
+                  <p className="font-handwritten text-2xl text-brand-pink">create</p>
+                  <p className="font-semibold text-brand-ink mt-1">Resources, TikToks & essay plans</p>
+                  <p className="text-sm text-brand-mute mt-2">Build a name and a real portfolio</p>
+                </div>
+                <div className="rounded-3xl p-6 bg-white border border-white shadow-soft -mt-4">
+                  <p className="font-handwritten text-2xl text-brand-pink">grow</p>
+                  <p className="font-semibold text-brand-ink mt-1">Training, mentoring & community</p>
+                  <p className="text-sm text-brand-mute mt-2">We invest in you from day one</p>
+                </div>
+                <div className="rounded-3xl p-6 bg-white border border-white shadow-soft mt-4">
+                  <p className="font-handwritten text-2xl text-brand-pink">earn</p>
+                  <p className="font-semibold text-brand-ink mt-1">Flexible, rewarding income</p>
+                  <p className="text-sm text-brand-mute mt-2">On your terms · remote-first</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -288,10 +306,10 @@ export default function Home() {
         <div className="container-px max-w-5xl mx-auto text-center">
           <p className="font-handwritten text-3xl text-brand-pink">wherever you are in your journey</p>
           <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">There's a place for you here.</h2>
-          <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">Book a free consultation, or grab a free resource to see exactly what examiner-led Sociology teaching looks like.</p>
+          <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">Send a quick message or grab a free resource to see exactly what examiner-led Sociology teaching looks like.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button data-testid={HOME.ctaFinalBook} onClick={()=>setBookOpen(true)} className="h-13 px-7 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white">
-              Book a Free Consultation
+            <Button data-testid={HOME.ctaFinalBook} asChild className="h-13 px-7 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white">
+              <Link to="/contact">Get in Touch</Link>
             </Button>
             <Button data-testid={HOME.ctaFinalResources} asChild variant="outline" className="h-13 px-7 rounded-full border-brand-pink/40 text-brand-pink hover:bg-brand-pinkSoft">
               <Link to="/free-resources">Explore Free Resources</Link>
@@ -299,8 +317,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <BookingDialog open={bookOpen} onOpenChange={setBookOpen} />
     </>
   );
 }

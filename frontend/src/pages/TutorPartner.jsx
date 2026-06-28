@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
-import { BRAND, FORMS } from "@/constants/testIds";
+import { FORMS } from "@/constants/testIds";
 import { api } from "@/lib/api";
 import { toast } from "sonner";
 import { CheckCircle2, Plane, Heart, PoundSterling, Users, MonitorPlay, FileEdit, GraduationCap, MessageCircle, ClipboardCheck, BarChart3 } from "lucide-react";
@@ -13,7 +13,7 @@ const provides = [
   { i: Users, t: "We provide", d: "Leads, marketing, materials, systems, training & support." },
   { i: GraduationCap, t: "You grow", d: "Develop teaching, content creation & business skills." },
   { i: Heart, t: "Make an impact", d: "Help students achieve their best in Sociology." },
-  { i: PoundSterling, t: "Earn 50%", d: "Competitive split on tutoring revenue." },
+  { i: PoundSterling, t: "Earn well", d: "Competitive, transparent rates on tutoring revenue." },
 ];
 
 const roles = [
@@ -98,12 +98,12 @@ export default function TutorPartner() {
               <div className="rounded-2xl p-5 bg-brand-pinkSoft">
                 <p className="font-handwritten text-2xl text-brand-pink">1-1 tutoring</p>
                 <p className="text-3xl font-semibold text-brand-ink mt-1">£40–80<span className="text-base text-brand-mute font-normal">/hour</span></p>
-                <p className="text-sm text-brand-mute mt-1">50% split</p>
+                <p className="text-sm text-brand-mute mt-1">Set your own pricing within range</p>
               </div>
               <div className="rounded-2xl p-5 bg-brand-sageSoft">
                 <p className="font-handwritten text-2xl text-brand-sageDeep">Group tutoring</p>
-                <p className="text-3xl font-semibold text-brand-ink mt-1">£20<span className="text-base text-brand-mute font-normal">/student</span></p>
-                <p className="text-sm text-brand-mute mt-1">50% split</p>
+                <p className="text-3xl font-semibold text-brand-ink mt-1">£100–200<span className="text-base text-brand-mute font-normal">/hour</span></p>
+                <p className="text-sm text-brand-mute mt-1">Typical earnings for group sessions</p>
               </div>
             </div>
             <p className="text-sm text-brand-mute mt-5 flex items-center gap-2"><Heart className="w-4 h-4 text-brand-pink fill-brand-pink" /> We handle payments, admin and marketing — you focus on teaching.</p>
@@ -164,8 +164,10 @@ export default function TutorPartner() {
       </section>
 
       <section className="section-y bg-white">
-        <div className="container-px max-w-5xl mx-auto">
-          <img src={BRAND.advert} alt="Tutor Partner Opportunity" className="w-full rounded-[2.5rem] shadow-medium" />
+        <div className="container-px max-w-5xl mx-auto text-center">
+          <p className="font-handwritten text-3xl text-brand-pink">teach. inspire. earn.</p>
+          <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1 max-w-2xl mx-auto">A growing Sociology brand — and a place for you in it.</h3>
+          <p className="text-brand-mute mt-4 max-w-xl mx-auto">We handle payments, admin and marketing. You focus on teaching, creating and inspiring students.</p>
         </div>
       </section>
     </>
