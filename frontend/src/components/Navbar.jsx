@@ -35,7 +35,7 @@ export const Navbar = () => {
               to={l.to}
               data-testid={l.id}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors underline-grow ${
+                `text-sm font-medium transition-colors underline-grow whitespace-nowrap ${
                   isActive ? "text-brand-pink" : "text-brand-ink hover:text-brand-pink"
                 }`
               }

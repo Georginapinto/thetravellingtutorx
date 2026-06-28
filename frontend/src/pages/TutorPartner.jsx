@@ -90,15 +90,15 @@ function PaymentStatusModal({ open, onOpenChange, status, buyerEmail }) {
         ) : status === "cancelled" ? (
           <div className="p-8 text-center">
             <AlertCircle className="w-10 h-10 mx-auto text-brand-pink" />
-            <h4 className="text-2xl font-heading mt-3">Payment cancelled</h4>
-            <p className="text-brand-mute mt-2">No worries — your place isn't booked yet. You can try again whenever you're ready.</p>
+            <DialogTitle className="text-2xl font-heading mt-3">Payment cancelled</DialogTitle>
+            <DialogDescription className="text-brand-mute mt-2">No worries — your place isn't booked yet. You can try again whenever you're ready.</DialogDescription>
             <Button onClick={() => onOpenChange(false)} className="mt-6 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white px-6 h-11">Close</Button>
           </div>
         ) : (
           <div className="p-8 text-center">
             <div className="w-10 h-10 mx-auto rounded-full border-4 border-brand-pink/30 border-t-brand-pink animate-spin" />
-            <h4 className="text-2xl font-heading mt-3">Checking your payment...</h4>
-            <p className="text-brand-mute mt-2">This usually takes just a few seconds.</p>
+            <DialogTitle className="text-2xl font-heading mt-3">Checking your payment...</DialogTitle>
+            <DialogDescription className="text-brand-mute mt-2">This usually takes just a few seconds.</DialogDescription>
           </div>
         )}
       </DialogContent>
