@@ -1,0 +1,31 @@
+{
+  "summary": "End-to-end test of Tutor Training Programme sales page + Stripe deposit checkout. All 10 backend pytest cases pass (root, testimonials [6 items], contact, lead-magnet, newsletter idempotent, tutor-application, Stripe POST /api/checkout/session valid + invalid package, GET /api/checkout/status round-trip with buyer_email returned, webhook 400 on empty body, server-side amount/currency not overridable). Frontend /tutor-partner renders new hero, at-a-glance bar (Week of 20 July / 6 weeks · 1 session/week / All recorded / Capped at 12), founder/trust section (AQA Examiner Training + Director of Sixth Form), who-this-is-for, what-happens-next (4 cards), how-it-works (4 steps) and Secure-your-place box with £497 total + £248.50 deposit + balance due 19th July. Deposit button POSTs to /api/checkout/session and gets a 200 with a stripe checkout URL. ?status=cancelled URL shows the 'Payment cancelled' modal. Navbar + Footer correctly label 'Tutor Training'. Home no longer references the old placeholder testimonials (Amelia R./Sarah/Priya) nor 'Book a Free Consultation' — instead a 'Get in Touch' CTA and Facebook iframe (title='The Travelling Tutor X Facebook feed') with 'See all reviews on Facebook' CTA. /students Essay Super Structure lead-magnet form submits successfully (POST /api/lead-magnet returns 200).",
+  "backend_issues": {"critical": [], "minor": []},
+  "frontend_issues": {
+    "ui_bugs": [
+      {"component": "TutorPartner > PaymentStatusModal", "issue": "DialogContent is missing a DialogTitle when status is 'cancelled' or 'pending'. Radix logs an accessibility console error. Only the 'paid' branch wraps content in DialogHeader + DialogTitle.", "selector": "[role=dialog]", "priority": "LOW"}
+    ],
+    "integration_issues": [],
+    "design_issues": [
+      {"screen": "Navbar (desktop ~1080px)", "issues": ["'Tutor Training' label wraps onto two lines because nav links use only horizontal gap and the label is the longest. Functional but a touch tight; consider whitespace-nowrap or shortening to 'Training'."]}
+    ]
+  },
+  "test_report_links": ["/app/backend/tests/test_backend.py", "/app/test_reports/pytest/pytest_results.xml"],
+  "action_items": [
+    "(Optional, low priority) Add a hidden/visible DialogTitle for the 'cancelled' and 'pending' branches of PaymentStatusModal to silence the Radix a11y console warning.",
+    "(Optional, cosmetic) Add `whitespace-nowrap` to the desktop nav links so 'Tutor Training' stays on one line."
+  ],
+  "critical_code_review_comments": [
+    "server.py uses `logger.exception(...)` inside /api/webhook/stripe BEFORE `logger` is defined (logger is initialised after `app.include_router(api_router)` at line 360-361). A webhook handler exception would raise NameError on `logger`. Move the `logging.basicConfig` + `logger = logging.getLogger(__name__)` block above the routes.",
+    "checkout/status updates payment_transactions even when Stripe returns a non-final status; the early-return guards against double-credit which is correct, but consider also gating the update behind `payment_status in ('paid','unpaid','no_payment_required')` only for the final transition to avoid noisy intermediate writes.",
+    "PROGRAMME constants are duplicated between backend PACKAGES and frontend PROGRAMME — a slight drift risk (e.g. balance text). Acceptable for MVP but worth documenting."
+  ],
+  "updated_files": ["/app/backend/tests/test_backend.py (new)", "/app/test_reports/pytest/pytest_results.xml (new)"],
+  "success_rate": {"backend": "100% (10/10 pytest)", "frontend": "100% of critical flows verified"},
+  "test_credentials": "n/a — no auth in app. Stripe test key sk_test_emergent already configured.",
+  "seed_data_creation": "Tests insert TEST_-prefixed records into contacts, lead_magnets, newsletter, tutor_applications, and payment_transactions collections in MongoDB.",
+  "retest_needed": false,
+  "main_agent_can_self_test": true,
+  "context_for_next_testing_agent": "Backend regression suite is at /app/backend/tests/test_backend.py. Run with `pytest /app/backend/tests/test_backend.py -v`. Webhook test only verifies route exists + rejects empty body — for full webhook coverage you'd need a Stripe-signed payload (out of scope here).",
+  "rca of the issue": "No blocking issue. Only a low-priority a11y warning on the cancelled/pending payment modal (missing DialogTitle in those branches). Mitigation: wrap the heading in <DialogTitle> (or VisuallyHidden) for all three branches."
+}

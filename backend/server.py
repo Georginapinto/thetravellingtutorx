@@ -1,4 +1,4 @@
-from fastapi import FastAPI, APIRouter, HTTPException
+from fastapi import FastAPI, APIRouter, HTTPException, Request
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -6,9 +6,12 @@ import os
 import logging
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
-from typing import List, Optional, Literal
+from typing import List, Optional, Literal, Dict, Any
 import uuid
 from datetime import datetime, timezone
+from emergentintegrations.payments.stripe.checkout import (
+    StripeCheckout, CheckoutSessionRequest, CheckoutSessionResponse, CheckoutStatusResponse
+)
 
 
 ROOT_DIR = Path(__file__).parent
@@ -201,6 +204,147 @@ async def get_testimonials():
             },
         ]
     }
+
+
+# ---------- STRIPE / TRAINING PROGRAMME ----------
+# Server-side fixed packages — NEVER trust amounts from frontend.
+PACKAGES: Dict[str, Dict[str, Any]] = {
+    "tutor_training_deposit": {
+        "name": "Sociology Tutor Training Programme — Deposit",
+        "description": "Deposit to secure your place. Total programme £497. Balance due 19 July.",
+        "amount": 248.50,
+        "currency": "gbp",
+        "programme": "tutor_training_2025_07",
+    },
+}
+
+
+class CheckoutCreateRequest(BaseModel):
+    package_id: str
+    origin_url: str
+    name: str
+    email: EmailStr
+    phone: Optional[str] = None
+
+
+@api_router.post("/checkout/session")
+async def create_checkout(payload: CheckoutCreateRequest, request: Request):
+    pkg = PACKAGES.get(payload.package_id)
+    if not pkg:
+        raise HTTPException(400, "Invalid package")
+
+    api_key = os.environ.get("STRIPE_API_KEY")
+    if not api_key:
+        raise HTTPException(500, "Stripe is not configured")
+
+    host_url = str(request.base_url).rstrip("/")
+    webhook_url = f"{host_url}/api/webhook/stripe"
+    sc = StripeCheckout(api_key=api_key, webhook_url=webhook_url)
+
+    origin = payload.origin_url.rstrip("/")
+    success_url = f"{origin}/tutor-partner?session_id={{CHECKOUT_SESSION_ID}}"
+    cancel_url = f"{origin}/tutor-partner?status=cancelled"
+
+    metadata = {
+        "package_id": payload.package_id,
+        "programme": pkg["programme"],
+        "buyer_name": payload.name,
+        "buyer_email": payload.email,
+        "buyer_phone": payload.phone or "",
+        "source": "tutor_partner_page",
+    }
+
+    req = CheckoutSessionRequest(
+        amount=float(pkg["amount"]),
+        currency=pkg["currency"],
+        success_url=success_url,
+        cancel_url=cancel_url,
+        metadata=metadata,
+    )
+    session: CheckoutSessionResponse = await sc.create_checkout_session(req)
+
+    await db.payment_transactions.insert_one({
+        "id": str(uuid.uuid4()),
+        "session_id": session.session_id,
+        "package_id": payload.package_id,
+        "amount": float(pkg["amount"]),
+        "currency": pkg["currency"],
+        "buyer_name": payload.name,
+        "buyer_email": payload.email,
+        "buyer_phone": payload.phone or "",
+        "metadata": metadata,
+        "status": "initiated",
+        "payment_status": "pending",
+        "created_at": _now_iso(),
+        "updated_at": _now_iso(),
+    })
+
+    return {"url": session.url, "session_id": session.session_id}
+
+
+@api_router.get("/checkout/status/{session_id}")
+async def checkout_status(session_id: str, request: Request):
+    api_key = os.environ.get("STRIPE_API_KEY")
+    if not api_key:
+        raise HTTPException(500, "Stripe is not configured")
+    host_url = str(request.base_url).rstrip("/")
+    webhook_url = f"{host_url}/api/webhook/stripe"
+    sc = StripeCheckout(api_key=api_key, webhook_url=webhook_url)
+
+    status: CheckoutStatusResponse = await sc.get_checkout_status(session_id)
+
+    tx = await db.payment_transactions.find_one({"session_id": session_id}, {"_id": 0})
+    already_paid = tx and tx.get("payment_status") == "paid"
+
+    if not already_paid:
+        await db.payment_transactions.update_one(
+            {"session_id": session_id},
+            {"$set": {
+                "status": status.status,
+                "payment_status": status.payment_status,
+                "amount_total": status.amount_total,
+                "updated_at": _now_iso(),
+            }},
+        )
+
+    return {
+        "status": status.status,
+        "payment_status": status.payment_status,
+        "amount_total": status.amount_total,
+        "currency": status.currency,
+        "metadata": status.metadata,
+        "buyer_email": (tx or {}).get("buyer_email"),
+        "buyer_name": (tx or {}).get("buyer_name"),
+    }
+
+
+@api_router.post("/webhook/stripe")
+async def stripe_webhook(request: Request):
+    api_key = os.environ.get("STRIPE_API_KEY")
+    if not api_key:
+        raise HTTPException(500, "Stripe is not configured")
+    host_url = str(request.base_url).rstrip("/")
+    webhook_url = f"{host_url}/api/webhook/stripe"
+    sc = StripeCheckout(api_key=api_key, webhook_url=webhook_url)
+
+    body = await request.body()
+    signature = request.headers.get("Stripe-Signature")
+    try:
+        event = await sc.handle_webhook(body, signature)
+    except Exception as e:
+        logger.exception("Stripe webhook handling failed")
+        raise HTTPException(400, f"Webhook error: {e}")
+
+    if getattr(event, "session_id", None):
+        await db.payment_transactions.update_one(
+            {"session_id": event.session_id},
+            {"$set": {
+                "payment_status": getattr(event, "payment_status", "unknown"),
+                "last_event": getattr(event, "event_type", "unknown"),
+                "updated_at": _now_iso(),
+            }},
+        )
+    return {"received": True}
 
 
 app.include_router(api_router)

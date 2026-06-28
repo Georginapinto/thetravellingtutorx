@@ -11,7 +11,7 @@ const links = [
   { to: "/students", label: "Students", id: NAV.students },
   { to: "/parents", label: "Parents", id: NAV.parents },
   { to: "/teachers", label: "Teachers", id: NAV.teachers },
-  { to: "/tutor-partner", label: "Tutor Partner", id: NAV.partner },
+  { to: "/tutor-partner", label: "Tutor Training", id: NAV.partner },
   { to: "/testimonials", label: "Testimonials", id: NAV.testimonials },
   { to: "/free-resources", label: "Free Resources", id: NAV.freeResources },
   { to: "/contact", label: "Contact", id: NAV.contact },

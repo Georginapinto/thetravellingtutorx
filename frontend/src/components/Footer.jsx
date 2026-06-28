@@ -90,7 +90,7 @@ export const Footer = () => {
               <li><Link to="/students" className="hover:text-brand-pink">Students</Link></li>
               <li><Link to="/parents" className="hover:text-brand-pink">Parents</Link></li>
               <li><Link to="/teachers" className="hover:text-brand-pink">Teachers</Link></li>
-              <li><Link to="/tutor-partner" className="hover:text-brand-pink">Tutor Partner</Link></li>
+              <li><Link to="/tutor-partner" className="hover:text-brand-pink">Tutor Training</Link></li>
               <li><Link to="/courses" className="hover:text-brand-pink">Courses</Link></li>
             </ul>
           </div>
