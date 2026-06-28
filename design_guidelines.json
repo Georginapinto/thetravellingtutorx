@@ -1,0 +1,168 @@
+{
+  "theme": "Light",
+  "archetype": "Archetype 3 (Pastel & Soft) mixed with Archetype 1 (Organic & Earthy)",
+  "brand_name": "The Travelling Tutor",
+  "colors": {
+    "background": "#FAF9F6",
+    "foreground": "#1F1518",
+    "primary": {
+      "DEFAULT": "#E11D48",
+      "hover": "#BE123C",
+      "foreground": "#FFFFFF",
+      "description": "Bold Pink - Used for main CTAs, important highlights, and signature accents"
+    },
+    "secondary": {
+      "DEFAULT": "#FCE7F3",
+      "hover": "#FBCFE8",
+      "foreground": "#E11D48",
+      "description": "Soft Pastel Pink - Used for large background sections, secondary buttons, and soft card backgrounds"
+    },
+    "accent": {
+      "DEFAULT": "#B2C2A1",
+      "hover": "#9FAF90",
+      "foreground": "#1F1518",
+      "description": "Soft Sage Green - Used for subtle highlights, badges, icons, and balancing the pinks"
+    },
+    "muted": {
+      "DEFAULT": "#F5F2EB",
+      "foreground": "#6B5E62"
+    },
+    "border": "#EAE5DF"
+  },
+  "typography": {
+    "font_families": {
+      "heading": "Outfit, sans-serif",
+      "body": "Plus Jakarta Sans, sans-serif",
+      "accent": "Caveat, cursive"
+    },
+    "scale": {
+      "h1": "text-5xl sm:text-6xl tracking-tight font-bold",
+      "h2": "text-4xl sm:text-5xl tracking-tight font-semibold",
+      "h3": "text-2xl sm:text-3xl tracking-tight font-semibold",
+      "h4": "text-xl font-medium",
+      "body_large": "text-lg leading-relaxed",
+      "body": "text-base leading-relaxed",
+      "accent": "text-2xl sm:text-3xl font-accent text-primary"
+    },
+    "instructions": "Do NOT use Inter or Roboto for headings. Use Outfit for a modern, elegant look. Use Caveat for the handwritten signature 'TheTravellingTutorX' and occasional short accent phrases."
+  },
+  "spacing_scale": {
+    "section_y": "py-20 md:py-32",
+    "container_px": "px-6 md:px-12 lg:px-24",
+    "gap_small": "gap-4",
+    "gap_medium": "gap-8",
+    "gap_large": "gap-12 lg:gap-16"
+  },
+  "radius_scale": {
+    "card": "rounded-3xl",
+    "button": "rounded-full",
+    "image": "rounded-3xl",
+    "badge": "rounded-full"
+  },
+  "shadow_scale": {
+    "soft": "shadow-[0_8px_30px_rgb(0,0,0,0.04)]",
+    "medium": "shadow-[0_12px_40px_rgb(0,0,0,0.08)]",
+    "hover": "hover:shadow-[0_20px_50px_rgb(0,0,0,0.12)]"
+  },
+  "components": {
+    "navbar": {
+      "style": "Sticky top-0 z-50 bg-background/80 backdrop-blur-xl border-b border-border/50",
+      "links": "text-foreground hover:text-primary transition-colors font-medium",
+      "cta": "bg-primary text-primary-foreground rounded-full px-6 py-2.5 font-medium hover:bg-primary/90 transition-all"
+    },
+    "hero": {
+      "layout": "Grid cols-1 lg:grid-cols-2 gap-12 items-center min-h-[85vh] pt-24",
+      "visuals": "Soft Sage Green and Soft Pastel Pink gentle blur blobs in the background",
+      "buttons": "Primary (Explore) and Secondary (Book Consultation - Outline or Pastel Pink)"
+    },
+    "audience_cards": {
+      "style": "bg-white rounded-3xl p-8 border border-border/40 soft shadow hover shadow scale",
+      "hover_effect": "hover:-translate-y-2 transition-transform duration-300",
+      "layout": "Grid cols-1 md:grid-cols-3 gap-8"
+    },
+    "icon_pillar_cards": {
+      "style": "bg-secondary/30 rounded-3xl p-6 text-center",
+      "icon_wrapper": "w-16 h-16 mx-auto rounded-full bg-white flex items-center justify-center mb-6 shadow-sm text-primary"
+    },
+    "service_cards": {
+      "style": "bg-white border border-border/50 rounded-3xl overflow-hidden soft shadow group",
+      "image_container": "aspect-video w-full overflow-hidden",
+      "image": "w-full h-full object-cover group-hover:scale-105 transition-transform duration-700",
+      "content": "p-8"
+    },
+    "testimonial_cards": {
+      "style": "bg-muted rounded-3xl p-8 relative",
+      "quote_icon": "absolute top-6 right-6 text-primary/20 w-12 h-12",
+      "stars": "text-yellow-400 flex gap-1 mb-4"
+    },
+    "footer": {
+      "style": "bg-secondary text-foreground py-20 rounded-t-[3rem] mt-32",
+      "newsletter": "bg-white p-8 rounded-3xl shadow-sm border border-border/50 max-w-xl mx-auto -mt-32 mb-16"
+    }
+  },
+  "micro_interactions": {
+    "buttons": "active:scale-95 transition-transform",
+    "cards": "hover:-translate-y-1 hover:shadow-lg transition-all duration-300",
+    "images": "reveal on scroll with slow fade-in and slight scale down (1.05 -> 1.0)",
+    "links": "Underline expand on hover"
+  },
+  "icons": {
+    "library": "lucide-react",
+    "style": "Stroke width 1.5, slightly rounded",
+    "travel_motifs": ["Compass", "Map", "MapPin", "Globe", "Plane", "Navigation"],
+    "usage": "Use sparingly as accents to reinforce the 'Travelling' brand name, not overwhelming."
+  },
+  "image_urls": {
+    "hero": "https://images.pexels.com/photos/8423069/pexels-photo-8423069.jpeg",
+    "about": "https://images.pexels.com/photos/8423062/pexels-photo-8423062.jpeg",
+    "students": "https://images.pexels.com/photos/28927920/pexels-photo-28927920.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "students_alt": "https://images.pexels.com/photos/6958511/pexels-photo-6958511.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "teachers_cpd": "https://images.unsplash.com/photo-1664382953518-4a664ab8a8c9",
+    "teachers_workshop": "https://images.unsplash.com/photo-1638957835514-224c57ffe617",
+    "parents": "https://images.unsplash.com/photo-1577896851231-70ef18881754?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NDQ2MzR8MHwxfHNlYXJjaHwxfHxwYXJlbnQlMjB0ZWVuYWdlciUyMHN0dWR5aW5nfGVufDB8fHx8MTcyMjE2NTI0MA&ixlib=rb-4.1.0&q=85",
+    "aesthetic_compass": "https://images.pexels.com/photos/8231152/pexels-photo-8231152.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+    "aesthetic_map": "https://images.pexels.com/photos/5370916/pexels-photo-5370916.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940"
+  },
+  "page_layouts": {
+    "Home": [
+      "Hero section with headline 'Expert Sociology Support', dual CTAs, and a soft background blob pattern using secondary and accent colors.",
+      "Audience Selector Cards (Student / Parent / Teacher) with subtle hover lifts.",
+      "About the Founder (split layout with premium portrait image and handwriting signature accent).",
+      "Why Choose (4-pillar grid with travel/education blended icons in primary/accent colors).",
+      "Services Grid (6 rounded cards with images and clear hover states).",
+      "Tutor Partner Programme Callout (Soft Sage Green background section).",
+      "Testimonials Carousel/Grid with star ratings.",
+      "Footer with Email Capture 'Join the Sociology Ecosystem'."
+    ],
+    "Students": [
+      "Hero focused on A-Level & GCSE success.",
+      "Services specific to students (1:1, Academy, Workshops).",
+      "Lead Magnet Section (Free Starter Pack).",
+      "Student Testimonials."
+    ],
+    "Parents": [
+      "Hero focused on supporting their child's education.",
+      "How I help parents (reports, communication, peace of mind).",
+      "Lead Magnet Section (Parent Guide).",
+      "Parent Testimonials."
+    ],
+    "Teachers": [
+      "Hero focused on Examiner Insights & CPD.",
+      "Services (Workshops, Resources, Consulting).",
+      "Lead Magnet (Free Resources).",
+      "Tutor Partner Programme highlight."
+    ]
+  },
+  "instructions_to_main_agent": [
+    "Ensure the application strictly follows the color tokens provided. Avoid all generic blues, purples, or dark corporate colors.",
+    "Use 'Outfit' for all headings and 'Plus Jakarta Sans' for body text. Add 'Caveat' for signature elements.",
+    "All interactive elements and key information must have a 'data-testid' attribute (e.g., data-testid='hero-cta-button').",
+    "Rely heavily on whitespace (p-12, p-16, p-24) to create a premium Apple/Canva feel.",
+    "Apply rounded-3xl to cards and images to maintain the soft, welcoming, non-corporate aesthetic.",
+    "Do NOT build generic table-based layouts for text. Use Bento grids, overlapping elements, or well-spaced single columns.",
+    "Use lucide-react icons, specifically integrating Compass, Globe, MapPin motifs where applicable but subtly.",
+    "Ensure all 12 pages (8 core, 4 stubs) are routed and exist in the React application.",
+    "Implement the Calendly placeholder using a Shadcn Dialog modal when the 'Book Consultation' button is clicked.",
+    "Use pure HTML + Tailwind for structural layouts on marketing pages, using Shadcn only for complex interactives (Forms, Modals, Accordions)."
+  ]
+}
