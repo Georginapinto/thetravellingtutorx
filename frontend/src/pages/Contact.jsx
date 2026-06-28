@@ -19,7 +19,7 @@ export default function Contact() {
             <div className="rounded-3xl p-6 bg-brand-pinkSoft">
               <Mail className="w-7 h-7 text-brand-pink" />
               <h3 className="mt-3 font-semibold text-brand-ink">Email</h3>
-              <a href="mailto:aqaexaminergeorginapinto@outlook.com" className="text-brand-pink underline-grow text-sm break-all">aqaexaminergeorginapinto@outlook.com</a>
+              <a href="mailto:help@thetravellingtutorx.co.uk" className="text-brand-pink underline-grow text-sm break-all">help@thetravellingtutorx.co.uk</a>
             </div>
             <div className="rounded-3xl p-6 bg-brand-sageSoft">
               <Music2 className="w-7 h-7 text-brand-sageDeep" />

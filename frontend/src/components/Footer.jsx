@@ -72,7 +72,7 @@ export const Footer = () => {
               parents and teachers achieve more — wherever you are in your journey.
             </p>
             <div className="flex gap-3 mt-6">
-              <a href="mailto:aqaexaminergeorginapinto@outlook.com" className="w-11 h-11 rounded-full bg-white grid place-items-center text-brand-pink hover:bg-brand-pink hover:text-white transition-colors" aria-label="Email">
+              <a href="mailto:help@thetravellingtutorx.co.uk" className="w-11 h-11 rounded-full bg-white grid place-items-center text-brand-pink hover:bg-brand-pink hover:text-white transition-colors" aria-label="Email">
                 <Mail className="w-5 h-5" />
               </a>
               <a href="https://www.tiktok.com/@thetravellingtutorx" target="_blank" rel="noreferrer" className="w-11 h-11 rounded-full bg-white grid place-items-center text-brand-pink hover:bg-brand-pink hover:text-white transition-colors" aria-label="TikTok">
