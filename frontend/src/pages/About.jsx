@@ -31,7 +31,7 @@ export default function About() {
             {[
               { icon: ClipboardCheck, t: "AQA Sociology Examiner", d: "Marking national exams for AQA — I know exactly what gets the marks." },
               { icon: Award, t: "Director of Sixth Form", d: "Leading academic teams, mentoring teachers and shaping student outcomes at the top end." },
-              { icon: BookOpenCheck, t: "Course Creator", d: "Designed structured Sociology programmes used by 1,000s of students across the UK." },
+              { icon: BookOpenCheck, t: "Course Creator", d: "Designed structured Sociology programmes used by 6,000+ students across the UK." },
               { icon: Plane, t: "Workshop Leader", d: "Intensive in-person and online workshops focused on essay craft and exam technique." },
               { icon: Heart, t: "Founder, The Travelling Tutor X", d: "Building a UK Sociology brand that puts students, parents and teachers at the centre." },
               { icon: Star, t: "Sociology Specialist", d: "Deep expertise in AQA Sociology — Education, Families, Beliefs, Crime, Theory & Methods." },

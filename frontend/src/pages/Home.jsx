@@ -54,7 +54,7 @@ const services = [
   { icon: Sparkles, title: "Sociology Grade Booster Bootcamps", desc: "Our flagship group programme — structured, examiner-led, results-driven.", href: "/courses" },
   { icon: MonitorPlay, title: "Online Course", desc: "Self-paced Sociology mastery. Watch, revise, repeat — any time.", href: "/courses" },
   { icon: BookOpenCheck, title: "Revision Workshops", desc: "Intensive sessions that turn knowledge into top-band marks.", href: "/courses" },
-  { icon: ShoppingBag, title: "Resource Shop", desc: "Essay plans, model answers, retrieval quizzes — used by 1,000s of students.", href: "/resource-shop" },
+  { icon: ShoppingBag, title: "Resource Shop", desc: "Essay plans, model answers, retrieval quizzes — used by 6,000+ students.", href: "/resource-shop" },
   { icon: Users, title: "Tutor Partner Programme", desc: "Build a flexible, rewarding tutoring business with leads, training & community.", href: "/tutor-partner" },
 ];
 
@@ -73,7 +73,7 @@ export default function Home() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-pinkPastel text-sm text-brand-pink font-medium shadow-soft">
                 <Plane className="w-4 h-4 -rotate-12" />
-                Trusted by 1,000+ Sociology learners across the UK
+                Trusted by 6,000+ Sociology learners across the UK
               </div>
               <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] font-semibold text-brand-ink tracking-tight">
                 Expert <span className="relative">Sociology
@@ -94,9 +94,9 @@ export default function Home() {
               </div>
 
               <div className="mt-10 grid grid-cols-3 max-w-md gap-6">
-                <div><p className="text-3xl font-semibold text-brand-ink">C → A</p><p className="text-sm text-brand-mute">Typical result jump</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">C → A*</p><p className="text-sm text-brand-mute">Some have achieved</p></div>
                 <div><p className="text-3xl font-semibold text-brand-ink">D → B</p><p className="text-sm text-brand-mute">Common turnaround</p></div>
-                <div><p className="text-3xl font-semibold text-brand-ink">1,000+</p><p className="text-sm text-brand-mute">Students supported</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">6,000+</p><p className="text-sm text-brand-mute">Students supported</p></div>
               </div>
             </div>
 
