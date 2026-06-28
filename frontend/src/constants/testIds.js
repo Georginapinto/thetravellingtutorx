@@ -1,0 +1,65 @@
+// Centralised test IDs for the website
+export const NAV = {
+  logo: "nav-logo",
+  home: "nav-home",
+  about: "nav-about",
+  students: "nav-students",
+  parents: "nav-parents",
+  teachers: "nav-teachers",
+  partner: "nav-partner",
+  courses: "nav-courses",
+  resources: "nav-resources",
+  freeResources: "nav-free-resources",
+  testimonials: "nav-testimonials",
+  blog: "nav-blog",
+  contact: "nav-contact",
+  bookCta: "nav-book-cta",
+  mobileToggle: "nav-mobile-toggle",
+};
+
+export const HOME = {
+  heroExplore: "hero-explore-btn",
+  heroBook: "hero-book-btn",
+  cardStudent: "audience-card-student",
+  cardParent: "audience-card-parent",
+  cardTeacher: "audience-card-teacher",
+  bookingDialog: "booking-dialog",
+  ctaFinalBook: "final-cta-book",
+  ctaFinalResources: "final-cta-resources",
+  emergentLink: "emergent-link",
+};
+
+export const FORMS = {
+  contactName: "contact-name",
+  contactEmail: "contact-email",
+  contactRole: "contact-role",
+  contactSubject: "contact-subject",
+  contactMessage: "contact-message",
+  contactSubmit: "contact-submit",
+  leadName: "lead-first-name",
+  leadEmail: "lead-email",
+  leadSubmit: "lead-submit",
+  newsletterEmail: "newsletter-email",
+  newsletterSubmit: "newsletter-submit",
+  bookingName: "booking-name",
+  bookingEmail: "booking-email",
+  bookingPhone: "booking-phone",
+  bookingRole: "booking-role",
+  bookingDate: "booking-date",
+  bookingTime: "booking-time",
+  bookingNotes: "booking-notes",
+  bookingSubmit: "booking-submit",
+  applyName: "apply-name",
+  applyEmail: "apply-email",
+  applyPhone: "apply-phone",
+  applyQual: "apply-qualifications",
+  applyExp: "apply-experience",
+  applyWhy: "apply-why",
+  applySubmit: "apply-submit",
+};
+
+export const BRAND = {
+  avatar: "https://customer-assets.emergentagent.com/job_sociology-essentials/artifacts/yk5e210e_235d1c0c-4bf3-4dda-88b0-f43566feeee5.png",
+  advert: "https://customer-assets.emergentagent.com/job_sociology-essentials/artifacts/z4ls2kya_FINAL%20ADVERT.png",
+  landingFinal: "https://customer-assets.emergentagent.com/job_sociology-essentials/artifacts/uv0kak05_landing%20page%20final.PNG",
+};

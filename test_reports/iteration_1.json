@@ -1,0 +1,28 @@
+{
+  "summary": "First-finish smoke test of The Travelling Tutor MVP. All 7 backend endpoints (root, testimonials, contact, lead-magnet, newsletter [idempotent], booking, tutor-application) pass with correct schemas, UUID ids, ISO created_at, and 422 on invalid emails. Frontend home loads with correct hero copy, dual CTAs, and 3 audience cards. Booking dialog, contact form, lead-magnet form, newsletter, and tutor-partner application all submit and show explicit success states/toasts. All 12 routes render. Testimonials page renders backend data. Mobile menu toggle opens at 390px viewport. No console/page errors observed.",
+  "tested_scope": ["frontend", "backend", "integration"],
+  "passed": [
+    "GET /api/ -> 200 status ok",
+    "GET /api/testimonials -> 6 items with audience/name/role/rating/quote",
+    "POST /api/contact -> Contact object with id+created_at; invalid email -> 422",
+    "POST /api/lead-magnet -> LeadMagnet object; invalid email -> 422",
+    "POST /api/newsletter -> idempotent (same id returned on duplicate email); invalid email -> 422",
+    "POST /api/booking -> Booking object created",
+    "POST /api/tutor-application -> TutorApplication object created",
+    "Homepage hero headline + hero-explore-btn + hero-book-btn + 3 audience cards render",
+    "Booking dialog opens via hero-book-btn, form submits successfully (success state)",
+    "All 11 sub-routes load (/about, /students, /parents, /teachers, /tutor-partner, /testimonials, /contact, /courses, /resource-shop, /free-resources, /blog)",
+    "Contact form submits and shows success",
+    "Lead magnet form (free-resources) submits and shows success",
+    "Footer newsletter submit completes without error",
+    "Testimonials page renders backend names (Amelia, Sarah)",
+    "Tutor partner apply form submits and shows 'Application received' toast",
+    "Mobile menu toggle clickable at 390px viewport",
+    "No console errors captured during full flow run"
+  ],
+  "failed": [],
+  "action_items": [],
+  "success_rate": {"backend": "100%", "frontend": "100%"},
+  "retest_needed": false,
+  "full_testing_deferred": true
+}
