@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   GraduationCap, Users, BookOpenCheck, ArrowUpRight, Compass, Sparkles, Heart,
-  CheckCircle2, Star, Plane, MapPin, ClipboardCheck, Award, ShoppingBag, MonitorPlay
+  CheckCircle2, Star, Plane, MapPin, ClipboardCheck, Award, ShoppingBag, MonitorPlay, Facebook, ExternalLink
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HOME, BRAND } from "@/constants/testIds";
@@ -278,25 +278,56 @@ export default function Home() {
         </div>
       </section>
 
-      {/* TESTIMONIAL TEASER */}
+      {/* FACEBOOK REVIEWS — live feed from @thetravellingtutorx */}
       <section className="section-y bg-white">
         <div className="container-px max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-6">
-            {[
-              { name: "Amelia R.", role: "A-Level Student", quote: "Went from a predicted C to an A*. Georgina actually teaches you how examiners think." },
-              { name: "Sarah M.", role: "Parent", quote: "The difference with The Travelling Tutor X was night and day — structured, calm, results-focused." },
-              { name: "Priya K.", role: "Head of Sociology", quote: "The CPD session reset our whole department. Practical, examiner-led, immediately usable." },
-            ].map((t) => (
-              <div key={t.name} className="rounded-[1.75rem] p-7 bg-brand-pinkSoft border border-white shadow-soft">
-                <div className="flex gap-0.5">{[...Array(5)].map((_,i)=><Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}</div>
-                <p className="mt-4 text-brand-ink text-lg leading-relaxed">"{t.quote}"</p>
-                <p className="mt-5 font-semibold text-brand-ink">{t.name}</p>
-                <p className="text-sm text-brand-mute">{t.role}</p>
+          <div className="rounded-[2.5rem] bg-brand-pinkSoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1877F2] text-xs font-semibold uppercase tracking-wide">
+                <Facebook className="w-3.5 h-3.5" /> Live · @thetravellingtutorx
+              </span>
+              <p className="font-handwritten text-3xl text-brand-pink mt-4">real words, real students</p>
+              <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
+                Reviews from our Facebook community.
+              </h2>
+              <p className="text-brand-mute mt-4 text-lg max-w-lg">
+                Honest recommendations from students, parents and teachers — pulled live from our Facebook page. Tap any post to read the full story or leave one of your own.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href={BRAND.facebookUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-testid="home-facebook-link"
+                  className="inline-flex items-center gap-2 px-5 h-12 rounded-full bg-[#1877F2] hover:bg-[#155ec5] text-white font-medium transition-colors"
+                >
+                  <Facebook className="w-4 h-4" />
+                  See all reviews on Facebook
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+                <Link to="/testimonials" className="inline-flex items-center gap-2 px-5 h-12 rounded-full border border-brand-pink/40 text-brand-pink hover:bg-brand-pinkPastel transition-colors font-medium">
+                  More stories <ArrowUpRight className="w-4 h-4" />
+                </Link>
               </div>
-            ))}
-          </div>
-          <div className="text-center mt-10">
-            <Link to="/testimonials" className="text-brand-pink font-medium underline-grow inline-flex items-center gap-1">Read more stories <ArrowUpRight className="w-4 h-4" /></Link>
+              <p className="text-xs text-brand-mute mt-4 max-w-md">
+                Facebook embeds may be blocked by some browser tracking-prevention settings. If the feed is hidden, the blue button above opens the page directly.
+              </p>
+            </div>
+
+            <div className="rounded-3xl bg-white p-3 shadow-medium overflow-hidden">
+              <iframe
+                title="The Travelling Tutor X Facebook feed"
+                src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(BRAND.facebookUrl)}&tabs=timeline&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`}
+                width="100%"
+                height="640"
+                style={{ border: "none", overflow: "hidden", borderRadius: "1.25rem", width: "100%" }}
+                scrolling="no"
+                frameBorder="0"
+                allowFullScreen={true}
+                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
       </section>
