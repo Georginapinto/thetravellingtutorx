@@ -17,6 +17,7 @@ import ResourceShop from "@/pages/ResourceShop";
 import FreeResources from "@/pages/FreeResources";
 import Blog from "@/pages/Blog";
 import NotFound from "@/pages/NotFound";
+import InstallPrompt from "@/components/InstallPrompt";
 
 function App() {
   return (
@@ -41,6 +42,7 @@ function App() {
           </Routes>
         </main>
         <Footer />
+        <InstallPrompt />
         <Toaster position="top-center" richColors />
       </BrowserRouter>
     </div>

@@ -1,0 +1,24 @@
+{
+  "name": "The Travelling Tutor X",
+  "short_name": "TT Tutor X",
+  "description": "Expert AQA Sociology tutoring, courses and resources for GCSE, A-Level students, parents and teachers across the UK.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FBF7F2",
+  "theme_color": "#E11D67",
+  "lang": "en-GB",
+  "categories": ["education"],
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "/icon-maskable-192.png", "sizes": "192x192", "type": "image/png", "purpose": "maskable" },
+    { "src": "/icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Book a Free Consultation", "short_name": "Book", "url": "/contact", "description": "Get in touch with Georgina" },
+    { "name": "Free Resources", "short_name": "Resources", "url": "/free-resources", "description": "Free Sociology revision resources" },
+    { "name": "Tutor Partner Programme", "short_name": "Partner", "url": "/tutor-partner", "description": "Join the team" }
+  ]
+}
