@@ -7,7 +7,7 @@ import { GraduationCap, Sparkles, MonitorPlay, BookOpenCheck, ArrowUpRight, Clip
 
 const services = [
   { icon: GraduationCap, t: "One-to-One Tutoring", d: "Bespoke weekly sessions tailored to your spec, your weak spots, and your target grade." },
-  { icon: Sparkles, t: "Sociology Success Academy", d: "Our flagship group programme — small cohorts, examiner-led structure, real results." },
+  { icon: Sparkles, t: "Sociology Grade Booster Bootcamps", d: "Our flagship group programme — small cohorts, examiner-led structure, real results." },
   { icon: MonitorPlay, t: "Online Course", d: "Self-paced video lessons covering every AQA Sociology paper." },
   { icon: BookOpenCheck, t: "Revision Workshops", d: "Intensive sessions focused on essay craft and exam technique." },
 ];

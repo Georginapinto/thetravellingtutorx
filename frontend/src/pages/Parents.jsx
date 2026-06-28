@@ -51,7 +51,7 @@ export default function Parents() {
               {[
                 { i: GraduationCap, t: "1:1 weekly tutoring (GCSE & A-Level)" },
                 { i: BookOpenCheck, t: "Essay coaching & exam-technique workshops" },
-                { i: Sparkles, t: "Sociology Success Academy group programme" },
+                { i: Sparkles, t: "Sociology Grade Booster Bootcamps group programme" },
                 { i: Calendar, t: "Half-term intensive revision sessions" },
               ].map(({ i: Icon, t }) => (
                 <li key={t} className="flex items-center gap-3 text-brand-ink"><span className="w-9 h-9 rounded-xl bg-brand-pinkSoft text-brand-pink grid place-items-center"><Icon className="w-5 h-5" /></span> {t}</li>

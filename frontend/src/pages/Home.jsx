@@ -18,7 +18,7 @@ const audiences = [
     color: "bg-brand-pinkSoft",
     iconBg: "bg-brand-pink text-white",
     href: "/students",
-    links: ["One-to-One Tutoring", "Sociology Success Academy", "Online Course", "Revision Workshops", "Resources"],
+    links: ["One-to-One Tutoring", "Sociology Grade Booster Bootcamps", "Online Course", "Revision Workshops", "Resources"],
   },
   {
     id: HOME.cardParent,
@@ -51,7 +51,7 @@ const pillars = [
 
 const services = [
   { icon: GraduationCap, title: "One-to-One Tutoring", desc: "Bespoke 1:1 GCSE & A-Level Sociology tuition tailored to you.", href: "/students" },
-  { icon: Sparkles, title: "Sociology Success Academy", desc: "Our flagship group programme — structured, examiner-led, results-driven.", href: "/courses" },
+  { icon: Sparkles, title: "Sociology Grade Booster Bootcamps", desc: "Our flagship group programme — structured, examiner-led, results-driven.", href: "/courses" },
   { icon: MonitorPlay, title: "Online Course", desc: "Self-paced Sociology mastery. Watch, revise, repeat — any time.", href: "/courses" },
   { icon: BookOpenCheck, title: "Revision Workshops", desc: "Intensive sessions that turn knowledge into top-band marks.", href: "/courses" },
   { icon: ShoppingBag, title: "Resource Shop", desc: "Essay plans, model answers, retrieval quizzes — used by 1,000s of students.", href: "/resource-shop" },
@@ -81,7 +81,7 @@ export default function Home() {
                 </span> Support for Students, Parents and Teachers
               </h1>
               <p className="mt-6 text-lg text-brand-mute max-w-xl leading-relaxed">
-                Whether you're aiming for top grades in GCSE or A-Level Sociology, looking for expert one-to-one tuition, or seeking high-quality support as a teacher — The Travelling Tutor provides practical, examiner-led education that builds confidence and delivers results.
+                Whether you're aiming for top grades in GCSE or A-Level Sociology, looking for expert one-to-one tuition, or seeking high-quality support as a teacher — The Travelling Tutor X provides practical, examiner-led education that builds confidence and delivers results.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -94,8 +94,8 @@ export default function Home() {
               </div>
 
               <div className="mt-10 grid grid-cols-3 max-w-md gap-6">
-                <div><p className="text-3xl font-semibold text-brand-ink">A*–B</p><p className="text-sm text-brand-mute">Typical result jump</p></div>
-                <div><p className="text-3xl font-semibold text-brand-ink">10+ yrs</p><p className="text-sm text-brand-mute">Teaching & examining</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">C → A</p><p className="text-sm text-brand-mute">Typical result jump</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">D → B</p><p className="text-sm text-brand-mute">Common turnaround</p></div>
                 <div><p className="text-3xl font-semibold text-brand-ink">1,000+</p><p className="text-sm text-brand-mute">Students supported</p></div>
               </div>
             </div>
@@ -104,7 +104,7 @@ export default function Home() {
               <div className="absolute -inset-6 bg-brand-pinkSoft rounded-[2.5rem] rotate-3" />
               <div className="absolute -inset-6 bg-brand-sageSoft rounded-[2.5rem] -rotate-3 opacity-60" />
               <div className="relative bg-white rounded-[2.5rem] p-6 shadow-medium border border-border/50">
-                <img src={BRAND.avatar} alt="The Travelling Tutor — Georgina" className="w-full aspect-square object-contain rounded-[2rem] bg-brand-pinkSoft" />
+                <img src={BRAND.avatar} alt="The Travelling Tutor X — Georgina" className="w-full aspect-square object-contain rounded-[2rem] bg-brand-pinkSoft" />
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-soft px-4 py-3 flex items-center gap-2 border border-border/50">
                   <Award className="w-5 h-5 text-brand-pink" />
                   <p className="text-sm font-medium text-brand-ink">AQA Sociology Examiner</p>
@@ -157,7 +157,7 @@ export default function Home() {
         <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="absolute -inset-4 bg-brand-sageSoft rounded-[2.5rem] -rotate-2" />
-            <img src={BRAND.avatar} alt="Georgina, founder of The Travelling Tutor" className="relative w-full bg-brand-pinkSoft rounded-[2.5rem] aspect-square object-contain shadow-medium" />
+            <img src={BRAND.avatar} alt="Georgina, founder of The Travelling Tutor X" className="relative w-full bg-brand-pinkSoft rounded-[2.5rem] aspect-square object-contain shadow-medium" />
             <div className="absolute -bottom-6 right-6 bg-white rounded-3xl shadow-medium p-5 max-w-[260px] border border-border/50">
               <p className="font-handwritten text-2xl text-brand-pink leading-none">Hi, I'm Georgina —</p>
               <p className="text-sm text-brand-mute mt-2">Experienced teacher, AQA examiner & Director of Sixth Form. I built this for you.</p>
@@ -166,7 +166,7 @@ export default function Home() {
 
           <div>
             <p className="font-handwritten text-3xl text-brand-pink">meet the teacher</p>
-            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Meet the Teacher Behind The Travelling Tutor</h2>
+            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Meet the Teacher Behind The Travelling Tutor X</h2>
             <p className="text-brand-mute mt-5 text-lg leading-relaxed">
               I'm an experienced Sociology teacher, AQA Sociology Examiner and Director of Sixth Form. Over a decade in the classroom and marking national exams means I don't teach Sociology in theory — I teach it in exactly the language examiners want to see.
             </p>
@@ -174,7 +174,7 @@ export default function Home() {
               My students aren't just learning content. They're learning how to think like top-band candidates: how to plan, evaluate, structure and write essays that consistently land in the A/A* range.
             </p>
             <ul className="grid sm:grid-cols-2 gap-2.5 mt-6">
-              {["AQA Sociology Examiner","Director of Sixth Form","Course Creator","Workshop Leader","Sociology Specialist","Founder, The Travelling Tutor"].map((t)=>(
+              {["AQA Sociology Examiner","Director of Sixth Form","Course Creator","Workshop Leader","Sociology Specialist","Founder, The Travelling Tutor X"].map((t)=>(
                 <li key={t} className="flex items-center gap-2 text-brand-ink"><MapPin className="w-4 h-4 text-brand-pink" /> {t}</li>
               ))}
             </ul>
@@ -190,7 +190,7 @@ export default function Home() {
         <div className="container-px max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto">
             <p className="font-handwritten text-3xl text-brand-pink">why parents & students choose us</p>
-            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Why The Travelling Tutor</h2>
+            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Why The Travelling Tutor X</h2>
           </div>
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((p) => (
@@ -266,7 +266,7 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             {[
               { name: "Amelia R.", role: "A-Level Student", quote: "Went from a predicted C to an A*. Georgina actually teaches you how examiners think." },
-              { name: "Sarah M.", role: "Parent", quote: "The difference with The Travelling Tutor was night and day — structured, calm, results-focused." },
+              { name: "Sarah M.", role: "Parent", quote: "The difference with The Travelling Tutor X was night and day — structured, calm, results-focused." },
               { name: "Priya K.", role: "Head of Sociology", quote: "The CPD session reset our whole department. Practical, examiner-led, immediately usable." },
             ].map((t) => (
               <div key={t.name} className="rounded-[1.75rem] p-7 bg-brand-pinkSoft border border-white shadow-soft">

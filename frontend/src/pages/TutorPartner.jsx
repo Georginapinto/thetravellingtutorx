@@ -98,12 +98,12 @@ export default function TutorPartner() {
               <div className="rounded-2xl p-5 bg-brand-pinkSoft">
                 <p className="font-handwritten text-2xl text-brand-pink">1-1 tutoring</p>
                 <p className="text-3xl font-semibold text-brand-ink mt-1">£40–80<span className="text-base text-brand-mute font-normal">/hour</span></p>
-                <p className="text-sm text-brand-mute mt-1">50% — you keep £20–40</p>
+                <p className="text-sm text-brand-mute mt-1">50% split</p>
               </div>
               <div className="rounded-2xl p-5 bg-brand-sageSoft">
                 <p className="font-handwritten text-2xl text-brand-sageDeep">Group tutoring</p>
                 <p className="text-3xl font-semibold text-brand-ink mt-1">£20<span className="text-base text-brand-mute font-normal">/student</span></p>
-                <p className="text-sm text-brand-mute mt-1">50% — you keep £10</p>
+                <p className="text-sm text-brand-mute mt-1">50% split</p>
               </div>
             </div>
             <p className="text-sm text-brand-mute mt-5 flex items-center gap-2"><Heart className="w-4 h-4 text-brand-pink fill-brand-pink" /> We handle payments, admin and marketing — you focus on teaching.</p>

@@ -94,7 +94,7 @@ export const BookingDialog = ({ open, onOpenChange }) => {
             <Button data-testid={FORMS.bookingSubmit} disabled={busy} className="w-full h-12 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white">
               {busy ? "Sending..." : "Request my consultation"}
             </Button>
-            <p className="text-xs text-brand-mute text-center">Powered by The Travelling Tutor · Calendar sync coming soon.</p>
+            <p className="text-xs text-brand-mute text-center">Powered by The Travelling Tutor X · Calendar sync coming soon.</p>
           </form>
         )}
       </DialogContent>

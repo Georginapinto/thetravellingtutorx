@@ -35,7 +35,7 @@ export const Footer = () => {
           <div>
             <p className="font-handwritten text-3xl text-brand-sageDeep">Join the community</p>
             <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">
-              Join The Travelling Tutor Community
+              Join The Travelling Tutor X Community
             </h3>
             <p className="text-brand-mute mt-3 max-w-md">
               Receive free Sociology resources, examiner advice, revision tips and exclusive updates straight to your inbox.
@@ -108,7 +108,7 @@ export const Footer = () => {
         </div>
 
         <div className="container-px max-w-7xl mx-auto mt-12 pt-8 border-t border-brand-pinkPastel flex flex-col md:flex-row items-center justify-between gap-3 text-sm text-brand-mute">
-          <p>© {new Date().getFullYear()} The Travelling Tutor. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} The Travelling Tutor X. All rights reserved.</p>
           <p className="flex items-center gap-2"><Plane className="w-4 h-4 -rotate-12 text-brand-pink" /> Designed with care in the UK.</p>
         </div>
       </div>

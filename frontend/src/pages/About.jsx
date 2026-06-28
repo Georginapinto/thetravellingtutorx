@@ -11,7 +11,7 @@ export default function About() {
     <>
       <PageHero
         eyebrow="meet georgina"
-        title="The teacher behind The Travelling Tutor."
+        title="The teacher behind The Travelling Tutor X."
         lede="An experienced Sociology teacher, AQA Sociology Examiner and Director of Sixth Form, helping students across the UK turn confusion into confidence — and confidence into top-band marks."
         image={BRAND.avatar}
       >
@@ -23,7 +23,7 @@ export default function About() {
       <section className="section-y bg-white">
         <div className="container-px max-w-5xl mx-auto">
           <div className="prose prose-lg max-w-none text-brand-ink/90 leading-relaxed">
-            <p className="text-xl text-brand-mute">Hi, I'm Georgina — founder of The Travelling Tutor. I've spent over a decade teaching Sociology, leading Sixth Form, and marking exams for AQA. This site exists because I kept seeing students who knew their content but didn't know how to <em>show</em> it on paper. So I built the support I wished they all had.</p>
+            <p className="text-xl text-brand-mute">Hi, I'm Georgina — founder of The Travelling Tutor X. I've spent over a decade teaching Sociology, leading Sixth Form, and marking exams for AQA. This site exists because I kept seeing students who knew their content but didn't know how to <em>show</em> it on paper. So I built the support I wished they all had.</p>
             <p className="mt-6">My approach is simple: examiner-led, calm, structured and warm. I teach you exactly what mark schemes reward — and I make sure you can do it under exam conditions, not just in your notes.</p>
           </div>
 
@@ -33,7 +33,7 @@ export default function About() {
               { icon: Award, t: "Director of Sixth Form", d: "Leading academic teams, mentoring teachers and shaping student outcomes at the top end." },
               { icon: BookOpenCheck, t: "Course Creator", d: "Designed structured Sociology programmes used by 1,000s of students across the UK." },
               { icon: Plane, t: "Workshop Leader", d: "Intensive in-person and online workshops focused on essay craft and exam technique." },
-              { icon: Heart, t: "Founder, The Travelling Tutor", d: "Building a UK Sociology brand that puts students, parents and teachers at the centre." },
+              { icon: Heart, t: "Founder, The Travelling Tutor X", d: "Building a UK Sociology brand that puts students, parents and teachers at the centre." },
               { icon: Star, t: "Sociology Specialist", d: "Deep expertise in AQA Sociology — Education, Families, Beliefs, Crime, Theory & Methods." },
             ].map((b) => (
               <div key={b.t} className="rounded-3xl p-6 bg-brand-pinkSoft border border-white">

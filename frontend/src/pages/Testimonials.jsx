@@ -25,7 +25,7 @@ export default function Testimonials() {
       <PageHero
         eyebrow="real results, real people"
         title="Stories from students, parents and teachers."
-        lede="Sociology grades change lives. Here's what families, students and educators say about working with The Travelling Tutor."
+        lede="Sociology grades change lives. Here's what families, students and educators say about working with The Travelling Tutor X."
       />
 
       <section className="section-y bg-white">
