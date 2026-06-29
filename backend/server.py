@@ -3,12 +3,15 @@ from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
 import os
+import asyncio
 import logging
+import html
 from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import List, Optional, Literal, Dict, Any
 import uuid
 from datetime import datetime, timezone
+import resend
 from emergentintegrations.payments.stripe.checkout import (
     StripeCheckout, CheckoutSessionRequest, CheckoutSessionResponse, CheckoutStatusResponse
 )
@@ -26,6 +29,67 @@ api_router = APIRouter(prefix="/api")
 
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# Configure Resend SDK once at startup if a key is present
+_RESEND_API_KEY = os.environ.get("RESEND_API_KEY")
+if _RESEND_API_KEY:
+    resend.api_key = _RESEND_API_KEY
+
+
+async def send_contact_notification(contact: "Contact") -> None:
+    """Fire-and-forget email notification when a contact form is submitted.
+
+    Failures are logged but never raised — the contact record is the source of truth.
+    """
+    if not _RESEND_API_KEY:
+        logger.warning("RESEND_API_KEY not set — skipping contact email")
+        return
+
+    sender = os.environ.get("SENDER_EMAIL", "onboarding@resend.dev")
+    recipient = os.environ.get("NOTIFICATION_EMAIL", "aqaexaminergeorginapinto@outlook.com")
+
+    role_label = (contact.role or "other").title()
+    body = (contact.message or "").strip()
+    body_html = html.escape(body).replace("\n", "<br>")
+    subject_line = (contact.subject or "(no subject)").strip()
+
+    html_content = f"""
+    <div style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background:#FBF7F2; padding:24px;">
+      <div style="max-width:560px; margin:0 auto; background:#ffffff; border-radius:16px; padding:28px; border:1px solid #f1e2e8;">
+        <p style="font-family:'Caveat',cursive; color:#E11D67; font-size:22px; margin:0;">new enquiry · the travelling tutor x</p>
+        <h1 style="font-size:22px; color:#2A1F26; margin:6px 0 4px 0;">New contact form submission</h1>
+        <p style="color:#6B5E62; margin:0 0 18px 0; font-size:14px;">Sent {html.escape(contact.created_at)} via thetravellingtutorx.co.uk</p>
+
+        <table cellpadding="0" cellspacing="0" border="0" width="100%" style="border-collapse:collapse; font-size:14px;">
+          <tr><td style="padding:8px 0; color:#6B5E62; width:120px;">Name</td><td style="padding:8px 0; color:#2A1F26; font-weight:600;">{html.escape(contact.name)}</td></tr>
+          <tr><td style="padding:8px 0; color:#6B5E62;">Email</td><td style="padding:8px 0;"><a href="mailto:{html.escape(contact.email)}" style="color:#E11D67; text-decoration:none;">{html.escape(contact.email)}</a></td></tr>
+          <tr><td style="padding:8px 0; color:#6B5E62;">Role</td><td style="padding:8px 0; color:#2A1F26;">{html.escape(role_label)}</td></tr>
+          <tr><td style="padding:8px 0; color:#6B5E62;">Subject</td><td style="padding:8px 0; color:#2A1F26;">{html.escape(subject_line)}</td></tr>
+        </table>
+
+        <p style="margin:18px 0 6px 0; color:#6B5E62; font-size:14px;">Message</p>
+        <div style="background:#FCE2EC; color:#2A1F26; padding:16px 18px; border-radius:12px; font-size:15px; line-height:1.5;">
+          {body_html}
+        </div>
+
+        <p style="margin-top:22px; font-size:12px; color:#6B5E62;">Reply directly to this email to respond to {html.escape(contact.name.split()[0] if contact.name else 'them')}.</p>
+      </div>
+    </div>
+    """
+
+    params = {
+        "from": sender,
+        "to": [recipient],
+        "reply_to": contact.email,
+        "subject": f"New enquiry from {contact.name} ({role_label}) — {subject_line}",
+        "html": html_content,
+    }
+
+    try:
+        result = await asyncio.to_thread(resend.Emails.send, params)
+        logger.info("Resend contact email sent id=%s", (result or {}).get("id"))
+    except Exception as e:
+        logger.exception("Resend contact email failed: %s", e)
 
 
 # ---------- MODELS ----------
@@ -112,6 +176,8 @@ async def root():
 async def create_contact(payload: ContactCreate):
     obj = Contact(**payload.model_dump())
     await db.contacts.insert_one(obj.model_dump())
+    # Fire-and-forget notification email — never block or fail the request on it
+    asyncio.create_task(send_contact_notification(obj))
     return obj
 
 
