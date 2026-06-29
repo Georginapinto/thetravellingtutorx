@@ -99,7 +99,7 @@ export const Footer = () => {
             <h4 className="font-semibold text-brand-ink mb-4">More</h4>
             <ul className="space-y-2.5 text-brand-mute">
               <li><Link to="/free-resources" className="hover:text-brand-pink">Free Resources</Link></li>
-              <li><Link to="/resource-shop" className="hover:text-brand-pink">Resource Shop</Link></li>
+              <li><Link to="/shop" className="hover:text-brand-pink">Shop</Link></li>
               <li><Link to="/testimonials" className="hover:text-brand-pink">Testimonials</Link></li>
               <li><Link to="/blog" className="hover:text-brand-pink">Blog</Link></li>
               <li><Link to="/contact" className="hover:text-brand-pink">Contact</Link></li>

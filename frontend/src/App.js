@@ -14,6 +14,7 @@ import Testimonials from "@/pages/Testimonials";
 import Contact from "@/pages/Contact";
 import Courses from "@/pages/Courses";
 import ResourceShop from "@/pages/ResourceShop";
+import Shop from "@/pages/Shop";
 import FreeResources from "@/pages/FreeResources";
 import Blog from "@/pages/Blog";
 import NotFound from "@/pages/NotFound";
@@ -35,7 +36,8 @@ function App() {
             <Route path="/testimonials" element={<Testimonials />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/courses" element={<Courses />} />
-            <Route path="/resource-shop" element={<ResourceShop />} />
+            <Route path="/resource-shop" element={<Shop />} />
+            <Route path="/shop" element={<Shop />} />
             <Route path="/free-resources" element={<FreeResources />} />
             <Route path="/blog" element={<Blog />} />
             <Route path="*" element={<NotFound />} />

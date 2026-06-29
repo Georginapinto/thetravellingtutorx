@@ -1,10 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
 import PageHero from "@/components/PageHero";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { BRAND, FORMS } from "@/constants/testIds";
 import { api } from "@/lib/api";
 import { toast } from "sonner";
@@ -14,7 +12,7 @@ import {
   Lock, Mail, BookOpenCheck, Video, AlertCircle
 } from "lucide-react";
 
-// ----- Programme constants (mirrors backend PACKAGES["tutor_training_deposit"]) -----
+// ----- Programme constants -----
 const PROGRAMME = {
   title: "Sociology Tutor Training Programme",
   subtitle: "AQA Examiner-Led · 6-Week Cohort",
@@ -24,7 +22,7 @@ const PROGRAMME = {
   total: 497,
   deposit: 248.5,
   balanceDue: "19th July",
-  cohortCap: 12,
+  stripeUrl: "https://buy.stripe.com/aFa9AT3Ytcg37o7c3zgbm0j",
 };
 
 const whoFor = [
@@ -56,127 +54,33 @@ const process = [
   { n: 4, i: BarChart3, t: "Start earning", d: "Begin tutoring as a Travelling Tutor X partner." },
 ];
 
-// ---------- Payment helpers ----------
-const useQuery = () => new URLSearchParams(useLocation().search);
-
-function PaymentStatusModal({ open, onOpenChange, status, buyerEmail }) {
-  if (!open) return null;
-  return (
-    <Dialog open={open} onOpenChange={onOpenChange}>
-      <DialogContent className="sm:max-w-lg rounded-3xl p-0 overflow-hidden">
-        {status === "paid" ? (
-          <>
-            <div className="bg-brand-sageSoft p-6 flex items-center gap-3">
-              <div className="w-12 h-12 rounded-full bg-white grid place-items-center text-brand-sageDeep">
-                <CheckCircle2 className="w-6 h-6" />
-              </div>
-              <div>
-                <DialogTitle className="text-xl font-semibold text-brand-ink">You're in! Welcome to the cohort.</DialogTitle>
-                <DialogDescription className="text-brand-mute">Deposit received — your place is confirmed.</DialogDescription>
-              </div>
-            </div>
-            <div className="p-6 space-y-4 text-sm text-brand-ink">
-              <p>{buyerEmail ? <>A confirmation email is on the way to <span className="font-semibold">{buyerEmail}</span>.</> : "A confirmation email is on the way."}</p>
-              <ul className="space-y-2.5">
-                <li className="flex items-start gap-2"><Mail className="w-5 h-5 text-brand-pink flex-none mt-0.5" /> Instant receipt + welcome pack in your inbox.</li>
-                <li className="flex items-start gap-2"><Lock className="w-5 h-5 text-brand-pink flex-none mt-0.5" /> Private Google Classroom invite within 24 hours.</li>
-                <li className="flex items-start gap-2"><CalendarDays className="w-5 h-5 text-brand-pink flex-none mt-0.5" /> Cohort starts <span className="font-semibold">week beginning 20th July</span> — 1 live session per week for 6 weeks.</li>
-                <li className="flex items-start gap-2"><Video className="w-5 h-5 text-brand-pink flex-none mt-0.5" /> Every session recorded — catch up any time.</li>
-                <li className="flex items-start gap-2"><PoundSterling className="w-5 h-5 text-brand-pink flex-none mt-0.5" /> Remaining balance (£248.50) due by <span className="font-semibold">19th July</span>.</li>
-              </ul>
-              <Button onClick={() => onOpenChange(false)} className="w-full mt-2 h-12 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white">Brilliant, see you soon</Button>
-            </div>
-          </>
-        ) : status === "cancelled" ? (
-          <div className="p-8 text-center">
-            <AlertCircle className="w-10 h-10 mx-auto text-brand-pink" />
-            <DialogTitle className="text-2xl font-heading mt-3">Payment cancelled</DialogTitle>
-            <DialogDescription className="text-brand-mute mt-2">No worries — your place isn't booked yet. You can try again whenever you're ready.</DialogDescription>
-            <Button onClick={() => onOpenChange(false)} className="mt-6 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white px-6 h-11">Close</Button>
-          </div>
-        ) : (
-          <div className="p-8 text-center">
-            <div className="w-10 h-10 mx-auto rounded-full border-4 border-brand-pink/30 border-t-brand-pink animate-spin" />
-            <DialogTitle className="text-2xl font-heading mt-3">Checking your payment...</DialogTitle>
-            <DialogDescription className="text-brand-mute mt-2">This usually takes just a few seconds.</DialogDescription>
-          </div>
-        )}
-      </DialogContent>
-    </Dialog>
-  );
-}
+// ---------- Page ----------
 
 export default function TutorPartner() {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
   const [busy, setBusy] = useState(false);
-  const [modalOpen, setModalOpen] = useState(false);
-  const [modalStatus, setModalStatus] = useState("pending");
-  const [buyerEmail, setBuyerEmail] = useState(null);
-  const query = useQuery();
-  const navigate = useNavigate();
-  const location = useLocation();
-
   const u = (k) => (e) => setForm((s) => ({ ...s, [k]: e.target.value }));
-
-  // Poll payment status when returning from Stripe
-  useEffect(() => {
-    const sessionId = query.get("session_id");
-    const status = query.get("status");
-    if (status === "cancelled") {
-      setModalStatus("cancelled");
-      setModalOpen(true);
-      navigate(location.pathname, { replace: true });
-      return;
-    }
-    if (!sessionId) return;
-    setModalStatus("pending");
-    setModalOpen(true);
-
-    let attempts = 0;
-    const max = 8;
-    const tick = async () => {
-      attempts += 1;
-      try {
-        const { data } = await api.get(`/checkout/status/${sessionId}`);
-        setBuyerEmail(data.buyer_email || null);
-        if (data.payment_status === "paid") {
-          setModalStatus("paid");
-          navigate(location.pathname, { replace: true });
-          return;
-        }
-        if (data.status === "expired") {
-          setModalStatus("cancelled");
-          navigate(location.pathname, { replace: true });
-          return;
-        }
-      } catch {}
-      if (attempts < max) setTimeout(tick, 2000);
-      else {
-        setModalStatus("cancelled");
-        toast.error("Couldn't confirm payment automatically. Check your email or contact us.");
-      }
-    };
-    tick();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
 
   const checkout = async (e) => {
     e.preventDefault();
     if (!form.name || !form.email) return toast.error("Please add your name & email first.");
     setBusy(true);
     try {
-      const { data } = await api.post("/checkout/session", {
-        package_id: "tutor_training_deposit",
-        origin_url: window.location.origin,
-        name: form.name,
-        email: form.email,
-        phone: form.phone,
-      });
-      if (data.url) window.location.href = data.url;
-      else toast.error("Couldn't start checkout — please try again.");
+      // Save lead before redirecting so we have their details even if Stripe drops off
+      try {
+        await api.post("/tutor-application", {
+          name: form.name,
+          email: form.email,
+          phone: form.phone,
+          qualifications: "(Pending — submitted via deposit checkout)",
+          experience: "(Pending — submitted via deposit checkout)",
+          why_join: "Paying deposit for the 6-week Sociology Tutor Training Programme.",
+        });
+      } catch {/* non-blocking */}
+      // Redirect to the live Stripe Payment Link
+      window.location.href = PROGRAMME.stripeUrl;
     } catch (err) {
-      toast.error("Checkout failed. Please try again or email help@thetravellingtutorx.co.uk");
-    } finally {
+      toast.error("Couldn't open checkout. Please try again or email help@thetravellingtutorx.co.uk");
       setBusy(false);
     }
   };
@@ -208,7 +112,7 @@ export default function TutorPartner() {
             { l: "Cohort starts", v: "Week of 20 July" },
             { l: "Length", v: "6 weeks · 1 session/week" },
             { l: "Sessions", v: "All recorded" },
-            { l: "Cohort size", v: `Capped at ${PROGRAMME.cohortCap}` },
+            { l: "Format", v: "Examiner-led, live online" },
           ].map((s) => (
             <div key={s.l}>
               <p className="font-semibold text-brand-ink text-lg md:text-xl">{s.v}</p>
@@ -331,7 +235,7 @@ export default function TutorPartner() {
         <div className="container-px max-w-3xl mx-auto">
           <div className="rounded-[2.5rem] bg-brand-pinkSoft p-8 md:p-12 relative overflow-hidden">
             <span className="absolute -top-3 left-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-pink text-white text-xs font-semibold uppercase tracking-wide shadow-soft">
-              <AlertCircle className="w-3.5 h-3.5" /> Cohort capped at {PROGRAMME.cohortCap} — personalised feedback
+              <AlertCircle className="w-3.5 h-3.5" /> Small cohort — personalised feedback for every participant
             </span>
             <p className="font-handwritten text-3xl text-brand-pink mt-3">secure your place</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">Pay your deposit. Confirm your seat.</h2>
@@ -382,8 +286,6 @@ export default function TutorPartner() {
           <p className="text-brand-mute mt-4 max-w-xl mx-auto">Questions? Email <a className="text-brand-pink underline-grow" href="mailto:help@thetravellingtutorx.co.uk">help@thetravellingtutorx.co.uk</a> — we reply within 24 hours.</p>
         </div>
       </section>
-
-      <PaymentStatusModal open={modalOpen} onOpenChange={setModalOpen} status={modalStatus} buyerEmail={buyerEmail} />
     </>
   );
 }

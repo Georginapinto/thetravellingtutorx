@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import {
   GraduationCap, Users, BookOpenCheck, ArrowUpRight, Compass, Sparkles, Heart,
-  CheckCircle2, Star, Plane, MapPin, ClipboardCheck, Award, ShoppingBag, MonitorPlay, Facebook, ExternalLink
+  CheckCircle2, Star, Plane, MapPin, ClipboardCheck, Award, ShoppingBag, MonitorPlay, Facebook, ExternalLink,
+  CalendarDays, Clock, Sun, Flame
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HOME, BRAND } from "@/constants/testIds";
@@ -278,6 +279,68 @@ export default function Home() {
         </div>
       </section>
 
+      {/* YEAR 12 SUMMER BOOTCAMP */}
+      <section className="section-y">
+        <div className="container-px max-w-7xl mx-auto">
+          <div className="rounded-[2.5rem] bg-brand-pinkSoft p-8 md:p-14 grid lg:grid-cols-5 gap-10 items-center relative overflow-hidden">
+            <div className="lg:col-span-3">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-brand-pink text-xs font-semibold uppercase tracking-wide">
+                <Sun className="w-3.5 h-3.5" /> Year 12 · Summer Cohort
+              </span>
+              <p className="font-handwritten text-3xl text-brand-pink mt-4">walk into year 13 ahead</p>
+              <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
+                Year 12 Sociology Summer Bootcamp
+              </h2>
+              <p className="text-brand-ink/80 mt-4 text-lg max-w-lg leading-relaxed">
+                Six focused weeks of live, examiner-led Sociology — designed to turn Year 12 confusion into Year 13 confidence. Build essay craft, master evaluation and start Year 13 ahead.
+              </p>
+              <ul className="mt-6 grid sm:grid-cols-2 gap-2.5">
+                {[
+                  { i: CalendarDays, t: "Starts Tuesday 21st July" },
+                  { i: Clock, t: "Tuesdays · 9–10am" },
+                  { i: Flame, t: "6 weeks of live sessions" },
+                  { i: MonitorPlay, t: "All sessions recorded" },
+                ].map(({ i: Icon, t }) => (
+                  <li key={t} className="flex items-center gap-2 text-brand-ink"><span className="w-9 h-9 rounded-xl bg-white text-brand-pink grid place-items-center"><Icon className="w-4 h-4" /></span> {t}</li>
+                ))}
+              </ul>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <Button
+                  asChild
+                  data-testid="home-bootcamp-cta"
+                  className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white"
+                >
+                  <a href="https://buy.stripe.com/9B69ATdz3eobbEn1oVgbm0k" target="_blank" rel="noreferrer">
+                    Secure my Year 12 place <ArrowUpRight className="w-4 h-4 ml-1" />
+                  </a>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full h-12 px-6 border-brand-pink/40 text-brand-pink hover:bg-brand-pinkPastel">
+                  <Link to="/contact">Ask a question</Link>
+                </Button>
+              </div>
+              <p className="text-xs text-brand-mute mt-4">Secure Stripe checkout · instant confirmation email · live + recorded.</p>
+            </div>
+
+            <div className="lg:col-span-2 bg-white rounded-3xl p-7 shadow-medium border border-white">
+              <p className="text-sm font-semibold uppercase tracking-wide text-brand-mute">Cohort dates</p>
+              <p className="text-3xl font-semibold text-brand-ink mt-2 leading-tight">
+                21 July → end of August
+              </p>
+              <p className="text-sm text-brand-mute mt-1">6 weekly Tuesday sessions, 9–10am UK time.</p>
+              <div className="mt-6 space-y-2.5">
+                {[
+                  "Essay structure that examiners reward",
+                  "Master Sociology evaluation",
+                  "Theory & Methods made simple",
+                  "Confidence going into Year 13",
+                ].map((t) => (
+                  <p key={t} className="flex items-center gap-2 text-sm text-brand-ink"><CheckCircle2 className="w-4 h-4 text-brand-sageDeep" /> {t}</p>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
       {/* FACEBOOK REVIEWS — live feed from @thetravellingtutorx */}
       <section className="section-y bg-white">
         <div className="container-px max-w-7xl mx-auto">
