@@ -1,0 +1,13 @@
+[build]
+  base = "frontend"
+  command = "yarn build"
+  publish = "build"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+# BrowserRouter: serve index.html for client-side routes so refreshes don't 404
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
