@@ -1,0 +1,20 @@
+{
+  // Type-checks the Netlify Functions and their tests only. Kept out of frontend/
+  // so react-scripts doesn't treat the React app as a TypeScript project.
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2023", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "types": ["node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "allowImportingTsExtensions": true
+  },
+  "include": ["functions/**/*.ts", "functions/**/*.mts", "tests/**/*.ts"]
+}

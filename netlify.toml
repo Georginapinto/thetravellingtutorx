@@ -2,11 +2,24 @@
   base = "frontend"
   command = "yarn build"
   publish = "build"
+  # Relative to base. Each top-level file is one function, served at the path
+  # in its `config` export (/api/...).
+  functions = "netlify/functions"
 
 [build.environment]
   NODE_VERSION = "22"
 
-# BrowserRouter: serve index.html for client-side routes so refreshes don't 404
+# `netlify dev` (yarn dev:netlify): CRA on 3000 behind Netlify's proxy on 8888,
+# with the functions and their env vars.
+[dev]
+  command = "yarn start"
+  targetPort = 3000
+  port = 8888
+  framework = "#custom"
+  autoLaunch = false
+
+# BrowserRouter: serve index.html for client-side routes so refreshes don't 404.
+# Function routes declared with `config.path` take precedence over this rule.
 [[redirects]]
   from = "/*"
   to = "/index.html"
