@@ -4,11 +4,12 @@ import { Button } from "./ui/button";
 import { Label } from "./ui/label";
 import { FORMS } from "../constants/testIds";
 import { api } from "../lib/api";
+import { Honeypot } from "./Honeypot";
 import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
 
 export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pack", downloadUrl, downloadFilename }) => {
-  const [form, setForm] = useState({ first_name: "", email: "" });
+  const [form, setForm] = useState({ first_name: "", email: "", website: "" });
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -63,7 +64,7 @@ export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pac
   }
 
   return (
-    <form onSubmit={submit} className="space-y-3">
+    <form onSubmit={submit} className="relative space-y-3">
       <div>
         <Label className="text-brand-ink">First name</Label>
         <Input
@@ -94,6 +95,7 @@ export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pac
         {busy ? "Sending..." : ctaLabel}
       </Button>
       <p className="text-xs text-brand-mute">No spam. Unsubscribe any time.</p>
+      <Honeypot value={form.website} onChange={(v) => setForm((s) => ({ ...s, website: v }))} />
     </form>
   );
 };

@@ -1,0 +1,51 @@
+// Curated testimonials shown on the Testimonials page.
+export const TESTIMONIALS = [
+  {
+    id: "1",
+    audience: "student",
+    name: "Amelia R.",
+    role: "A-Level Sociology Student",
+    rating: 5,
+    quote: "Went from a predicted C to an A* in six months. Georgina actually teaches you how examiners think — nothing felt like guesswork anymore.",
+  },
+  {
+    id: "2",
+    audience: "parent",
+    name: "Sarah & David M.",
+    role: "Parents of Year 13 student",
+    rating: 5,
+    quote: "We tried two other tutors. The difference with The Travelling Tutor was night and day — structured, calm, and our daughter finally believed she could do it.",
+  },
+  {
+    id: "3",
+    audience: "teacher",
+    name: "Priya K.",
+    role: "Head of Sociology, Manchester",
+    rating: 5,
+    quote: "The CPD session reset our whole department. Practical, examiner-led and immediately usable in lessons.",
+  },
+  {
+    id: "4",
+    audience: "student",
+    name: "Jordan T.",
+    role: "GCSE Sociology Student",
+    rating: 5,
+    quote: "I used to panic at essay questions. Now I have a plan I can actually follow. My mock jumped two grades.",
+  },
+  {
+    id: "5",
+    audience: "parent",
+    name: "Helen W.",
+    role: "Mum of Year 11",
+    rating: 5,
+    quote: "Honest feedback every session. Felt like we finally had someone in our corner who knew exactly what the exam wanted.",
+  },
+  {
+    id: "6",
+    audience: "teacher",
+    name: "Marcus B.",
+    role: "Tutor Partner",
+    rating: 5,
+    quote: "Joining the Tutor Partner Programme gave me leads, structure and a real community. I left my full-time role within a year.",
+  },
+];
