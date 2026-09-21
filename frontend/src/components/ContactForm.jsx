@@ -6,11 +6,12 @@ import { Button } from "./ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "./ui/select";
 import { FORMS } from "../constants/testIds";
 import { api } from "../lib/api";
+import { Honeypot } from "./Honeypot";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
 
 export const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", email: "", role: "student", subject: "", message: "" });
+  const [form, setForm] = useState({ name: "", email: "", role: "student", subject: "", message: "", website: "" });
   const [busy, setBusy] = useState(false);
 
   const submit = async (e) => {
@@ -19,7 +20,7 @@ export const ContactForm = () => {
     try {
       await api.post("/contact", form);
       toast.success("Message sent — Georgina will reply within 24 hours.");
-      setForm({ name: "", email: "", role: "student", subject: "", message: "" });
+      setForm({ name: "", email: "", role: "student", subject: "", message: "", website: "" });
     } catch {
       toast.error("Couldn't send. Please try again.");
     } finally {
@@ -30,7 +31,7 @@ export const ContactForm = () => {
   const u = (k) => (e) => setForm((s) => ({ ...s, [k]: e?.target ? e.target.value : e }));
 
   return (
-    <form onSubmit={submit} className="space-y-5">
+    <form onSubmit={submit} className="relative space-y-5">
       <div className="grid sm:grid-cols-2 gap-4">
         <div>
           <Label>Name</Label>
@@ -66,6 +67,7 @@ export const ContactForm = () => {
       <Button data-testid={FORMS.contactSubmit} disabled={busy} type="submit" className="h-12 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white px-7">
         <Send className="w-4 h-4 mr-2" /> {busy ? "Sending..." : "Let's Get Started"}
       </Button>
+      <Honeypot value={form.website} onChange={(v) => setForm((s) => ({ ...s, website: v }))} />
     </form>
   );
 };

@@ -27,7 +27,6 @@ export const HOME = {
   bookingDialog: "booking-dialog",
   ctaFinalBook: "final-cta-book",
   ctaFinalResources: "final-cta-resources",
-  emergentLink: "emergent-link",
 };
 
 export const FORMS = {
@@ -60,9 +59,7 @@ export const FORMS = {
 };
 
 export const BRAND = {
-  avatar: "https://customer-assets.emergentagent.com/job_sociology-essentials/artifacts/yk5e210e_235d1c0c-4bf3-4dda-88b0-f43566feeee5.png",
-  advert: "https://customer-assets.emergentagent.com/job_sociology-essentials/artifacts/z4ls2kya_FINAL%20ADVERT.png",
-  landingFinal: "https://customer-assets.emergentagent.com/job_sociology-essentials/artifacts/uv0kak05_landing%20page%20final.PNG",
-  essayStructurePdf: "https://customer-assets.emergentagent.com/job_sociology-essentials/artifacts/838ng7ij_Essay%20Super%20Structure%20Insight%20-%20Families%20and%20Households%2010m.pdf",
+  avatar: "/images/georgina-avatar.png",
+  essayStructurePdf: "/resources/essay-super-structure-families.pdf",
   facebookUrl: "https://www.facebook.com/thetravellingtutorx/",
 };

@@ -1,9 +1,7 @@
 import axios from "axios";
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-export const API = `${BACKEND_URL}/api`;
-
+// Netlify Functions are served from the same domain as the site.
 export const api = axios.create({
-  baseURL: API,
+  baseURL: "/api",
   headers: { "Content-Type": "application/json" },
 });

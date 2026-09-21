@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { BRAND, FORMS } from "@/constants/testIds";
 import { api } from "@/lib/api";
+import { Honeypot } from "@/components/Honeypot";
 import { toast } from "sonner";
 import {
   CheckCircle2, Plane, Heart, PoundSterling, Users, MonitorPlay, FileEdit, GraduationCap,
@@ -57,7 +58,7 @@ const process = [
 // ---------- Page ----------
 
 export default function TutorPartner() {
-  const [form, setForm] = useState({ name: "", email: "", phone: "" });
+  const [form, setForm] = useState({ name: "", email: "", phone: "", website: "" });
   const [busy, setBusy] = useState(false);
   const u = (k) => (e) => setForm((s) => ({ ...s, [k]: e.target.value }));
 
@@ -72,6 +73,7 @@ export default function TutorPartner() {
           name: form.name,
           email: form.email,
           phone: form.phone,
+          website: form.website,
           qualifications: "(Pending — submitted via deposit checkout)",
           experience: "(Pending — submitted via deposit checkout)",
           why_join: "Paying deposit for the 6-week Sociology Tutor Training Programme.",
@@ -259,7 +261,7 @@ export default function TutorPartner() {
               <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-sageDeep" /> Receipt + Google Classroom invite within 24h</li>
             </ul>
 
-            <form onSubmit={checkout} className="mt-7 bg-white rounded-2xl p-6 space-y-4">
+            <form onSubmit={checkout} className="relative mt-7 bg-white rounded-2xl p-6 space-y-4">
               <div className="grid sm:grid-cols-2 gap-4">
                 <div><Label>Full name</Label><Input data-testid={FORMS.applyName} required value={form.name} onChange={u("name")} className="h-12 rounded-xl mt-1" /></div>
                 <div><Label>Email</Label><Input data-testid={FORMS.applyEmail} required type="email" value={form.email} onChange={u("email")} className="h-12 rounded-xl mt-1" /></div>
@@ -274,6 +276,7 @@ export default function TutorPartner() {
                 {busy ? "Opening secure checkout..." : `Pay £${PROGRAMME.deposit.toFixed(2)} deposit & secure my place`}
               </Button>
               <p className="text-xs text-brand-mute text-center">By continuing you agree the £{PROGRAMME.deposit.toFixed(2)} balance is due by {PROGRAMME.balanceDue}. Your place is only confirmed once the deposit is received.</p>
+              <Honeypot value={form.website} onChange={(v) => setForm((s) => ({ ...s, website: v }))} />
             </form>
           </div>
         </div>

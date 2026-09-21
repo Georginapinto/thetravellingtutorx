@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@hookform/resolvers": "5.0.1",
+    "@neondatabase/serverless": "1.1.0",
     "@radix-ui/react-accordion": "1.2.8",
     "@radix-ui/react-alert-dialog": "1.1.11",
     "@radix-ui/react-aspect-ratio": "1.1.4",
@@ -53,6 +54,7 @@
     "react-router-dom": "7.15.0",
     "react-scripts": "5.0.1",
     "recharts": "3.6.0",
+    "resend": "6.28.1",
     "sonner": "2.0.3",
     "swr": "2.3.8",
     "tailwind-merge": "3.2.0",
@@ -63,7 +65,10 @@
   "scripts": {
     "start": "craco start",
     "build": "craco build",
-    "test": "craco test"
+    "test": "craco test",
+    "dev:netlify": "npx --yes netlify-cli@27 dev",
+    "test:functions": "vitest run --dir netlify/tests",
+    "typecheck:functions": "tsc --noEmit -p netlify/tsconfig.json"
   },
   "browserslist": {
     "production": [
@@ -80,9 +85,10 @@
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "7.21.11",
     "@craco/craco": "7.1.0",
-    "@emergentbase/visual-edits": "https://assets.emergent.sh/npm/emergentbase-visual-edits-1.0.12.tgz",
     "@eslint/js": "9.23.0",
+    "@netlify/functions": "6.0.0",
     "@types/lodash": "4.17.24",
+    "@types/node": "22.20.3",
     "autoprefixer": "10.4.20",
     "dotenv": "16.4.5",
     "eslint": "9.23.0",
@@ -92,7 +98,10 @@
     "eslint-plugin-react-hooks": "5.2.0",
     "globals": "15.15.0",
     "postcss": "8.5.10",
-    "tailwindcss": "3.4.17"
+    "tailwindcss": "3.4.17",
+    "typescript": "7.0.2",
+    "vite": "7.3.6",
+    "vitest": "5.0.1"
   },
   "resolutions": {
     "react-router": "7.15.0",
@@ -103,7 +112,7 @@
     "diff": "4.0.4",
     "follow-redirects": "1.16.0",
     "path-to-regexp": "0.1.13",
-    "rollup": "2.80.0",
+    "**/workbox-build/rollup": "2.80.0",
     "underscore": "1.13.8",
     "@babel/plugin-transform-modules-systemjs": "7.29.4",
     "@eslint/plugin-kit": "0.3.4",

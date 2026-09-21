@@ -7,9 +7,11 @@ import { api } from "../lib/api";
 import { toast } from "sonner";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
+import { Honeypot } from "./Honeypot";
 
 export const Footer = () => {
   const [email, setEmail] = useState("");
+  const [website, setWebsite] = useState("");
   const [busy, setBusy] = useState(false);
 
   const submit = async (e) => {
@@ -17,7 +19,7 @@ export const Footer = () => {
     if (!email) return;
     setBusy(true);
     try {
-      await api.post("/newsletter", { email, source: "footer" });
+      await api.post("/newsletter", { email, source: "footer", website });
       toast.success("You're in! Welcome to the community.");
       setEmail("");
     } catch {
@@ -41,7 +43,8 @@ export const Footer = () => {
               Receive free Sociology resources, examiner advice, revision tips and exclusive updates straight to your inbox.
             </p>
           </div>
-          <form onSubmit={submit} className="flex flex-col sm:flex-row gap-3">
+          <form onSubmit={submit} className="relative flex flex-col sm:flex-row gap-3">
+            <Honeypot value={website} onChange={setWebsite} />
             <Input
               data-testid={FORMS.newsletterEmail}
               type="email"

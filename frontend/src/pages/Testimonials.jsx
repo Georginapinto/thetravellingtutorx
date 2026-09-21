@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import PageHero from "@/components/PageHero";
-import { api } from "@/lib/api";
 import { BRAND } from "@/constants/testIds";
+import { TESTIMONIALS } from "@/constants/testimonials";
 import { Star, Quote, Facebook, ExternalLink } from "lucide-react";
 
 const filterTabs = [
@@ -15,14 +15,9 @@ const FB_PAGE = encodeURIComponent(BRAND.facebookUrl);
 const FB_PLUGIN_SRC = `https://www.facebook.com/plugins/page.php?href=${FB_PAGE}&tabs=timeline&width=500&height=720&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`;
 
 export default function Testimonials() {
-  const [items, setItems] = useState([]);
   const [tab, setTab] = useState("all");
 
-  useEffect(() => {
-    api.get("/testimonials").then((r) => setItems(r.data.items || [])).catch(() => {});
-  }, []);
-
-  const filtered = tab === "all" ? items : items.filter((t) => t.audience === tab);
+  const filtered = tab === "all" ? TESTIMONIALS : TESTIMONIALS.filter((t) => t.audience === tab);
 
   return (
     <>
