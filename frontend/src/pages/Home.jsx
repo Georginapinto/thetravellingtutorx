@@ -1,342 +1,263 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  GraduationCap, Users, BookOpenCheck, ArrowUpRight, Sparkles, Heart,
-  CheckCircle2, Star, Plane, MapPin, ClipboardCheck, Award, ShoppingBag, MonitorPlay, Facebook, ExternalLink
+  GraduationCap, BookOpenCheck, ArrowUpRight, CheckCircle2, Star, Award, ClipboardCheck, PenLine,
+  Target, Scale, Timer, Brain, Users, Sparkles, MonitorPlay, School, BadgePercent,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SectionHeader from "@/components/SectionHeader";
+import TestimonialsSection from "@/components/TestimonialsSection";
 import { HOME, BRAND } from "@/constants/testIds";
-import { SignatureLogo } from "@/components/SignatureLogo";
-import FacebookReviewsCarousel from "@/components/FacebookReviewsCarousel";
-import NewsletterSignup from "@/components/NewsletterSignup";
+import { COURSE } from "@/constants/site";
 
-const audiences = [
+const struggles = [
+  { icon: PenLine, title: "Essay writing", problem: "Knowing the content but not how to structure a top-band essay.", fix: "Clear, reusable essay frameworks." },
+  { icon: Target, title: "Application", problem: "Losing marks for not applying knowledge to the exact question.", fix: "Practice using items and question wording." },
+  { icon: Scale, title: "Evaluation", problem: "Describing theories instead of weighing them up.", fix: "Evaluation phrases examiners reward." },
+  { icon: Timer, title: "Exam technique", problem: "Running out of time or misreading what the question demands.", fix: "Timing plans and mark-scheme know-how." },
+  { icon: Brain, title: "Revision", problem: "Revising for hours without it sticking on the day.", fix: "Focused, active revision that lasts." },
+];
+
+const pathways = [
   {
-    id: HOME.cardStudent,
     icon: GraduationCap,
-    title: "I'm a Student",
-    desc: "Learn exactly what examiners reward — and start believing you can hit the top grades.",
-    color: "bg-brand-maroonSoft",
-    iconBg: "bg-brand-maroon text-white",
-    href: "/students",
-    links: ["One-to-One Tutoring", "Sociology Grade Booster Bootcamps", "Online Course", "Revision Workshops", "Resources"],
+    title: "Tuition",
+    desc: "Examiner-led support that builds skills, confidence and grades.",
+    to: "/tuition",
+    cta: "Explore tuition",
+    items: [["1:1 Tuition", "/tuition#one-to-one"], ["Group Tuition", "/tuition#group"], ["Recorded Group Sessions", "/tuition#recorded"]],
   },
   {
-    id: HOME.cardParent,
-    icon: Users,
-    title: "I'm a Parent",
-    desc: "Trusted, experienced support for your child — with honest progress updates for you.",
-    color: "bg-brand-navySoft",
-    iconBg: "bg-brand-navyDeep text-white",
-    href: "/parents",
-    links: ["GCSE Support", "A-Level Support", "Results", "Get in Touch"],
-  },
-  {
-    id: HOME.cardTeacher,
     icon: BookOpenCheck,
-    title: "I'm a Teacher / Tutor",
-    desc: "Examiner-led CPD, classroom-ready resources, and a tutor partner pathway.",
-    color: "bg-brand-maroonPastel",
-    iconBg: "bg-brand-maroon text-white",
-    href: "/teachers",
-    links: ["Tutor Partner Programme", "CPD", "Teaching Resources", "Workshops"],
+    title: "Resources",
+    desc: "Examiner-written resources to revise smarter, any time.",
+    to: "/resources",
+    cta: "Shop resources",
+    items: [["Grade Booster Packs", "/resources#grade-booster-packs"], ["Learning Tables", "/resources#learning-tables"], ["Grade Transformation Course", "/resources#grade-transformation-course"]],
   },
-];
-
-const pillars = [
-  { icon: ClipboardCheck, title: "9 Years as an AQA Examiner", desc: "I mark the real exams. I know precisely what separates a C from an A — and I teach students exactly that." },
-  { icon: Award, title: "9 Years in Education Leadership", desc: "As Head of Sociology and Director of Sixth Form, I've guided thousands of students through exams and on to their next steps." },
-  { icon: Heart, title: "Confidence That Lasts", desc: "Self-belief comes first. Students who arrive saying “I'm just not good at essays” leave knowing they can write top-band answers." },
-  { icon: Star, title: "Proven Grade Jumps", desc: "The reviews speak for themselves: some of my students have climbed from E grades all the way to A grades." },
-];
-
-const services = [
-  { icon: GraduationCap, title: "One-to-One Tutoring", desc: "Bespoke 1:1 GCSE & A-Level Sociology tuition tailored to you.", href: "/students" },
-  { icon: Sparkles, title: "Sociology Grade Booster Bootcamps", desc: "Our flagship group programme — structured, examiner-led, results-driven.", href: "/courses" },
-  { icon: MonitorPlay, title: "Online Course", desc: "Self-paced Sociology mastery. Watch, revise, repeat — any time.", href: "/courses" },
-  { icon: BookOpenCheck, title: "Revision Workshops", desc: "Intensive sessions that turn knowledge into top-band marks.", href: "/courses" },
-  { icon: ShoppingBag, title: "Resource Shop", desc: "Examiner-written essay plans, model answers and quizzes — the shortcut to top-band answers.", href: "/resource-shop" },
-  { icon: Users, title: "Tutor Partner Programme", desc: "Build a flexible, rewarding tutoring business with leads, training & community.", href: "/tutor-partner" },
+  {
+    icon: Users,
+    title: "For Teachers",
+    desc: "Training and mentoring for Sociology teachers and tutors.",
+    to: "/teachers",
+    cta: "Explore teacher support",
+    items: [["Tutor Training Programme", "/tutor-partner"], ["Mentoring", "/teachers#mentoring"]],
+  },
 ];
 
 export default function Home() {
   return (
     <>
-      {/* HERO */}
-      <section className="relative overflow-hidden pt-12 md:pt-20 pb-16">
-        <div className="blob bg-brand-maroonSoft w-[520px] h-[520px] -top-40 -left-40" />
-        <div className="blob bg-brand-navySoft w-[420px] h-[420px] top-20 -right-32 opacity-60" />
-
+      {/* 1. HERO */}
+      <section className="relative overflow-hidden pt-12 md:pt-20 pb-16 md:pb-24">
         <div className="container-px max-w-7xl mx-auto relative">
-          <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
+          <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7">
-              <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-maroonPastel text-sm text-brand-maroon font-medium shadow-soft">
-                <Plane className="w-4 h-4 -rotate-12" />
-                AQA Examiner · Head of Sociology · Director of Sixth Form
-              </div>
-              <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] font-semibold text-brand-ink tracking-tight">
-                Achieve your <span className="relative">best grades
-                <svg viewBox="0 0 200 14" className="absolute -bottom-2 left-0 w-full h-3" preserveAspectRatio="none"><path d="M2 8 C 50 2, 150 14, 198 6" stroke="#7A1F3D" strokeWidth="4" fill="none" strokeLinecap="round"/></svg>
-                </span> — with an AQA Sociology Examiner on your side
-              </h1>
-              <p className="mt-6 text-lg text-brand-mute max-w-xl leading-relaxed">
-                In 9 years as an AQA examiner and in education leadership — as Head of Sociology and Director of Sixth Form — I've taught thousands of students. I know exactly what examiners reward, and I teach students how to deliver it. Some have gone from E grades to A grades. My students walk into the exam hall believing in themselves, ready for the results that unlock university, apprenticeships and the next steps they've dreamed of.
-              </p>
-
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button data-testid={HOME.heroExplore} asChild className="h-13 px-7 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white shadow-soft">
-                  <Link to="/contact">Book Your Tutoring <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
-                </Button>
-                <Button data-testid={HOME.heroBook} asChild variant="outline" className="h-13 px-7 rounded-full border-brand-maroon/40 text-brand-maroon hover:bg-brand-maroonSoft">
-                  <Link to="/free-resources">Try a Free Resource</Link>
-                </Button>
-              </div>
-
-              <div className="mt-10 grid grid-cols-3 max-w-md gap-6">
-                <div><p className="text-3xl font-semibold text-brand-ink">E → A</p><p className="text-sm text-brand-mute">Some students' grade jumps</p></div>
-                <div><p className="text-3xl font-semibold text-brand-ink">9 yrs</p><p className="text-sm text-brand-mute">In education leadership</p></div>
-                <div><p className="text-3xl font-semibold text-brand-ink">1,000s</p><p className="text-sm text-brand-mute">Students taught</p></div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-5 relative">
-              <div className="absolute -inset-6 bg-brand-maroonSoft rounded-[2.5rem] rotate-3" />
-              <div className="absolute -inset-6 bg-brand-navySoft rounded-[2.5rem] -rotate-3 opacity-60" />
-              <div className="relative bg-white rounded-[2.5rem] p-6 shadow-medium border border-border/50">
-                <img src={BRAND.photo} alt="Georgina, AQA Sociology Examiner and founder of The Travelling Tutor X" className="w-full aspect-square object-cover object-top rounded-[2rem] bg-brand-maroonSoft" />
-                <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-soft px-4 py-3 flex items-center gap-2 border border-border/50">
-                  <Award className="w-5 h-5 text-brand-maroon" />
-                  <p className="text-sm font-medium text-brand-ink">AQA Sociology Examiner</p>
-                </div>
-                <div className="absolute -top-4 -right-4 bg-white rounded-2xl shadow-soft px-4 py-3 flex items-center gap-2 border border-border/50">
-                  <Star className="w-4 h-4 text-yellow-500 fill-yellow-500" />
-                  <p className="text-sm font-medium text-brand-ink">5.0 · 200+ reviews</p>
-                </div>
-              </div>
-              <SignatureLogo className="mt-6 justify-self-end" size="md" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FACEBOOK REVIEWS — carousel of embedded recommendations */}
-      <section className="pt-16 md:pt-24 pb-10 bg-white">
-        <div className="container-px max-w-7xl mx-auto">
-          <div className="rounded-[2.5rem] bg-brand-maroonSoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1877F2] text-xs font-semibold uppercase tracking-wide">
-                <Facebook className="w-3.5 h-3.5" /> Facebook · @thetravellingtutorx
+              <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-border text-sm text-brand-navyDeep font-medium">
+                <Award className="w-4 h-4 text-brand-maroon" /> AQA Sociology Examiner · 9 years
               </span>
-              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon mt-4">don't just take my word for it</p>
-              <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
-                “From an E to an A.” Hear it from the families themselves.
-              </h2>
-              <p className="text-brand-mute mt-4 text-lg max-w-lg">
-                Real, unedited recommendations from families I've worked with — including students who climbed from E grades to A grades, and parents who watched their child's confidence soar. Tap any review to read the full story.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={BRAND.facebookUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-testid="home-facebook-link"
-                  className="inline-flex items-center gap-2 px-5 h-12 rounded-full bg-[#1877F2] hover:bg-[#155ec5] text-white font-medium transition-colors"
-                >
-                  <Facebook className="w-4 h-4" />
-                  See all reviews on Facebook
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-              <p className="text-xs text-brand-mute mt-4 max-w-md">
-                Facebook embeds may be blocked by some browser tracking-prevention settings. If the reviews are hidden, the blue button above opens the page directly.
-              </p>
-            </div>
-
-            <FacebookReviewsCarousel />
-          </div>
-        </div>
-      </section>
-
-      {/* NEWSLETTER — high on the page for visibility */}
-      <section className="pb-16 md:pb-24 bg-white">
-        <div className="container-px max-w-7xl mx-auto">
-          <NewsletterSignup source="homepage" />
-        </div>
-      </section>
-
-      {/* AUDIENCE CARDS */}
-      <section className="section-y">
-        <div className="container-px max-w-7xl mx-auto">
-          <div className="max-w-2xl">
-            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">where to begin?</p>
-            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Tell me who you are.</h2>
-            <p className="text-brand-mute mt-4 text-lg">Pick the path that fits you. Every one leads to support from someone who actually marks the exams.</p>
-          </div>
-
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {audiences.map((a) => (
-              <Link key={a.title} to={a.href} data-testid={a.id}
-                className={`group relative rounded-[2rem] p-8 ${a.color} border border-white/60 shadow-soft hover:-translate-y-1.5 hover:shadow-hover transition-all duration-300`}>
-                <div className={`w-14 h-14 rounded-2xl ${a.iconBg} grid place-items-center shadow-soft`}>
-                  <a.icon className="w-7 h-7" />
-                </div>
-                <h3 className="mt-6 text-2xl font-semibold text-brand-ink">{a.title}</h3>
-                <p className="text-brand-mute mt-2">{a.desc}</p>
-                <ul className="mt-5 space-y-1.5">
-                  {a.links.map((l) => (
-                    <li key={l} className="flex items-center gap-2 text-sm text-brand-ink/85"><CheckCircle2 className="w-4 h-4 text-brand-navyDeep" /> {l}</li>
-                  ))}
-                </ul>
-                <span className="absolute top-6 right-6 w-10 h-10 rounded-full bg-white grid place-items-center text-brand-maroon group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
-                  <ArrowUpRight className="w-5 h-5" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ABOUT FOUNDER */}
-      <section className="section-y bg-white">
-        <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
-          <div className="relative">
-            <div className="absolute -inset-4 bg-brand-navySoft rounded-[2.5rem] -rotate-2" />
-            <img src={BRAND.photo} alt="Georgina, founder of The Travelling Tutor X" className="relative w-full bg-brand-maroonSoft rounded-[2.5rem] aspect-square object-cover object-top shadow-medium" />
-            <div className="absolute -bottom-6 right-6 bg-white rounded-3xl shadow-medium p-5 max-w-[260px] border border-border/50">
-              <p className="font-handwritten text-lg md:text-xl text-brand-maroon leading-none">Hi, I'm Georgina —</p>
-              <p className="text-sm text-brand-mute mt-2">Head of Sociology, Director of Sixth Form & AQA examiner. I believe in every student I teach.</p>
-            </div>
-          </div>
-
-          <div>
-            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">meet the teacher</p>
-            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Meet the Teacher Behind The Travelling Tutor X</h2>
-            <p className="text-brand-mute mt-5 text-lg leading-relaxed">
-              I've spent 9 years in education in leadership roles, including Head of Sociology and Director of Sixth Form, teaching thousands of students along the way. Throughout those 9 years I've also been an AQA Sociology Examiner marking real exam papers. That means I don't teach Sociology in theory — I teach it in exactly the language examiners look for when they award the top marks.
-            </p>
-            <p className="text-brand-mute mt-4 leading-relaxed">
-              But grades are only half the story. So many students come to me convinced they're “just not clever enough”. My job is to prove them wrong — building the self-belief and exam technique that has helped some of my students climb from E grades to A grades. Parents tell me the change in their child's confidence is as remarkable as the results.
-            </p>
-            <ul className="grid sm:grid-cols-2 gap-2.5 mt-6">
-              {["AQA Sociology Examiner","Head of Sociology","Director of Sixth Form","Workshop Leader","Sociology Specialist","Founder, The Travelling Tutor X"].map((t)=>(
-                <li key={t} className="flex items-center gap-2 text-brand-ink"><MapPin className="w-4 h-4 text-brand-maroon" /> {t}</li>
-              ))}
-            </ul>
-            <Button asChild className="mt-8 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white h-12 px-6">
-              <Link to="/about">Read my full story</Link>
-            </Button>
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE */}
-      <section className="section-y">
-        <div className="container-px max-w-7xl mx-auto">
-          <div className="text-center max-w-2xl mx-auto">
-            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">why parents & students trust me</p>
-            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Why families choose The Travelling Tutor X</h2>
-          </div>
-          <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {pillars.map((p) => (
-              <div key={p.title} className="rounded-[1.75rem] p-7 bg-white border border-border/50 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all">
-                <div className="w-14 h-14 rounded-2xl bg-brand-maroonSoft grid place-items-center text-brand-maroon">
-                  <p.icon className="w-6 h-6" />
-                </div>
-                <h3 className="mt-5 text-xl font-semibold text-brand-ink">{p.title}</h3>
-                <p className="text-brand-mute mt-2 leading-relaxed text-sm">{p.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SERVICES */}
-      <section className="section-y bg-brand-cream">
-        <div className="container-px max-w-7xl mx-auto">
-          <div className="flex items-end justify-between flex-wrap gap-6 mb-10">
-            <div>
-              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">ways to learn</p>
-              <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Services built around results</h2>
-            </div>
-            <Link to="/courses" className="hidden md:inline-flex items-center gap-1 text-brand-maroon font-medium underline-grow">View all <ArrowUpRight className="w-4 h-4" /></Link>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.map((s) => (
-              <Link key={s.title} to={s.href} className="group rounded-[1.75rem] bg-white p-7 border border-border/50 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all">
-                <div className="w-12 h-12 rounded-xl bg-brand-navySoft grid place-items-center text-brand-navyDeep">
-                  <s.icon className="w-6 h-6" />
-                </div>
-                <h3 className="mt-5 text-xl font-semibold text-brand-ink">{s.title}</h3>
-                <p className="text-brand-mute mt-2 text-sm leading-relaxed">{s.desc}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-brand-maroon text-sm font-medium">
-                  Learn more <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-1 group-hover:-translate-y-1" />
-                </span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* TUTOR PARTNER HIGHLIGHT */}
-      <section className="section-y">
-        <div className="container-px max-w-7xl mx-auto">
-          <div className="rounded-[2.5rem] bg-brand-navySoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center overflow-hidden relative">
-            <div>
-              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">teach. inspire. earn.</p>
-              <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Become a Sociology Tutor Partner</h2>
-              <p className="text-brand-ink/80 mt-5 text-lg leading-relaxed max-w-lg">
-                Join a growing Sociology education brand. Receive training, mentoring, resources, marketing and student leads while building a flexible and rewarding career on your terms.
-              </p>
-              <ul className="grid sm:grid-cols-2 gap-2 mt-6">
-                {["Flexible income","Remote working","Marketing support","Warm student leads","Mentoring & training","Meaningful work"].map((t)=>(
-                  <li key={t} className="flex items-center gap-2 text-brand-ink"><CheckCircle2 className="w-4 h-4 text-brand-maroon" /> {t}</li>
+              <h1 className="mt-6 font-bold tracking-tight uppercase">
+                <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-ink">Where Sociology grades improve.</span>
+                <span className="block mt-3 text-2xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] text-brand-maroon">Gain the examiner's edge.</span>
+              </h1>
+              <p className="mt-6 text-xl md:text-2xl text-brand-navyDeep font-medium">AQA Sociology tuition led by an examiner.</p>
+              <ul className="mt-5 flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 text-brand-ink">
+                {["Build stronger essays", "Master exam technique", "Improve your grades"].map((t) => (
+                  <li key={t} className="flex items-center gap-2 font-medium"><CheckCircle2 className="w-5 h-5 text-brand-maroon" /> {t}</li>
                 ))}
               </ul>
-              <Button asChild className="mt-7 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white h-12 px-7">
-                <Link to="/tutor-partner">Explore the Programme <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
-              </Button>
+              <div className="mt-9 flex flex-wrap gap-3">
+                <Button data-testid={HOME.heroExplore} asChild className="h-13 px-8 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white shadow-soft font-semibold text-base">
+                  <Link to="/tuition">Explore Tuition <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
+                </Button>
+                <Button data-testid={HOME.heroBook} asChild variant="outline" className="h-13 px-8 rounded-full border-brand-navyDeep/30 text-brand-navyDeep hover:bg-brand-navySoft font-semibold text-base">
+                  <Link to="/resources">Shop Resources</Link>
+                </Button>
+              </div>
             </div>
-            <div className="relative">
-              <div className="grid grid-cols-2 gap-4">
-                <div className="rounded-3xl p-6 bg-white border border-white shadow-soft">
-                  <p className="font-handwritten text-lg md:text-xl text-brand-maroon">teach</p>
-                  <p className="font-semibold text-brand-ink mt-1">1-1 & group Sociology sessions</p>
-                  <p className="text-sm text-brand-mute mt-2">£40-80/hour 1-1 · £100-200/hour group</p>
-                </div>
-                <div className="rounded-3xl p-6 bg-white border border-white shadow-soft mt-8">
-                  <p className="font-handwritten text-lg md:text-xl text-brand-maroon">create</p>
-                  <p className="font-semibold text-brand-ink mt-1">Resources, TikToks & essay plans</p>
-                  <p className="text-sm text-brand-mute mt-2">Build a name and a real portfolio</p>
-                </div>
-                <div className="rounded-3xl p-6 bg-white border border-white shadow-soft -mt-4">
-                  <p className="font-handwritten text-lg md:text-xl text-brand-maroon">grow</p>
-                  <p className="font-semibold text-brand-ink mt-1">Training, mentoring & community</p>
-                  <p className="text-sm text-brand-mute mt-2">We invest in you from day one</p>
-                </div>
-                <div className="rounded-3xl p-6 bg-white border border-white shadow-soft mt-4">
-                  <p className="font-handwritten text-lg md:text-xl text-brand-maroon">earn</p>
-                  <p className="font-semibold text-brand-ink mt-1">Flexible, rewarding income</p>
-                  <p className="text-sm text-brand-mute mt-2">On your terms · remote-first</p>
-                </div>
+
+            <div className="lg:col-span-5 relative max-w-md mx-auto w-full">
+              <div className="absolute -inset-4 bg-brand-maroonSoft rounded-[2.5rem] rotate-2" />
+              <img
+                src={BRAND.photo}
+                alt="Georgina, AQA Sociology Examiner and founder of The Travelling Tutor X"
+                className="relative w-full aspect-[4/5] object-cover object-top rounded-[2rem] shadow-medium"
+              />
+              <div className="absolute -bottom-5 -left-4 sm:-left-8 bg-white rounded-2xl shadow-medium px-4 py-3 border border-border/50">
+                <div className="flex text-yellow-500">{Array.from({ length: 5 }).map((_, i) => <Star key={i} className="w-4 h-4 fill-current" />)}</div>
+                <p className="text-sm font-semibold text-brand-ink mt-1">Some students: E → A</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* FINAL CTA */}
+      {/* TRUST STRIP */}
+      <section className="bg-brand-navyDeep text-white">
+        <div className="container-px max-w-7xl mx-auto py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
+          {[["9 years", "AQA Sociology examiner"], ["Head of Sociology", "& Director of Sixth Form"], ["1,000s", "of students taught"], ["GCSE & A-Level", "AQA specialist"]].map(([a, b]) => (
+            <div key={a}>
+              <p className="font-semibold text-lg">{a}</p>
+              <p className="text-white/65 text-sm">{b}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 2. WHY STUDENTS STRUGGLE */}
       <section className="section-y">
-        <div className="container-px max-w-5xl mx-auto text-center">
-          <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">your best grade starts here</p>
-          <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">Your next steps are waiting. Let's get you there.</h2>
-          <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">University, an apprenticeship, your dream career — the right grades open every door. Book your tutoring today and give yourself the best possible chance of the results you deserve.</p>
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button data-testid={HOME.ctaFinalBook} asChild className="h-13 px-7 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white">
-              <Link to="/contact">Book Your Tutoring</Link>
+        <div className="container-px max-w-7xl mx-auto">
+          <SectionHeader
+            eyebrow="why students struggle"
+            title="Knowing the content isn't enough."
+            lede="Most students lose marks in the same five places. As an examiner, I see it in every script — and I teach students exactly how to fix it."
+            center
+          />
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            {struggles.map((s) => (
+              <div key={s.title} className="rounded-3xl bg-white border border-border/60 p-6 shadow-soft flex flex-col">
+                <div className="w-12 h-12 rounded-2xl bg-brand-maroonSoft text-brand-maroon grid place-items-center"><s.icon className="w-6 h-6" /></div>
+                <h3 className="mt-5 text-lg font-semibold text-brand-ink">{s.title}</h3>
+                <p className="text-brand-mute text-sm mt-1.5 flex-1">{s.problem}</p>
+                <p className="mt-4 pt-4 border-t border-border/60 text-sm font-medium text-brand-navyDeep flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-brand-maroon shrink-0 mt-0.5" /> {s.fix}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 3. EXPLORE WHAT YOU NEED */}
+      <section className="section-y bg-white">
+        <div className="container-px max-w-7xl mx-auto">
+          <SectionHeader eyebrow="explore what you need" title="Find the right support for you." />
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {pathways.map((p) => (
+              <div key={p.title} className="rounded-3xl bg-brand-cream border border-border/60 p-8 flex flex-col hover:shadow-hover transition-shadow">
+                <div className="w-14 h-14 rounded-2xl bg-brand-maroon text-white grid place-items-center"><p.icon className="w-7 h-7" /></div>
+                <h3 className="mt-6 text-2xl font-semibold text-brand-ink">{p.title}</h3>
+                <p className="text-brand-mute mt-2">{p.desc}</p>
+                <ul className="mt-5 space-y-1 flex-1">
+                  {p.items.map(([label, to]) => (
+                    <li key={label}>
+                      <Link to={to} className="flex items-center justify-between py-2 border-b border-border/60 text-brand-ink hover:text-brand-maroon">
+                        {label} <ArrowUpRight className="w-4 h-4 opacity-50" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild className="mt-7 rounded-full h-12 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
+                  <Link to={p.to}>{p.cta}</Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. FEATURED COURSE */}
+      <section className="section-y">
+        <div className="container-px max-w-7xl mx-auto">
+          <div className="rounded-[2rem] bg-brand-navyDeep text-white p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center relative overflow-hidden">
+            <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-brand-maroon/30 blur-3xl" aria-hidden />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" /> Flagship course
+              </span>
+              <h2 className="text-3xl md:text-5xl font-semibold mt-4 leading-tight">The {COURSE.title}</h2>
+              <p className="text-white/80 mt-5 text-lg max-w-lg leading-relaxed">{COURSE.blurb}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild className="rounded-full h-12 px-7 bg-white text-brand-maroon hover:bg-brand-cream font-semibold">
+                  <a href={COURSE.url} target="_blank" rel="noreferrer">Enrol now <ArrowUpRight className="w-4 h-4 ml-1" /></a>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full h-12 px-7 bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white">
+                  <Link to="/resources#grade-transformation-course">Find out more</Link>
+                </Button>
+              </div>
+            </div>
+            <ul className="relative grid sm:grid-cols-2 gap-4">
+              {[[MonitorPlay, COURSE.bullets[0]], [Star, COURSE.bullets[1]], [ClipboardCheck, COURSE.bullets[2]], [Award, COURSE.bullets[3]]].map(([Icon, t]) => (
+                <li key={t} className="rounded-2xl bg-white/[0.07] border border-white/10 p-5">
+                  <Icon className="w-6 h-6 text-brand-maroonPastel" />
+                  <p className="font-medium mt-3">{t}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. EXAMINER INSIGHT */}
+      <section className="section-y bg-white">
+        <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
+          <div className="relative max-w-md mx-auto w-full lg:order-2">
+            <div className="absolute -inset-4 bg-brand-navySoft rounded-[2.5rem] -rotate-2" />
+            <img src={BRAND.photo} alt="Georgina, founder of The Travelling Tutor X" className="relative w-full aspect-square object-cover object-top rounded-[2rem] shadow-medium" />
+          </div>
+          <div className="lg:order-1">
+            <SectionHeader
+              eyebrow="examiner insight"
+              title="Learn from someone who marks the exams."
+              lede="For 9 years I've marked real AQA Sociology scripts. I know exactly what examiners look for — and what costs students marks. That insight goes into every lesson and resource."
+            />
+            <ul className="mt-7 space-y-4">
+              {[
+                ["Know what earns marks", "Students learn the language and structure the mark scheme rewards."],
+                ["Avoid common mistakes", "I show students the errors I see in scripts every exam season."],
+                ["Build real self-belief", "Clear steps to success give students the confidence to perform on the day."],
+              ].map(([t, d]) => (
+                <li key={t} className="flex gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-brand-maroon shrink-0 mt-0.5" />
+                  <div>
+                    <p className="font-semibold text-brand-ink">{t}</p>
+                    <p className="text-brand-mute text-sm mt-0.5">{d}</p>
+                  </div>
+                </li>
+              ))}
+            </ul>
+            <Button asChild variant="outline" className="mt-8 rounded-full h-12 px-6 border-brand-maroon/40 text-brand-maroon hover:bg-brand-maroonSoft">
+              <Link to="/about#experience">About my experience</Link>
             </Button>
-            <Button data-testid={HOME.ctaFinalResources} asChild variant="outline" className="h-13 px-7 rounded-full border-brand-maroon/40 text-brand-maroon hover:bg-brand-maroonSoft">
-              <Link to="/free-resources">Explore Free Resources</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. TESTIMONIALS */}
+      <TestimonialsSection className="" />
+
+      {/* 7. SCHOOLS */}
+      <section className="pb-20 md:pb-28">
+        <div className="container-px max-w-7xl mx-auto">
+          <div className="rounded-[2rem] bg-brand-maroon text-white p-8 md:p-12 grid md:grid-cols-[auto_1fr_auto] gap-6 md:gap-10 items-center">
+            <div className="w-16 h-16 rounded-2xl bg-white/15 grid place-items-center"><School className="w-8 h-8" /></div>
+            <div>
+              <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-white/75"><BadgePercent className="w-4 h-4" /> For schools</p>
+              <h2 className="text-2xl md:text-3xl font-semibold mt-2">Exclusive discounts on resources for schools.</h2>
+              <p className="text-white/80 mt-2 max-w-2xl">Give your Sociology department examiner-written resources at exclusive discounted school rates.</p>
+            </div>
+            <Button asChild className="rounded-full h-12 px-7 bg-white text-brand-maroon hover:bg-brand-cream font-semibold">
+              <Link to="/schools">Enquire for your school <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* 8. FINAL CTA */}
+      <section className="section-y bg-white">
+        <div className="container-px max-w-4xl mx-auto text-center">
+          <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">your next steps are waiting</p>
+          <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">Ready to gain the examiner's edge?</h2>
+          <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">
+            University, an apprenticeship, your dream career — the right grades open every door. Start with examiner-led tuition or
+            pick up a resource today.
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            <Button data-testid={HOME.ctaFinalBook} asChild className="h-13 px-8 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold text-base">
+              <Link to="/tuition">Explore Tuition <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
+            </Button>
+            <Button data-testid={HOME.ctaFinalResources} asChild variant="outline" className="h-13 px-8 rounded-full border-brand-navyDeep/30 text-brand-navyDeep hover:bg-brand-navySoft font-semibold text-base">
+              <Link to="/resources">Shop Resources</Link>
             </Button>
           </div>
         </div>

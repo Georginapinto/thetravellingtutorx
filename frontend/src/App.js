@@ -6,40 +6,45 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import Home from "@/pages/Home";
 import About from "@/pages/About";
-import Students from "@/pages/Students";
 import Parents from "@/pages/Parents";
 import Teachers from "@/pages/Teachers";
 import TutorPartner from "@/pages/TutorPartner";
 import Contact from "@/pages/Contact";
-import Courses from "@/pages/Courses";
-import ResourceShop from "@/pages/ResourceShop";
-import Shop from "@/pages/Shop";
+import Tuition from "@/pages/Tuition";
+import Resources from "@/pages/Resources";
+import Schools from "@/pages/Schools";
 import FreeResources from "@/pages/FreeResources";
 import Blog from "@/pages/Blog";
 import NotFound from "@/pages/NotFound";
 import InstallPrompt from "@/components/InstallPrompt";
+import ScrollManager from "@/components/ScrollManager";
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
+        <ScrollManager />
         <Navbar />
         <main>
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/students" element={<Students />} />
-            <Route path="/parents" element={<Parents />} />
+            <Route path="/tuition" element={<Tuition />} />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/teachers" element={<Teachers />} />
             <Route path="/tutor-partner" element={<TutorPartner />} />
-            {/* Old links to the removed Testimonials page go to the homepage. */}
-            <Route path="/testimonials" element={<Navigate to="/" replace />} />
+            <Route path="/schools" element={<Schools />} />
+            <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
-            <Route path="/courses" element={<Courses />} />
-            <Route path="/resource-shop" element={<Shop />} />
-            <Route path="/shop" element={<Shop />} />
+            <Route path="/parents" element={<Parents />} />
             <Route path="/free-resources" element={<FreeResources />} />
             <Route path="/blog" element={<Blog />} />
+            {/* Old addresses, kept so existing links and bookmarks still work. */}
+            <Route path="/students" element={<Navigate to="/tuition" replace />} />
+            <Route path="/courses" element={<Navigate to="/tuition" replace />} />
+            <Route path="/shop" element={<Navigate to="/resources" replace />} />
+            <Route path="/resource-shop" element={<Navigate to="/resources" replace />} />
+            <Route path="/testimonials" element={<Navigate to="/about#testimonials" replace />} />
+            <Route path="/faqs" element={<Navigate to="/about#faqs" replace />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>

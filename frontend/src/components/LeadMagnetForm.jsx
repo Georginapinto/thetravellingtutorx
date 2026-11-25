@@ -8,8 +8,13 @@ import { Honeypot } from "./Honeypot";
 import { toast } from "sonner";
 import { CheckCircle2 } from "lucide-react";
 
-export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pack", downloadUrl, downloadFilename }) => {
+// `audienceOptions` (e.g. ["student", "parent"]) shows an "I'm a..." choice
+// instead of using a fixed `audience`. `doneText` replaces the confirmation.
+export const LeadMagnetForm = ({
+  audience, audienceOptions, magnet, ctaLabel = "Download Free Pack", downloadUrl, downloadFilename, doneText, successToast,
+}) => {
   const [form, setForm] = useState({ first_name: "", email: "", website: "" });
+  const [who, setWho] = useState(audienceOptions ? audienceOptions[0] : audience);
   const [busy, setBusy] = useState(false);
   const [done, setDone] = useState(false);
 
@@ -29,13 +34,13 @@ export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pac
     e.preventDefault();
     setBusy(true);
     try {
-      await api.post("/lead-magnet", { ...form, audience, magnet });
+      await api.post("/lead-magnet", { ...form, audience: who, magnet });
       setDone(true);
       if (downloadUrl) {
         triggerDownload();
         toast.success("Your download is on the way — also sent to your inbox.");
       } else {
-        toast.success("Sent! Check your inbox in a few minutes.");
+        toast.success(successToast || "Sent! Check your inbox in a few minutes.");
       }
     } catch {
       toast.error("Couldn't send — please try again.");
@@ -51,7 +56,7 @@ export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pac
           <CheckCircle2 className="w-6 h-6 text-brand-navyDeep flex-none mt-0.5" />
           <div>
             <p className="font-semibold text-brand-ink">You're on the list, {form.first_name || "friend"}.</p>
-            <p className="text-brand-mute text-sm">{downloadUrl ? "Your download should have opened — if not, tap the button below." : "Check your inbox — your pack is on its way."}</p>
+            <p className="text-brand-mute text-sm">{doneText || (downloadUrl ? "Your download should have opened — if not, tap the button below." : "Check your inbox — your pack is on its way.")}</p>
           </div>
         </div>
         {downloadUrl && (
@@ -65,6 +70,24 @@ export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pac
 
   return (
     <form onSubmit={submit} className="relative space-y-3">
+      {audienceOptions && (
+        <div role="radiogroup" aria-label="I am a" className="grid grid-cols-2 gap-2 p-1 rounded-full bg-brand-cream border border-border">
+          {audienceOptions.map((a) => (
+            <button
+              key={a}
+              type="button"
+              role="radio"
+              aria-checked={who === a}
+              onClick={() => setWho(a)}
+              className={`h-10 rounded-full text-sm font-semibold transition-colors ${
+                who === a ? "bg-brand-navyDeep text-white" : "text-brand-ink hover:text-brand-maroon"
+              }`}
+            >
+              I'm a {a}
+            </button>
+          ))}
+        </div>
+      )}
       <div>
         <Label className="text-brand-ink">First name</Label>
         <Input

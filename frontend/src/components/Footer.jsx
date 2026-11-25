@@ -35,19 +35,21 @@ export const Footer = () => {
           <div>
             <h4 className="font-semibold text-brand-ink mb-4">Explore</h4>
             <ul className="space-y-2.5 text-brand-mute">
-              <li><Link to="/students" className="hover:text-brand-maroon">Students</Link></li>
-              <li><Link to="/parents" className="hover:text-brand-maroon">Parents</Link></li>
-              <li><Link to="/teachers" className="hover:text-brand-maroon">Teachers</Link></li>
-              <li><Link to="/tutor-partner" className="hover:text-brand-maroon">Tutor Training</Link></li>
-              <li><Link to="/courses" className="hover:text-brand-maroon">Courses</Link></li>
+              <li><Link to="/tuition" className="hover:text-brand-maroon">Tuition</Link></li>
+              <li><Link to="/resources" className="hover:text-brand-maroon">Resources</Link></li>
+              <li><Link to="/resources#grade-transformation-course" className="hover:text-brand-maroon">Grade Transformation Course</Link></li>
+              <li><Link to="/teachers" className="hover:text-brand-maroon">For Teachers</Link></li>
+              <li><Link to="/schools" className="hover:text-brand-maroon">Schools</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="font-semibold text-brand-ink mb-4">More</h4>
             <ul className="space-y-2.5 text-brand-mute">
+              <li><Link to="/about" className="hover:text-brand-maroon">About Georgina</Link></li>
+              <li><Link to="/about#faqs" className="hover:text-brand-maroon">FAQs</Link></li>
               <li><Link to="/free-resources" className="hover:text-brand-maroon">Free Resources</Link></li>
-              <li><Link to="/shop" className="hover:text-brand-maroon">Shop</Link></li>
+              <li><Link to="/parents" className="hover:text-brand-maroon">For Parents</Link></li>
               <li><Link to="/blog" className="hover:text-brand-maroon">Blog</Link></li>
               <li><Link to="/contact" className="hover:text-brand-maroon">Contact</Link></li>
             </ul>

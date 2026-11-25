@@ -36,6 +36,8 @@
 @layer base {
   * { @apply border-border; }
   html { scroll-behavior: smooth; }
+  /* Keep section headings clear of the sticky navbar when jumping to #anchors. */
+  [id] { scroll-margin-top: 6rem; }
   body {
     @apply bg-background text-foreground font-body antialiased;
     font-feature-settings: "ss01", "ss02", "cv11";
