@@ -1,78 +1,28 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { Link, useLocation } from "react-router-dom";
 import { Mail, Instagram, Music2, Plane } from "lucide-react";
 import { SignatureLogo } from "./SignatureLogo";
-import { FORMS } from "../constants/testIds";
-import { api } from "../lib/api";
-import { toast } from "sonner";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Honeypot } from "./Honeypot";
+import { NewsletterSignup } from "./NewsletterSignup";
 
 export const Footer = () => {
-  const [email, setEmail] = useState("");
-  const [website, setWebsite] = useState("");
-  const [busy, setBusy] = useState(false);
-
-  const submit = async (e) => {
-    e.preventDefault();
-    if (!email) return;
-    setBusy(true);
-    try {
-      await api.post("/newsletter", { email, source: "footer", website });
-      toast.success("You're in! Welcome to the community.");
-      setEmail("");
-    } catch {
-      toast.error("Something went wrong — please try again.");
-    } finally {
-      setBusy(false);
-    }
-  };
+  // The homepage shows the signup near the top, so don't repeat it here.
+  const onHome = useLocation().pathname === "/";
 
   return (
     <footer className="relative mt-24">
-      {/* Newsletter card overlapping */}
-      <div className="container-px max-w-7xl mx-auto relative z-10">
-        <div className="bg-white rounded-[2rem] shadow-medium border border-border/60 p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center -mb-16">
-          <div>
-            <p className="font-handwritten text-3xl text-brand-sageDeep">Join the community</p>
-            <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">
-              Join The Travelling Tutor X Community
-            </h3>
-            <p className="text-brand-mute mt-3 max-w-md">
-              Receive free Sociology resources, examiner advice, revision tips and exclusive updates straight to your inbox.
-            </p>
-          </div>
-          <form onSubmit={submit} className="relative flex flex-col sm:flex-row gap-3">
-            <Honeypot value={website} onChange={setWebsite} />
-            <Input
-              data-testid={FORMS.newsletterEmail}
-              type="email"
-              required
-              placeholder="Your best email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="h-14 rounded-full px-6 bg-brand-warmWhite border-border"
-            />
-            <Button
-              data-testid={FORMS.newsletterSubmit}
-              type="submit"
-              disabled={busy}
-              className="h-14 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white px-7"
-            >
-              {busy ? "Joining..." : "Join Free Today"}
-            </Button>
-          </form>
+      {!onHome && (
+        <div className="container-px max-w-7xl mx-auto relative z-10">
+          <NewsletterSignup source="footer" className="-mb-16" />
         </div>
-      </div>
+      )}
 
-      <div className="bg-brand-pinkSoft pt-32 pb-12">
+      <div className={`bg-brand-pinkSoft ${onHome ? "pt-16" : "pt-32"} pb-12`}>
         <div className="container-px max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
             <SignatureLogo />
             <p className="text-brand-mute mt-4 max-w-sm">
-              Expert Sociology education led by an experienced teacher and AQA Sociology Examiner. Helping students,
-              parents and teachers achieve more — wherever you are in your journey.
+              Examiner-led Sociology tutoring and resources from an AQA Sociology Examiner of 8 years and Director of
+              Sixth Form. Building self-belief and helping students achieve their best grades.
             </p>
             <div className="flex gap-3 mt-6">
               <a href="mailto:help@thetravellingtutorx.co.uk" className="w-11 h-11 rounded-full bg-white grid place-items-center text-brand-pink hover:bg-brand-pink hover:text-white transition-colors" aria-label="Email">

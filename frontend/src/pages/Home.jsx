@@ -1,20 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import {
-  GraduationCap, Users, BookOpenCheck, ArrowUpRight, Compass, Sparkles, Heart,
+  GraduationCap, Users, BookOpenCheck, ArrowUpRight, Sparkles, Heart,
   CheckCircle2, Star, Plane, MapPin, ClipboardCheck, Award, ShoppingBag, MonitorPlay, Facebook, ExternalLink
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { HOME, BRAND } from "@/constants/testIds";
 import { SignatureLogo } from "@/components/SignatureLogo";
 import FacebookReviewsCarousel from "@/components/FacebookReviewsCarousel";
+import NewsletterSignup from "@/components/NewsletterSignup";
 
 const audiences = [
   {
     id: HOME.cardStudent,
     icon: GraduationCap,
     title: "I'm a Student",
-    desc: "Top grades, exam confidence, examiner-led teaching that actually works.",
+    desc: "Learn exactly what examiners reward — and start believing you can hit the top grades.",
     color: "bg-brand-pinkSoft",
     iconBg: "bg-brand-pink text-white",
     href: "/students",
@@ -24,7 +25,7 @@ const audiences = [
     id: HOME.cardParent,
     icon: Users,
     title: "I'm a Parent",
-    desc: "Calm, structured support for your child — and clear updates for you.",
+    desc: "Trusted, experienced support for your child — with honest progress updates for you.",
     color: "bg-brand-sageSoft",
     iconBg: "bg-brand-sageDeep text-white",
     href: "/parents",
@@ -43,10 +44,10 @@ const audiences = [
 ];
 
 const pillars = [
-  { icon: ClipboardCheck, title: "Examiner Insight", desc: "Created by an experienced AQA Sociology Examiner. You learn exactly what mark-schemes reward." },
-  { icon: Award, title: "Expert Teaching", desc: "Years of classroom leadership as a Director of Sixth Form — not just theory, real results." },
-  { icon: Compass, title: "Flexible Learning", desc: "Choose tutoring, self-paced courses, workshops, or membership. Learn the way you learn best." },
-  { icon: Heart, title: "Beyond the Classroom", desc: "Join a warm Sociology learning community that keeps growing every week." },
+  { icon: ClipboardCheck, title: "8 Years as an AQA Examiner", desc: "I've marked thousands of real exam scripts. I know precisely what separates a C from an A — and I teach students exactly that." },
+  { icon: Award, title: "Director of Sixth Form", desc: "Senior school leadership means I understand the pressure students face, and how to guide them through it to results." },
+  { icon: Heart, title: "Confidence That Lasts", desc: "Self-belief comes first. Students who arrive saying “I'm just not good at essays” leave knowing they can write top-band answers." },
+  { icon: Star, title: "Proven Grade Jumps", desc: "The reviews speak for themselves: students moving from E grades to A grades, and from C to A*." },
 ];
 
 const services = [
@@ -54,7 +55,7 @@ const services = [
   { icon: Sparkles, title: "Sociology Grade Booster Bootcamps", desc: "Our flagship group programme — structured, examiner-led, results-driven.", href: "/courses" },
   { icon: MonitorPlay, title: "Online Course", desc: "Self-paced Sociology mastery. Watch, revise, repeat — any time.", href: "/courses" },
   { icon: BookOpenCheck, title: "Revision Workshops", desc: "Intensive sessions that turn knowledge into top-band marks.", href: "/courses" },
-  { icon: ShoppingBag, title: "Resource Shop", desc: "Essay plans, model answers, retrieval quizzes — used by 6,000+ students.", href: "/resource-shop" },
+  { icon: ShoppingBag, title: "Resource Shop", desc: "Examiner-written essay plans, model answers and quizzes — trusted by 6,000+ students.", href: "/resource-shop" },
   { icon: Users, title: "Tutor Partner Programme", desc: "Build a flexible, rewarding tutoring business with leads, training & community.", href: "/tutor-partner" },
 ];
 
@@ -71,29 +72,29 @@ export default function Home() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-pinkPastel text-sm text-brand-pink font-medium shadow-soft">
                 <Plane className="w-4 h-4 -rotate-12" />
-                Trusted by 6,000+ Sociology learners across the UK
+                Trusted by 6,000+ students and their parents across the UK
               </div>
               <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] font-semibold text-brand-ink tracking-tight">
-                Expert <span className="relative">Sociology
+                From E grades to <span className="relative">A grades
                 <svg viewBox="0 0 200 14" className="absolute -bottom-2 left-0 w-full h-3" preserveAspectRatio="none"><path d="M2 8 C 50 2, 150 14, 198 6" stroke="#E11D67" strokeWidth="4" fill="none" strokeLinecap="round"/></svg>
-                </span> Support for Students, Parents and Teachers
+                </span> — with an AQA Sociology Examiner on your side
               </h1>
               <p className="mt-6 text-lg text-brand-mute max-w-xl leading-relaxed">
-                Whether you're aiming for top grades in GCSE or A-Level Sociology, looking for expert one-to-one tuition, or seeking high-quality support as a teacher — The Travelling Tutor X provides practical, examiner-led education that builds confidence and delivers results.
+                I've spent 8 years marking AQA Sociology exams and leading a Sixth Form as Director. I know exactly what examiners reward — and I teach students how to deliver it. The result? Students who stop doubting themselves, start believing they can succeed, and walk into the exam hall ready to achieve their best grades.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button data-testid={HOME.heroExplore} asChild className="h-13 px-7 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white shadow-soft">
-                  <Link to="/students">Explore How I Can Help <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
+                  <Link to="/contact">Book Your Tutoring <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
                 </Button>
                 <Button data-testid={HOME.heroBook} asChild variant="outline" className="h-13 px-7 rounded-full border-brand-pink/40 text-brand-pink hover:bg-brand-pinkSoft">
-                  <Link to="/contact">Get in Touch</Link>
+                  <Link to="/free-resources">Try a Free Resource</Link>
                 </Button>
               </div>
 
               <div className="mt-10 grid grid-cols-3 max-w-md gap-6">
-                <div><p className="text-3xl font-semibold text-brand-ink">C → A*</p><p className="text-sm text-brand-mute">Some have achieved</p></div>
-                <div><p className="text-3xl font-semibold text-brand-ink">D → B</p><p className="text-sm text-brand-mute">Common turnaround</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">E → A</p><p className="text-sm text-brand-mute">Grade jumps in reviews</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">8 yrs</p><p className="text-sm text-brand-mute">AQA examiner</p></div>
                 <div><p className="text-3xl font-semibold text-brand-ink">6,000+</p><p className="text-sm text-brand-mute">Students supported</p></div>
               </div>
             </div>
@@ -118,13 +119,58 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FACEBOOK REVIEWS — carousel of embedded recommendations */}
+      <section className="pt-16 md:pt-24 pb-10 bg-white">
+        <div className="container-px max-w-7xl mx-auto">
+          <div className="rounded-[2.5rem] bg-brand-pinkSoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1877F2] text-xs font-semibold uppercase tracking-wide">
+                <Facebook className="w-3.5 h-3.5" /> Facebook · @thetravellingtutorx
+              </span>
+              <p className="font-handwritten text-3xl text-brand-pink mt-4">don't just take my word for it</p>
+              <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
+                “From an E to an A.” Hear it from parents and students.
+              </h2>
+              <p className="text-brand-mute mt-4 text-lg max-w-lg">
+                Real, unedited recommendations from families I've worked with — students who turned their grades around and parents who watched their child's confidence grow. Tap any review to read the full story.
+              </p>
+              <div className="mt-7 flex flex-wrap gap-3">
+                <a
+                  href={BRAND.facebookUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  data-testid="home-facebook-link"
+                  className="inline-flex items-center gap-2 px-5 h-12 rounded-full bg-[#1877F2] hover:bg-[#155ec5] text-white font-medium transition-colors"
+                >
+                  <Facebook className="w-4 h-4" />
+                  See all reviews on Facebook
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </div>
+              <p className="text-xs text-brand-mute mt-4 max-w-md">
+                Facebook embeds may be blocked by some browser tracking-prevention settings. If the reviews are hidden, the blue button above opens the page directly.
+              </p>
+            </div>
+
+            <FacebookReviewsCarousel />
+          </div>
+        </div>
+      </section>
+
+      {/* NEWSLETTER — high on the page for visibility */}
+      <section className="pb-16 md:pb-24 bg-white">
+        <div className="container-px max-w-7xl mx-auto">
+          <NewsletterSignup source="homepage" />
+        </div>
+      </section>
+
       {/* AUDIENCE CARDS */}
       <section className="section-y">
         <div className="container-px max-w-7xl mx-auto">
           <div className="max-w-2xl">
             <p className="font-handwritten text-3xl text-brand-pink">where to begin?</p>
             <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Tell me who you are.</h2>
-            <p className="text-brand-mute mt-4 text-lg">A few quick paths — pick the one that fits. Every door leads to expert, examiner-led support.</p>
+            <p className="text-brand-mute mt-4 text-lg">Pick the path that fits you. Every one leads to support from someone who actually marks the exams.</p>
           </div>
 
           <div className="mt-12 grid md:grid-cols-3 gap-6">
@@ -158,7 +204,7 @@ export default function Home() {
             <img src={BRAND.avatar} alt="Georgina, founder of The Travelling Tutor X" className="relative w-full bg-brand-pinkSoft rounded-[2.5rem] aspect-square object-contain shadow-medium" />
             <div className="absolute -bottom-6 right-6 bg-white rounded-3xl shadow-medium p-5 max-w-[260px] border border-border/50">
               <p className="font-handwritten text-2xl text-brand-pink leading-none">Hi, I'm Georgina —</p>
-              <p className="text-sm text-brand-mute mt-2">Experienced teacher, AQA examiner & Director of Sixth Form. I built this for you.</p>
+              <p className="text-sm text-brand-mute mt-2">8 years an AQA examiner & Director of Sixth Form. I believe in every student I teach.</p>
             </div>
           </div>
 
@@ -166,10 +212,10 @@ export default function Home() {
             <p className="font-handwritten text-3xl text-brand-pink">meet the teacher</p>
             <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Meet the Teacher Behind The Travelling Tutor X</h2>
             <p className="text-brand-mute mt-5 text-lg leading-relaxed">
-              I'm an experienced Sociology teacher, AQA Sociology Examiner and Director of Sixth Form. Over a decade in the classroom and marking national exams means I don't teach Sociology in theory — I teach it in exactly the language examiners want to see.
+              I'm a Sociology teacher, a Director of Sixth Form, and I've spent 8 years as an AQA Sociology Examiner marking real exam papers. That means I don't teach Sociology in theory — I teach it in exactly the language examiners look for when they award the top marks.
             </p>
             <p className="text-brand-mute mt-4 leading-relaxed">
-              My students aren't just learning content. They're learning how to think like top-band candidates: how to plan, evaluate, structure and write essays that consistently land in the A/A* range.
+              But grades are only half the story. So many students come to me convinced they're “just not clever enough”. My job is to prove them wrong — building the self-belief and exam technique that turns E grades into A grades. Parents tell me the change in their child's confidence is as remarkable as the results.
             </p>
             <ul className="grid sm:grid-cols-2 gap-2.5 mt-6">
               {["AQA Sociology Examiner","Director of Sixth Form","Course Creator","Workshop Leader","Sociology Specialist","Founder, The Travelling Tutor X"].map((t)=>(
@@ -187,8 +233,8 @@ export default function Home() {
       <section className="section-y">
         <div className="container-px max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto">
-            <p className="font-handwritten text-3xl text-brand-pink">why parents & students choose us</p>
-            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Why The Travelling Tutor X</h2>
+            <p className="font-handwritten text-3xl text-brand-pink">why parents & students trust me</p>
+            <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Why families choose The Travelling Tutor X</h2>
           </div>
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {pillars.map((p) => (
@@ -279,53 +325,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FACEBOOK REVIEWS — carousel of embedded recommendations */}
-      <section className="section-y bg-white">
-        <div className="container-px max-w-7xl mx-auto">
-          <div className="rounded-[2.5rem] bg-brand-pinkSoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
-            <div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1877F2] text-xs font-semibold uppercase tracking-wide">
-                <Facebook className="w-3.5 h-3.5" /> Facebook · @thetravellingtutorx
-              </span>
-              <p className="font-handwritten text-3xl text-brand-pink mt-4">real words, real students</p>
-              <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
-                Reviews from our Facebook community.
-              </h2>
-              <p className="text-brand-mute mt-4 text-lg max-w-lg">
-                Honest recommendations from students, parents and teachers on our Facebook page. Tap any review to read the full story or leave one of your own.
-              </p>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a
-                  href={BRAND.facebookUrl}
-                  target="_blank"
-                  rel="noreferrer"
-                  data-testid="home-facebook-link"
-                  className="inline-flex items-center gap-2 px-5 h-12 rounded-full bg-[#1877F2] hover:bg-[#155ec5] text-white font-medium transition-colors"
-                >
-                  <Facebook className="w-4 h-4" />
-                  See all reviews on Facebook
-                  <ExternalLink className="w-4 h-4" />
-                </a>
-              </div>
-              <p className="text-xs text-brand-mute mt-4 max-w-md">
-                Facebook embeds may be blocked by some browser tracking-prevention settings. If the reviews are hidden, the blue button above opens the page directly.
-              </p>
-            </div>
-
-            <FacebookReviewsCarousel />
-          </div>
-        </div>
-      </section>
-
       {/* FINAL CTA */}
       <section className="section-y">
         <div className="container-px max-w-5xl mx-auto text-center">
-          <p className="font-handwritten text-3xl text-brand-pink">wherever you are in your journey</p>
-          <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">There's a place for you here.</h2>
-          <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">Send a quick message or grab a free resource to see exactly what examiner-led Sociology teaching looks like.</p>
+          <p className="font-handwritten text-3xl text-brand-pink">your best grade starts here</p>
+          <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">Ready to see what you can really achieve?</h2>
+          <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">Send a quick message to talk through goals and book tutoring, or download a free resource and see the examiner difference for yourself.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button data-testid={HOME.ctaFinalBook} asChild className="h-13 px-7 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white">
-              <Link to="/contact">Get in Touch</Link>
+              <Link to="/contact">Book Your Tutoring</Link>
             </Button>
             <Button data-testid={HOME.ctaFinalResources} asChild variant="outline" className="h-13 px-7 rounded-full border-brand-pink/40 text-brand-pink hover:bg-brand-pinkSoft">
               <Link to="/free-resources">Explore Free Resources</Link>

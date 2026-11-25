@@ -18,8 +18,8 @@ export default function Students() {
     <>
       <PageHero
         eyebrow="for students"
-        title="Top grades in GCSE & A-Level Sociology — without the panic."
-        lede="Learn from someone who actually marks AQA Sociology exams. Clear structure, examiner-tested essay frameworks, and the confidence to walk into any question."
+        title="You're more capable than you think. Let's prove it."
+        lede="Learn from someone who has spent 8 years marking AQA Sociology exams. I'll show you exactly what examiners reward, give you essay frameworks that work, and help you believe in yourself — just like the students who've gone from E grades to A grades."
       >
         <Button asChild className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white">
           <Link to="/contact">Get one-to-one support</Link>

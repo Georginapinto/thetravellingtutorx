@@ -23,7 +23,7 @@ export default function About() {
       <section className="section-y bg-white">
         <div className="container-px max-w-5xl mx-auto">
           <div className="prose prose-lg max-w-none text-brand-ink/90 leading-relaxed">
-            <p className="text-xl text-brand-mute">Hi, I'm Georgina — founder of The Travelling Tutor X. I've spent over a decade teaching Sociology, leading Sixth Form, and marking exams for AQA. This site exists because I kept seeing students who knew their content but didn't know how to <em>show</em> it on paper. So I built the support I wished they all had.</p>
+            <p className="text-xl text-brand-mute">Hi, I'm Georgina — founder of The Travelling Tutor X. I've spent years teaching Sociology, leading a Sixth Form as Director, and 8 years marking exams for AQA. This site exists because I kept seeing students who knew their content but didn't know how to <em>show</em> it on paper. So I built the support I wished they all had.</p>
             <p className="mt-6">My approach is simple: examiner-led, calm, structured and warm. I teach you exactly what mark schemes reward — and I make sure you can do it under exam conditions, not just in your notes.</p>
           </div>
 

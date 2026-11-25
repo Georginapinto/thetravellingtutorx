@@ -6,10 +6,10 @@ import { Link } from "react-router-dom";
 import { Heart, ShieldCheck, BarChart3, MessageCircleHeart, BookOpenCheck, Calendar, Sparkles, GraduationCap } from "lucide-react";
 
 const helps = [
-  { i: ShieldCheck, t: "Calm, structured support", d: "Weekly sessions, clear targets, no last-minute panic." },
+  { i: ShieldCheck, t: "Examiner-level expertise", d: "Taught by someone who marks the real exams — not guesswork, but exactly what earns the marks." },
   { i: BarChart3, t: "Honest progress reports", d: "You'll always know exactly where your child stands." },
   { i: MessageCircleHeart, t: "Direct communication", d: "I talk to you, not just your child. We work together." },
-  { i: Heart, t: "Confidence first", d: "Results follow when teenagers feel believed in. That's the whole job." },
+  { i: Heart, t: "Self-belief that shows", d: "Results follow when teenagers feel believed in. I build the confidence that turns E grades into A grades." },
 ];
 
 export default function Parents() {
@@ -17,12 +17,12 @@ export default function Parents() {
     <>
       <PageHero
         eyebrow="for parents"
-        title="Calm, expert support — for them, and for you."
-        lede="Helping your teenager through GCSE or A-Level Sociology shouldn't feel like guesswork. I provide structured, examiner-led tutoring, regular updates, and the kind of warm professionalism that makes parents finally exhale."
+        title="The expert your child needs — and the reassurance you deserve."
+        lede="With 8 years as an AQA Sociology Examiner and experience as a Director of Sixth Form, I know exactly what it takes to reach the top grades — and how to get your teenager there. Parents' reviews describe students jumping from E grades to A grades, and growing in confidence along the way."
         accent="sage"
       >
         <Button asChild className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white">
-          <Link to="/contact">Send a message</Link>
+          <Link to="/contact">Book a tutoring chat</Link>
         </Button>
       </PageHero>
 
