@@ -202,6 +202,22 @@ describe("POST /api/lead-magnet", () => {
     },
   );
 
+  it.each(["learning-tables-prices", "tuition-prices"])(
+    "%s: saves the request and asks the owner to reply with prices",
+    async (magnet) => {
+      db.willReturn([{ id: ID, ...body, audience: "parent", magnet, created_at: CREATED_AT }]);
+
+      const res = await leadMagnet(post("/api/lead-magnet", { ...body, audience: "parent", magnet }));
+
+      expect(res.status).toBe(200);
+      expect(sentTo()).toEqual(["owner@example.com"]);
+      const notice = send.mock.calls[0]![0];
+      expect(notice.subject).toMatch(/^New price list request \(parent\): /);
+      expect(notice.replyTo).toBe("jordan@example.com");
+      expect(notice.html).toContain("Reply to this email to send it to them.");
+    },
+  );
+
   it("rejects an unknown resource", async () => {
     const res = await leadMagnet(post("/api/lead-magnet", { ...body, magnet: "toString" }));
     expect(res.status).toBe(400);

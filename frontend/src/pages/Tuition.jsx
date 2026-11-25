@@ -10,7 +10,8 @@ import {
   CalendarDays, FileDown, ClipboardCheck, FileText, Star, MessageSquareText, Target, TrendingUp,
 } from "lucide-react";
 
-const enquire = (subject) => `/contact?subject=${encodeURIComponent(subject)}`;
+// Tuition calls to action lead to the price-list sign-up below.
+const PRICES = "#price-list";
 
 const options = [
   { id: "one-to-one", icon: GraduationCap, title: "1:1 Tuition", desc: "Bespoke weekly sessions built entirely around you." },
@@ -25,7 +26,7 @@ const groupProgrammes = [
 ];
 
 const steps = [
-  { icon: MessageSquareText, title: "Tell me your goals", desc: "Send a quick enquiry. I reply personally within 24 hours." },
+  { icon: MessageSquareText, title: "Get the price list", desc: "Pop your email in below and I'll send you the tuition prices." },
   { icon: Target, title: "Get a clear plan", desc: "We agree the right route, focus topics and target grade." },
   { icon: TrendingUp, title: "Watch your grades rise", desc: "Examiner-led teaching, feedback and progress updates." },
 ];
@@ -44,10 +45,10 @@ export default function Tuition() {
       <PageHero
         eyebrow="tuition"
         title="AQA Sociology tuition, led by an examiner."
-        lede="GCSE and A-Level Sociology tuition from an AQA examiner of 9 years and former Head of Sociology. Build stronger essays, master exam technique and turn your grades into your goals."
+        lede="GCSE and A-Level Sociology tuition from an AQA examiner of 9 years and former Head of Sociology. Build stronger essays, master exam technique and gain the examiner's edge."
       >
         <Button asChild className="rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
-          <Link to={enquire("Tuition enquiry")}>Enquire about tuition <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
+          <a href={PRICES}>Get the price list <ArrowUpRight className="w-4 h-4 ml-1" /></a>
         </Button>
         <Button asChild variant="outline" className="rounded-full h-12 px-6 border-brand-maroon/40 text-brand-maroon hover:bg-brand-maroonSoft">
           <a href="#options">Compare options</a>
@@ -86,7 +87,7 @@ export default function Tuition() {
               <Check>Honest progress updates for parents</Check>
             </ul>
             <Button asChild className="mt-8 rounded-full h-12 px-7 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
-              <Link to={enquire("1:1 Tuition")}>Enquire about 1:1 tuition <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
+              <a href={PRICES}>Get 1:1 tuition prices <ArrowUpRight className="w-4 h-4 ml-1" /></a>
             </Button>
           </div>
           <div className="rounded-[2rem] bg-brand-navyDeep text-white p-8 md:p-10">
@@ -120,7 +121,7 @@ export default function Tuition() {
               lede="Examiner-led group programmes that give you structure, momentum and plenty of exam practice — at a lower cost than 1:1."
             />
             <Button asChild variant="outline" className="rounded-full h-12 px-6 border-brand-maroon/40 text-brand-maroon hover:bg-brand-maroonSoft">
-              <Link to={enquire("Group Tuition")}>Register your interest</Link>
+              <a href={PRICES}>Get group prices</a>
             </Button>
           </div>
           <div className="mt-10 grid md:grid-cols-3 gap-6">
@@ -134,9 +135,9 @@ export default function Tuition() {
                 <p className="text-brand-mute mt-2 flex-1">{g.desc}</p>
                 <div className="mt-6 pt-5 border-t border-border/60 flex items-center justify-between">
                   <p className="font-semibold text-brand-maroon">{g.detail}</p>
-                  <Link to={enquire(g.title)} className="text-sm font-medium text-brand-ink hover:text-brand-maroon inline-flex items-center gap-1">
-                    Enquire <ArrowUpRight className="w-4 h-4" />
-                  </Link>
+                  <a href={PRICES} className="text-sm font-medium text-brand-ink hover:text-brand-maroon inline-flex items-center gap-1">
+                    Get prices <ArrowUpRight className="w-4 h-4" />
+                  </a>
                 </div>
               </div>
             ))}
@@ -156,7 +157,7 @@ export default function Tuition() {
               />
               <div className="mt-8 flex flex-wrap gap-3">
                 <Button asChild className="rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
-                  <Link to={enquire("Recorded Group Sessions")}>Ask about access <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
+                  <a href={PRICES}>Get access prices <ArrowUpRight className="w-4 h-4 ml-1" /></a>
                 </Button>
                 <Button asChild variant="outline" className="rounded-full h-12 px-6 border-brand-maroon/40 text-brand-maroon hover:bg-brand-maroonSoft">
                   <Link to="/resources#grade-transformation-course">See the full course</Link>
@@ -196,10 +197,33 @@ export default function Tuition() {
               </li>
             ))}
           </ol>
-          <div className="mt-10 text-center">
-            <Button asChild className="rounded-full h-12 px-8 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
-              <Link to={enquire("Tuition enquiry")}>Get started today <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
-            </Button>
+        </div>
+      </section>
+
+      {/* PRICE LIST SIGN-UP */}
+      <section id="price-list" className="section-y bg-white">
+        <div className="container-px max-w-7xl mx-auto">
+          <div className="rounded-[2rem] bg-brand-navyDeep text-white p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
+            <div>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroonPastel">tuition price list</p>
+              <h2 className="text-3xl md:text-[2.75rem] md:leading-[1.1] font-semibold mt-1">Get the tuition price list in your inbox.</h2>
+              <p className="text-white/75 mt-4 text-lg leading-relaxed max-w-lg">
+                Prices for 1:1 tuition, group tuition and recorded group sessions, including any bundle offers. Places are limited,
+                so sign up to hear first.
+              </p>
+              <p className="text-white/60 text-sm mt-6">
+                Prefer to talk first? <Link to="/contact?subject=Tuition%20enquiry" className="underline underline-offset-2 hover:text-white">Send me a message</Link>.
+              </p>
+            </div>
+            <div className="bg-white text-brand-ink rounded-3xl p-6 md:p-8 shadow-medium" data-testid="tuition-prices-signup">
+              <LeadMagnetForm
+                audienceOptions={["student", "parent"]}
+                magnet="tuition-prices"
+                ctaLabel="Email me the price list"
+                doneText="Thank you! I'll email you the tuition price list shortly."
+                successToast="Request sent — the price list is on its way to your inbox."
+              />
+            </div>
           </div>
         </div>
       </section>

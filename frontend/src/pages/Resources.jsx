@@ -3,10 +3,11 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
+import LeadMagnetForm from "@/components/LeadMagnetForm";
 import { BOOSTER_PACKS, COURSE } from "@/constants/site";
 import {
   Sparkles, FileText, ClipboardCheck, Star, BookOpenCheck, GraduationCap, Globe, BarChart3,
-  Building2, MonitorPlay, ArrowUpRight, ShieldCheck, Award, Table2, School, Gift,
+  Building2, MonitorPlay, ArrowUpRight, ShieldCheck, Award, Table2, School, Gift, Mail,
 } from "lucide-react";
 
 // Every Grade Booster Pack includes the same four things.
@@ -86,32 +87,37 @@ export default function Resources() {
         </div>
       </section>
 
-      {/* LEARNING TABLES */}
+      {/* LEARNING TABLES — price list by email */}
       <section id="learning-tables" className="section-y">
         <div className="container-px max-w-7xl mx-auto">
           <div className="rounded-[2rem] bg-white border border-border/60 shadow-soft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-maroonSoft text-brand-maroon text-xs font-semibold uppercase tracking-wide">Coming soon</span>
               <SectionHeader
-                className="mt-4"
                 eyebrow="learning tables"
                 title="Every topic, on a single page."
                 lede="Learning Tables condense each AQA Sociology topic into one clear page of key concepts, sociologists and evaluation points — perfect for fast, focused revision."
               />
-              <Button asChild className="mt-8 rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
-                <Link to="/contact?subject=Learning%20Tables">Register your interest <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
-              </Button>
+              <ul className="mt-6 space-y-2.5">
+                {["Topic-by-topic tables for fast revision", "Money-saving bundles available", "Price list sent straight to your inbox"].map((t) => (
+                  <li key={t} className="flex items-center gap-2 text-brand-ink"><Table2 className="w-5 h-5 text-brand-maroon" /> {t}</li>
+                ))}
+              </ul>
             </div>
-            <div className="rounded-3xl bg-brand-cream p-6">
-              <div className="flex items-center gap-2 text-brand-navyDeep font-semibold"><Table2 className="w-5 h-5" /> Example layout</div>
-              <div className="mt-4 grid grid-cols-3 gap-2 text-xs">
-                {["Concept", "Sociologist", "Evaluation"].map((h) => (
-                  <div key={h} className="rounded-lg bg-brand-navyDeep text-white px-3 py-2 font-semibold">{h}</div>
-                ))}
-                {Array.from({ length: 9 }).map((_, i) => (
-                  <div key={i} className="rounded-lg bg-white h-9" />
-                ))}
+            <div className="rounded-3xl bg-brand-cream p-6 md:p-8" data-testid="learning-tables-signup">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="w-12 h-12 rounded-xl bg-brand-maroon text-white grid place-items-center"><Mail className="w-6 h-6" /></div>
+                <div>
+                  <p className="font-semibold text-brand-ink">Get the price list & bundles</p>
+                  <p className="text-xs text-brand-mute">Pop your details in and I'll email you the latest prices.</p>
+                </div>
               </div>
+              <LeadMagnetForm
+                audienceOptions={["student", "parent"]}
+                magnet="learning-tables-prices"
+                ctaLabel="Email me the price list"
+                doneText="Thank you! I'll email you the Learning Tables price list and bundle offers shortly."
+                successToast="Request sent — the price list is on its way to your inbox."
+              />
             </div>
           </div>
         </div>

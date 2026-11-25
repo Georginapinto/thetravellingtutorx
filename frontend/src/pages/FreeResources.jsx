@@ -2,7 +2,7 @@ import React from "react";
 import PageHero from "@/components/PageHero";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
 import { BRAND } from "@/constants/testIds";
-import { ClipboardList, FileText, BookOpenCheck, Target, Mail, Sparkles, Compass, FileDown } from "lucide-react";
+import { Compass, FileDown } from "lucide-react";
 
 const packs = [
   {
@@ -25,15 +25,6 @@ const packs = [
     icon: Compass,
     cta: "Send Me the Parent Guide",
   },
-  {
-    audience: "teacher",
-    magnet: "teacher-resources",
-    title: "Free Sociology Teaching Resources",
-    desc: "For teachers. Lesson activities, essay planner, retrieval quiz, CPD updates and tutor opportunities.",
-    color: "bg-brand-maroonPastel",
-    icon: BookOpenCheck,
-    cta: "Join the Teacher Community",
-  },
 ];
 
 export default function FreeResources() {
@@ -42,11 +33,11 @@ export default function FreeResources() {
       <PageHero
         eyebrow="free, always"
         title="Free Sociology resources for every journey."
-        lede="Pick the pack that fits you — students, parents or teachers. Each one is examiner-led, classroom-tested and immediately useful."
+        lede="Pick the pack that fits you — for students or parents. Each one is examiner-led, classroom-tested and immediately useful."
       />
 
       <section className="section-y bg-white">
-        <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
+        <div className="container-px max-w-5xl mx-auto grid md:grid-cols-2 gap-8">
           {packs.map((p) => (
             <div key={p.audience} className={`rounded-[2rem] p-7 ${p.color} border border-white shadow-soft`}>
               <div className="w-14 h-14 rounded-2xl bg-white grid place-items-center text-brand-maroon"><p.icon className="w-6 h-6" /></div>

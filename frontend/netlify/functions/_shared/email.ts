@@ -133,16 +133,20 @@ export function notifyNewsletter(n: NewsletterInput, createdAt: string) {
 }
 
 export function notifyLeadMagnet(l: LeadMagnetInput, magnet: Magnet, createdAt: string) {
-  const status = magnet.ready
-    ? "They've been emailed the download link."
-    : "This pack's file isn't uploaded yet, so they haven't been sent anything. Reply to send it by hand.";
+  const status = magnet.priceList
+    ? "They've asked for this price list. Reply to this email to send it to them."
+    : magnet.ready
+      ? "They've been emailed the download link."
+      : "This pack's file isn't uploaded yet, so they haven't been sent anything. Reply to send it by hand.";
   return sendEmail({
     to: ownerAddress(),
     replyTo: l.email,
-    subject: `New ${l.audience} download: ${magnet.title}`,
+    subject: magnet.priceList
+      ? `New price list request (${l.audience}): ${magnet.title}`
+      : `New ${l.audience} download: ${magnet.title}`,
     html: layout(
       "new download · the travelling tutor x",
-      "Someone requested a free resource",
+      magnet.priceList ? "Someone requested a price list" : "Someone requested a free resource",
       sentAt(createdAt),
       details([
         ["First name", l.first_name],

@@ -56,8 +56,9 @@ export default function Home() {
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-border text-sm text-brand-navyDeep font-medium">
                 <Award className="w-4 h-4 text-brand-maroon" /> AQA Sociology Examiner · 9 years
               </span>
-              <h1 className="mt-6 text-[2.6rem] sm:text-6xl lg:text-[4.25rem] leading-[1.02] font-bold text-brand-ink tracking-tight uppercase">
-                Turn your grades <span className="text-brand-maroon">into your goals.</span>
+              <h1 className="mt-6 font-bold tracking-tight uppercase">
+                <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-ink">Where Sociology grades improve.</span>
+                <span className="block mt-3 text-2xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] text-brand-maroon">Gain the examiner's edge.</span>
               </h1>
               <p className="mt-6 text-xl md:text-2xl text-brand-navyDeep font-medium">AQA Sociology tuition led by an examiner.</p>
               <ul className="mt-5 flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 text-brand-ink">
@@ -246,7 +247,7 @@ export default function Home() {
       <section className="section-y bg-white">
         <div className="container-px max-w-4xl mx-auto text-center">
           <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">your next steps are waiting</p>
-          <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">Ready to turn your grades into your goals?</h2>
+          <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">Ready to gain the examiner's edge?</h2>
           <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">
             University, an apprenticeship, your dream career — the right grades open every door. Start with examiner-led tuition or
             pick up a resource today.
