@@ -9,7 +9,7 @@ const helps = [
   { i: ShieldCheck, t: "Examiner-level expertise", d: "Taught by someone who marks the real exams — not guesswork, but exactly what earns the marks." },
   { i: BarChart3, t: "Honest progress reports", d: "You'll always know exactly where your child stands." },
   { i: MessageCircleHeart, t: "Direct communication", d: "I talk to you, not just your child. We work together." },
-  { i: Heart, t: "Self-belief that shows", d: "Results follow when teenagers feel believed in. I build the confidence that turns E grades into A grades." },
+  { i: Heart, t: "Self-belief that shows", d: "Results follow when teenagers feel believed in. Some of my students have climbed from E grades to A grades." },
 ];
 
 export default function Parents() {
@@ -18,7 +18,7 @@ export default function Parents() {
       <PageHero
         eyebrow="for parents"
         title="The expert your child needs — and the reassurance you deserve."
-        lede="With 8 years as an AQA Sociology Examiner and experience as a Director of Sixth Form, I know exactly what it takes to reach the top grades — and how to get your teenager there. Parents' reviews describe students jumping from E grades to A grades, and growing in confidence along the way."
+        lede="With 9 years in education — as Head of Sociology, Director of Sixth Form and 8 years as an AQA Sociology Examiner — I've taught thousands of students and know exactly what it takes to reach the top grades. Parents' reviews describe some students jumping from E grades to A grades, opening the door to the university place or next step they wanted."
         accent="sage"
       >
         <Button asChild className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white">

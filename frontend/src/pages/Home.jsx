@@ -44,10 +44,10 @@ const audiences = [
 ];
 
 const pillars = [
-  { icon: ClipboardCheck, title: "8 Years as an AQA Examiner", desc: "I've marked thousands of real exam scripts. I know precisely what separates a C from an A — and I teach students exactly that." },
-  { icon: Award, title: "Director of Sixth Form", desc: "Senior school leadership means I understand the pressure students face, and how to guide them through it to results." },
+  { icon: ClipboardCheck, title: "8 Years as an AQA Examiner", desc: "I mark the real exams. I know precisely what separates a C from an A — and I teach students exactly that." },
+  { icon: Award, title: "9 Years in Education Leadership", desc: "As Head of Sociology and Director of Sixth Form, I've guided thousands of students through exams and on to their next steps." },
   { icon: Heart, title: "Confidence That Lasts", desc: "Self-belief comes first. Students who arrive saying “I'm just not good at essays” leave knowing they can write top-band answers." },
-  { icon: Star, title: "Proven Grade Jumps", desc: "The reviews speak for themselves: students moving from E grades to A grades, and from C to A*." },
+  { icon: Star, title: "Proven Grade Jumps", desc: "The reviews speak for themselves: some of my students have climbed from E grades all the way to A grades." },
 ];
 
 const services = [
@@ -55,7 +55,7 @@ const services = [
   { icon: Sparkles, title: "Sociology Grade Booster Bootcamps", desc: "Our flagship group programme — structured, examiner-led, results-driven.", href: "/courses" },
   { icon: MonitorPlay, title: "Online Course", desc: "Self-paced Sociology mastery. Watch, revise, repeat — any time.", href: "/courses" },
   { icon: BookOpenCheck, title: "Revision Workshops", desc: "Intensive sessions that turn knowledge into top-band marks.", href: "/courses" },
-  { icon: ShoppingBag, title: "Resource Shop", desc: "Examiner-written essay plans, model answers and quizzes — trusted by 6,000+ students.", href: "/resource-shop" },
+  { icon: ShoppingBag, title: "Resource Shop", desc: "Examiner-written essay plans, model answers and quizzes — the shortcut to top-band answers.", href: "/resource-shop" },
   { icon: Users, title: "Tutor Partner Programme", desc: "Build a flexible, rewarding tutoring business with leads, training & community.", href: "/tutor-partner" },
 ];
 
@@ -72,15 +72,15 @@ export default function Home() {
             <div className="lg:col-span-7">
               <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-brand-pinkPastel text-sm text-brand-pink font-medium shadow-soft">
                 <Plane className="w-4 h-4 -rotate-12" />
-                Trusted by 6,000+ students and their parents across the UK
+                AQA Examiner · Head of Sociology · Director of Sixth Form
               </div>
               <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[64px] leading-[1.05] font-semibold text-brand-ink tracking-tight">
-                From E grades to <span className="relative">A grades
+                Achieve your <span className="relative">best grades
                 <svg viewBox="0 0 200 14" className="absolute -bottom-2 left-0 w-full h-3" preserveAspectRatio="none"><path d="M2 8 C 50 2, 150 14, 198 6" stroke="#E11D67" strokeWidth="4" fill="none" strokeLinecap="round"/></svg>
                 </span> — with an AQA Sociology Examiner on your side
               </h1>
               <p className="mt-6 text-lg text-brand-mute max-w-xl leading-relaxed">
-                I've spent 8 years marking AQA Sociology exams and leading a Sixth Form as Director. I know exactly what examiners reward — and I teach students how to deliver it. The result? Students who stop doubting themselves, start believing they can succeed, and walk into the exam hall ready to achieve their best grades.
+                In 9 years in education — as Head of Sociology, Director of Sixth Form and 8 years as an AQA examiner — I've taught thousands of students. I know exactly what examiners reward, and I teach students how to deliver it. Some have gone from E grades to A grades. My students walk into the exam hall believing in themselves, ready for the results that unlock university, apprenticeships and the next steps they've dreamed of.
               </p>
 
               <div className="mt-8 flex flex-wrap gap-3">
@@ -93,9 +93,9 @@ export default function Home() {
               </div>
 
               <div className="mt-10 grid grid-cols-3 max-w-md gap-6">
-                <div><p className="text-3xl font-semibold text-brand-ink">E → A</p><p className="text-sm text-brand-mute">Grade jumps in reviews</p></div>
-                <div><p className="text-3xl font-semibold text-brand-ink">8 yrs</p><p className="text-sm text-brand-mute">AQA examiner</p></div>
-                <div><p className="text-3xl font-semibold text-brand-ink">6,000+</p><p className="text-sm text-brand-mute">Students supported</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">E → A</p><p className="text-sm text-brand-mute">Some students' grade jumps</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">9 yrs</p><p className="text-sm text-brand-mute">In education leadership</p></div>
+                <div><p className="text-3xl font-semibold text-brand-ink">1,000s</p><p className="text-sm text-brand-mute">Students taught</p></div>
               </div>
             </div>
 
@@ -129,10 +129,10 @@ export default function Home() {
               </span>
               <p className="font-handwritten text-3xl text-brand-pink mt-4">don't just take my word for it</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
-                “From an E to an A.” Hear it from parents and students.
+                “From an E to an A.” Hear it from the families themselves.
               </h2>
               <p className="text-brand-mute mt-4 text-lg max-w-lg">
-                Real, unedited recommendations from families I've worked with — students who turned their grades around and parents who watched their child's confidence grow. Tap any review to read the full story.
+                Real, unedited recommendations from families I've worked with — including students who climbed from E grades to A grades, and parents who watched their child's confidence soar. Tap any review to read the full story.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
@@ -204,7 +204,7 @@ export default function Home() {
             <img src={BRAND.avatar} alt="Georgina, founder of The Travelling Tutor X" className="relative w-full bg-brand-pinkSoft rounded-[2.5rem] aspect-square object-contain shadow-medium" />
             <div className="absolute -bottom-6 right-6 bg-white rounded-3xl shadow-medium p-5 max-w-[260px] border border-border/50">
               <p className="font-handwritten text-2xl text-brand-pink leading-none">Hi, I'm Georgina —</p>
-              <p className="text-sm text-brand-mute mt-2">8 years an AQA examiner & Director of Sixth Form. I believe in every student I teach.</p>
+              <p className="text-sm text-brand-mute mt-2">Head of Sociology, Director of Sixth Form & AQA examiner. I believe in every student I teach.</p>
             </div>
           </div>
 
@@ -212,13 +212,13 @@ export default function Home() {
             <p className="font-handwritten text-3xl text-brand-pink">meet the teacher</p>
             <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Meet the Teacher Behind The Travelling Tutor X</h2>
             <p className="text-brand-mute mt-5 text-lg leading-relaxed">
-              I'm a Sociology teacher, a Director of Sixth Form, and I've spent 8 years as an AQA Sociology Examiner marking real exam papers. That means I don't teach Sociology in theory — I teach it in exactly the language examiners look for when they award the top marks.
+              I've spent 9 years in education in leadership roles, including Head of Sociology and Director of Sixth Form, teaching thousands of students along the way. For 8 of those years I've also been an AQA Sociology Examiner marking real exam papers. That means I don't teach Sociology in theory — I teach it in exactly the language examiners look for when they award the top marks.
             </p>
             <p className="text-brand-mute mt-4 leading-relaxed">
-              But grades are only half the story. So many students come to me convinced they're “just not clever enough”. My job is to prove them wrong — building the self-belief and exam technique that turns E grades into A grades. Parents tell me the change in their child's confidence is as remarkable as the results.
+              But grades are only half the story. So many students come to me convinced they're “just not clever enough”. My job is to prove them wrong — building the self-belief and exam technique that has helped some of my students climb from E grades to A grades. Parents tell me the change in their child's confidence is as remarkable as the results.
             </p>
             <ul className="grid sm:grid-cols-2 gap-2.5 mt-6">
-              {["AQA Sociology Examiner","Director of Sixth Form","Course Creator","Workshop Leader","Sociology Specialist","Founder, The Travelling Tutor X"].map((t)=>(
+              {["AQA Sociology Examiner","Head of Sociology","Director of Sixth Form","Workshop Leader","Sociology Specialist","Founder, The Travelling Tutor X"].map((t)=>(
                 <li key={t} className="flex items-center gap-2 text-brand-ink"><MapPin className="w-4 h-4 text-brand-pink" /> {t}</li>
               ))}
             </ul>
@@ -329,8 +329,8 @@ export default function Home() {
       <section className="section-y">
         <div className="container-px max-w-5xl mx-auto text-center">
           <p className="font-handwritten text-3xl text-brand-pink">your best grade starts here</p>
-          <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">Ready to see what you can really achieve?</h2>
-          <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">Send a quick message to talk through goals and book tutoring, or download a free resource and see the examiner difference for yourself.</p>
+          <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">Your next steps are waiting. Let's get you there.</h2>
+          <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">University, an apprenticeship, your dream career — the right grades open every door. Book your tutoring today and give yourself the best possible chance of the results you deserve.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             <Button data-testid={HOME.ctaFinalBook} asChild className="h-13 px-7 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white">
               <Link to="/contact">Book Your Tutoring</Link>

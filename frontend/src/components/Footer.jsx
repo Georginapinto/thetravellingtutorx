@@ -1,28 +1,23 @@
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Mail, Instagram, Music2, Plane } from "lucide-react";
 import { SignatureLogo } from "./SignatureLogo";
 import { NewsletterSignup } from "./NewsletterSignup";
 
 export const Footer = () => {
-  // The homepage shows the signup near the top, so don't repeat it here.
-  const onHome = useLocation().pathname === "/";
-
   return (
     <footer className="relative mt-24">
-      {!onHome && (
-        <div className="container-px max-w-7xl mx-auto relative z-10">
-          <NewsletterSignup source="footer" className="-mb-16" />
-        </div>
-      )}
+      <div className="container-px max-w-7xl mx-auto relative z-10">
+        <NewsletterSignup source="footer" className="-mb-16" />
+      </div>
 
-      <div className={`bg-brand-pinkSoft ${onHome ? "pt-16" : "pt-32"} pb-12`}>
+      <div className="bg-brand-pinkSoft pt-32 pb-12">
         <div className="container-px max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
           <div className="md:col-span-2">
             <SignatureLogo />
             <p className="text-brand-mute mt-4 max-w-sm">
-              Examiner-led Sociology tutoring and resources from an AQA Sociology Examiner of 8 years and Director of
-              Sixth Form. Building self-belief and helping students achieve their best grades.
+              Examiner-led Sociology tutoring and resources from an AQA Sociology Examiner, Head of Sociology and
+              Director of Sixth Form. Building self-belief and helping students achieve their best grades.
             </p>
             <div className="flex gap-3 mt-6">
               <a href="mailto:help@thetravellingtutorx.co.uk" className="w-11 h-11 rounded-full bg-white grid place-items-center text-brand-pink hover:bg-brand-pink hover:text-white transition-colors" aria-label="Email">
