@@ -21,7 +21,7 @@ const options = [
 
 const groupProgrammes = [
   { icon: Sparkles, title: "Sociology Grade Booster Bootcamps", tag: "Flagship", detail: "Small cohorts", desc: "Our flagship group programme — structured, examiner-led sessions that build essay skills topic by topic." },
-  { icon: BookOpenCheck, title: "Revision Workshops", tag: "Live", detail: "£45 per session", desc: "Half-term intensives focused on essay craft and exam technique, so knowledge turns into top-band marks." },
+  { icon: BookOpenCheck, title: "Revision Workshops", tag: "Live", detail: "Half-term intensives", desc: "Intensive sessions focused on essay craft and exam technique, so knowledge turns into top-band marks." },
   { icon: CalendarDays, title: "Year 12 Sociology Glow-Up", tag: "Limited", detail: "Summer cohort", desc: "A skills-led summer programme to get Year 12s ready to hit the ground running in Year 13." },
 ];
 
