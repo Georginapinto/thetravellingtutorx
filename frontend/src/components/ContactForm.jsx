@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { Input } from "./ui/input";
 import { Textarea } from "./ui/textarea";
 import { Label } from "./ui/label";
@@ -10,8 +11,16 @@ import { Honeypot } from "./Honeypot";
 import { toast } from "sonner";
 import { Send } from "lucide-react";
 
+const ROLES = ["student", "parent", "teacher", "other"];
+
+// Buttons elsewhere link to /contact?subject=...&role=... so the form arrives
+// pre-filled with what the visitor was looking at.
 export const ContactForm = () => {
-  const [form, setForm] = useState({ name: "", email: "", role: "student", subject: "", message: "", website: "" });
+  const [params] = useSearchParams();
+  const initialRole = ROLES.includes(params.get("role")) ? params.get("role") : "student";
+  const [form, setForm] = useState({
+    name: "", email: "", role: initialRole, subject: (params.get("subject") || "").slice(0, 200), message: "", website: "",
+  });
   const [busy, setBusy] = useState(false);
 
   const submit = async (e) => {
@@ -20,7 +29,7 @@ export const ContactForm = () => {
     try {
       await api.post("/contact", form);
       toast.success("Message sent — Georgina will reply within 24 hours.");
-      setForm({ name: "", email: "", role: "student", subject: "", message: "", website: "" });
+      setForm({ name: "", email: "", role: initialRole, subject: "", message: "", website: "" });
     } catch {
       toast.error("Couldn't send. Please try again.");
     } finally {
