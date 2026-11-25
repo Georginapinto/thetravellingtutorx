@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import SectionHeader from "@/components/SectionHeader";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import NewsletterSignup from "@/components/NewsletterSignup";
 import { HOME, BRAND } from "@/constants/testIds";
 import { COURSE } from "@/constants/site";
 
@@ -89,6 +90,13 @@ export default function Home() {
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* NEWSLETTER SIGN-UP — straight after the hero for visibility */}
+      <section className="pb-16 md:pb-20">
+        <div className="container-px max-w-7xl mx-auto">
+          <NewsletterSignup source="homepage" />
         </div>
       </section>
 
