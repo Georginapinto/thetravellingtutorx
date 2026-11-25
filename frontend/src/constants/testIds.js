@@ -11,7 +11,6 @@ export const NAV = {
   resources: "nav-resources",
   shop: "nav-shop",
   freeResources: "nav-free-resources",
-  testimonials: "nav-testimonials",
   blog: "nav-blog",
   contact: "nav-contact",
   bookCta: "nav-book-cta",

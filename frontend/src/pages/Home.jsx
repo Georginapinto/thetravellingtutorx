@@ -7,6 +7,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { HOME, BRAND } from "@/constants/testIds";
 import { SignatureLogo } from "@/components/SignatureLogo";
+import FacebookReviewsCarousel from "@/components/FacebookReviewsCarousel";
 
 const audiences = [
   {
@@ -27,7 +28,7 @@ const audiences = [
     color: "bg-brand-sageSoft",
     iconBg: "bg-brand-sageDeep text-white",
     href: "/parents",
-    links: ["GCSE Support", "A-Level Support", "Results", "Testimonials", "Get in Touch"],
+    links: ["GCSE Support", "A-Level Support", "Results", "Get in Touch"],
   },
   {
     id: HOME.cardTeacher,
@@ -278,20 +279,20 @@ export default function Home() {
         </div>
       </section>
 
-      {/* FACEBOOK REVIEWS — live feed from @thetravellingtutorx */}
+      {/* FACEBOOK REVIEWS — carousel of embedded recommendations */}
       <section className="section-y bg-white">
         <div className="container-px max-w-7xl mx-auto">
           <div className="rounded-[2.5rem] bg-brand-pinkSoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1877F2] text-xs font-semibold uppercase tracking-wide">
-                <Facebook className="w-3.5 h-3.5" /> Live · @thetravellingtutorx
+                <Facebook className="w-3.5 h-3.5" /> Facebook · @thetravellingtutorx
               </span>
               <p className="font-handwritten text-3xl text-brand-pink mt-4">real words, real students</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
                 Reviews from our Facebook community.
               </h2>
               <p className="text-brand-mute mt-4 text-lg max-w-lg">
-                Honest recommendations from students, parents and teachers — pulled live from our Facebook page. Tap any post to read the full story or leave one of your own.
+                Honest recommendations from students, parents and teachers on our Facebook page. Tap any review to read the full story or leave one of your own.
               </p>
               <div className="mt-7 flex flex-wrap gap-3">
                 <a
@@ -305,29 +306,13 @@ export default function Home() {
                   See all reviews on Facebook
                   <ExternalLink className="w-4 h-4" />
                 </a>
-                <Link to="/testimonials" className="inline-flex items-center gap-2 px-5 h-12 rounded-full border border-brand-pink/40 text-brand-pink hover:bg-brand-pinkPastel transition-colors font-medium">
-                  More stories <ArrowUpRight className="w-4 h-4" />
-                </Link>
               </div>
               <p className="text-xs text-brand-mute mt-4 max-w-md">
-                Facebook embeds may be blocked by some browser tracking-prevention settings. If the feed is hidden, the blue button above opens the page directly.
+                Facebook embeds may be blocked by some browser tracking-prevention settings. If the reviews are hidden, the blue button above opens the page directly.
               </p>
             </div>
 
-            <div className="rounded-3xl bg-white p-3 shadow-medium overflow-hidden">
-              <iframe
-                title="The Travelling Tutor X Facebook feed"
-                src={`https://www.facebook.com/plugins/page.php?href=${encodeURIComponent(BRAND.facebookUrl)}&tabs=timeline&width=500&height=640&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true`}
-                width="100%"
-                height="640"
-                style={{ border: "none", overflow: "hidden", borderRadius: "1.25rem", width: "100%" }}
-                scrolling="no"
-                frameBorder="0"
-                allowFullScreen={true}
-                allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
-                loading="lazy"
-              />
-            </div>
+            <FacebookReviewsCarousel />
           </div>
         </div>
       </section>

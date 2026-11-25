@@ -1,4 +1,4 @@
-// Facebook recommendations embedded on the Testimonials page.
+// Facebook recommendations shown in the homepage carousel.
 //
 // To add one: on Facebook, open the recommendation, click ⋯ → Embed, and copy
 // the code. From that code take:

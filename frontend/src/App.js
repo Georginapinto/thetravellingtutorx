@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import "@/App.css";
 import { Toaster } from "sonner";
 import Navbar from "@/components/Navbar";
@@ -10,7 +10,6 @@ import Students from "@/pages/Students";
 import Parents from "@/pages/Parents";
 import Teachers from "@/pages/Teachers";
 import TutorPartner from "@/pages/TutorPartner";
-import Testimonials from "@/pages/Testimonials";
 import Contact from "@/pages/Contact";
 import Courses from "@/pages/Courses";
 import ResourceShop from "@/pages/ResourceShop";
@@ -33,7 +32,8 @@ function App() {
             <Route path="/parents" element={<Parents />} />
             <Route path="/teachers" element={<Teachers />} />
             <Route path="/tutor-partner" element={<TutorPartner />} />
-            <Route path="/testimonials" element={<Testimonials />} />
+            {/* Old links to the removed Testimonials page go to the homepage. */}
+            <Route path="/testimonials" element={<Navigate to="/" replace />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/courses" element={<Courses />} />
             <Route path="/resource-shop" element={<Shop />} />

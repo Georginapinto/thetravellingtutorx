@@ -13,7 +13,6 @@ const links = [
   { to: "/teachers", label: "Teachers", id: NAV.teachers },
   { to: "/tutor-partner", label: "Tutor Training", id: NAV.partner },
   { to: "/shop", label: "Shop", id: NAV.shop },
-  { to: "/testimonials", label: "Testimonials", id: NAV.testimonials },
   { to: "/free-resources", label: "Free Resources", id: NAV.freeResources },
   { to: "/contact", label: "Contact", id: NAV.contact },
 ];
