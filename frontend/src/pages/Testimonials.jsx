@@ -111,7 +111,7 @@ export default function Testimonials() {
             </div>
 
             {FACEBOOK_REVIEWS.length > 0 && (
-              <div className="mt-12 columns-1 md:columns-2 lg:columns-3 gap-6" data-testid="facebook-review-embeds">
+              <div className="mt-12 columns-1 lg:columns-2 gap-6" data-testid="facebook-review-embeds">
                 {FACEBOOK_REVIEWS.map((r) => (
                   <div key={r.url} className="break-inside-avoid mb-6 rounded-3xl bg-white p-3 shadow-soft overflow-hidden">
                     <iframe
