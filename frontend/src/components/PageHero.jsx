@@ -10,7 +10,7 @@ export const PageHero = ({ eyebrow, title, lede, accent = "maroon", children, im
         <div className={`grid ${image ? "lg:grid-cols-2" : "lg:grid-cols-1 max-w-3xl"} gap-12 items-center`}>
           <div>
             {eyebrow && (
-              <span className="inline-block font-handwritten text-2xl text-brand-maroon mb-2">{eyebrow}</span>
+              <span className="inline-block font-handwritten text-lg md:text-xl text-brand-maroon mb-2">{eyebrow}</span>
             )}
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-brand-ink">
               {title}

@@ -13,7 +13,7 @@ export default function About() {
         eyebrow="meet georgina"
         title="The teacher behind The Travelling Tutor X."
         lede="AQA Sociology Examiner, Head of Sociology and Director of Sixth Form, with 9 years in education helping students across the UK turn confusion into confidence — and confidence into top-band marks."
-        image={BRAND.avatar}
+        image={BRAND.photo}
       >
         <Button asChild className="rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white">
           <Link to="/contact">Get in touch</Link>

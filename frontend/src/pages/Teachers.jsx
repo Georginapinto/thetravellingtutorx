@@ -41,7 +41,7 @@ export default function Teachers() {
         <div className="container-px max-w-7xl mx-auto">
           <div className="rounded-[2.5rem] bg-brand-navySoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <p className="font-handwritten text-3xl text-brand-maroon">free for teachers</p>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">free for teachers</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Free Sociology Teaching Resources</h2>
               <p className="text-brand-ink/80 mt-4 text-lg max-w-md">A starter bundle of high-quality, examiner-tested teaching resources delivered straight to your inbox.</p>
               <ul className="mt-5 space-y-2 text-brand-ink">

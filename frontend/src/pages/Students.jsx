@@ -51,7 +51,7 @@ export default function Students() {
           <div className="rounded-[2.5rem] bg-brand-maroonSoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
             <div>
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-brand-maroon text-xs font-semibold tracking-wide uppercase">For Students · Free PDF</span>
-              <p className="font-handwritten text-3xl text-brand-maroon mt-4">your free download</p>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon mt-4">your free download</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
                 Essay Super Structure: Families &amp; Households (10-marker)
               </h2>

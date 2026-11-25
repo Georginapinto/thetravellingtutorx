@@ -1,12 +1,12 @@
 import React from "react";
 import { Plane, Heart } from "lucide-react";
 
-// Handwritten signature logo: "the travelling tutor X" with airplane + heart trail
+// Signature logo: "the travelling tutor X" with airplane + heart trail
 export const SignatureLogo = ({ size = "md", className = "" }) => {
-  const text = size === "lg" ? "text-5xl md:text-6xl" : size === "sm" ? "text-2xl" : "text-3xl md:text-4xl";
+  const text = size === "lg" ? "text-4xl md:text-5xl" : size === "sm" ? "text-xl" : "text-xl md:text-2xl";
   return (
-    <div className={`inline-flex items-end gap-2 ${className}`}>
-      <span className={`font-handwritten ${text} leading-none text-brand-navyDeep`}>
+    <div className={`inline-flex items-end gap-2 shrink-0 ${className}`}>
+      <span className={`font-handwritten ${text} leading-none whitespace-nowrap text-brand-navyDeep`}>
         the travelling tutor
         <span className="text-brand-maroon"> X</span>
       </span>

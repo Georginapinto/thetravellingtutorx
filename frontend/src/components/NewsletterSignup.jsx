@@ -39,7 +39,7 @@ export const NewsletterSignup = ({ source = "footer", className = "" }) => {
   return (
     <div className={`bg-white rounded-[2rem] shadow-medium border border-border/60 p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center ${className}`}>
       <div>
-        <p className="font-handwritten text-3xl text-brand-navyDeep">it's free — sign up today</p>
+        <p className="font-handwritten text-xl md:text-2xl text-brand-navyDeep">it's free — sign up today</p>
         <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">
           Get your best results — and unlock your next steps.
         </h3>

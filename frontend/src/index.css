@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;1,9..144,600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -45,7 +45,7 @@
 }
 
 @layer utilities {
-  .font-handwritten { font-family: "Caveat", cursive; }
+  .font-handwritten { font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
   .container-px { @apply px-6 md:px-12 lg:px-20; }
   .section-y { @apply py-20 md:py-28; }
   .blob {

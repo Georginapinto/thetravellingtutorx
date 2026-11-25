@@ -129,9 +129,9 @@ export default function TutorPartner() {
         <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="absolute -inset-4 bg-brand-navySoft rounded-[2.5rem] -rotate-2" />
-            <img src={BRAND.avatar} alt="Georgina — Founder, The Travelling Tutor X" className="relative bg-brand-maroonSoft rounded-[2.5rem] aspect-square object-contain w-full shadow-medium" />
+            <img src={BRAND.photo} alt="Georgina — Founder, The Travelling Tutor X" className="relative bg-brand-maroonSoft rounded-[2.5rem] aspect-square object-cover object-top w-full shadow-medium" />
             <div className="absolute -bottom-5 right-5 bg-white rounded-2xl shadow-medium p-4 max-w-[240px] border border-border/50">
-              <p className="font-handwritten text-2xl text-brand-maroon leading-none">A message from Georgina —</p>
+              <p className="font-handwritten text-lg md:text-xl text-brand-maroon leading-none">A message from Georgina —</p>
               <p className="text-sm text-brand-mute mt-2">"This is the training I wish existed when I started tutoring. Examiner-led, no fluff."</p>
             </div>
           </div>
@@ -156,7 +156,7 @@ export default function TutorPartner() {
       <section className="section-y">
         <div className="container-px max-w-5xl mx-auto">
           <div className="rounded-[2.5rem] bg-brand-navySoft p-8 md:p-14">
-            <p className="font-handwritten text-3xl text-brand-maroon">this is for you if...</p>
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">this is for you if...</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">A clear fit — or not at all.</h2>
             <ul className="mt-8 grid sm:grid-cols-2 gap-3">
               {whoFor.map((t) => (
@@ -198,7 +198,7 @@ export default function TutorPartner() {
       {/* WHAT HAPPENS NEXT */}
       <section className="section-y">
         <div className="container-px max-w-5xl mx-auto">
-          <p className="font-handwritten text-3xl text-brand-maroon text-center">straight after you pay</p>
+          <p className="font-handwritten text-xl md:text-2xl text-brand-maroon text-center">straight after you pay</p>
           <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink text-center mt-1">What happens next.</h2>
           <p className="text-brand-mute text-center mt-3 max-w-xl mx-auto">No mystery — here's exactly what arrives the moment your deposit clears.</p>
           <div className="mt-10 grid sm:grid-cols-2 gap-5">
@@ -239,7 +239,7 @@ export default function TutorPartner() {
             <span className="absolute -top-3 left-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-maroon text-white text-xs font-semibold uppercase tracking-wide shadow-soft">
               <AlertCircle className="w-3.5 h-3.5" /> Small cohort — personalised feedback for every participant
             </span>
-            <p className="font-handwritten text-3xl text-brand-maroon mt-3">secure your place</p>
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon mt-3">secure your place</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">Pay your deposit. Confirm your seat.</h2>
 
             <div className="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
@@ -284,7 +284,7 @@ export default function TutorPartner() {
 
       <section className="section-y bg-white">
         <div className="container-px max-w-5xl mx-auto text-center">
-          <p className="font-handwritten text-3xl text-brand-maroon">teach. inspire. earn.</p>
+          <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">teach. inspire. earn.</p>
           <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1 max-w-2xl mx-auto">A growing Sociology brand — and a place for you in it.</h3>
           <p className="text-brand-mute mt-4 max-w-xl mx-auto">Questions? Email <a className="text-brand-maroon underline-grow" href="mailto:help@thetravellingtutorx.co.uk">help@thetravellingtutorx.co.uk</a> — we reply within 24 hours.</p>
         </div>

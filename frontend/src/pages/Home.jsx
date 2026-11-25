@@ -103,7 +103,7 @@ export default function Home() {
               <div className="absolute -inset-6 bg-brand-maroonSoft rounded-[2.5rem] rotate-3" />
               <div className="absolute -inset-6 bg-brand-navySoft rounded-[2.5rem] -rotate-3 opacity-60" />
               <div className="relative bg-white rounded-[2.5rem] p-6 shadow-medium border border-border/50">
-                <img src={BRAND.avatar} alt="The Travelling Tutor X — Georgina" className="w-full aspect-square object-contain rounded-[2rem] bg-brand-maroonSoft" />
+                <img src={BRAND.photo} alt="Georgina, AQA Sociology Examiner and founder of The Travelling Tutor X" className="w-full aspect-square object-cover object-top rounded-[2rem] bg-brand-maroonSoft" />
                 <div className="absolute -bottom-4 -left-4 bg-white rounded-2xl shadow-soft px-4 py-3 flex items-center gap-2 border border-border/50">
                   <Award className="w-5 h-5 text-brand-maroon" />
                   <p className="text-sm font-medium text-brand-ink">AQA Sociology Examiner</p>
@@ -127,7 +127,7 @@ export default function Home() {
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-[#1877F2] text-xs font-semibold uppercase tracking-wide">
                 <Facebook className="w-3.5 h-3.5" /> Facebook · @thetravellingtutorx
               </span>
-              <p className="font-handwritten text-3xl text-brand-maroon mt-4">don't just take my word for it</p>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon mt-4">don't just take my word for it</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
                 “From an E to an A.” Hear it from the families themselves.
               </h2>
@@ -168,7 +168,7 @@ export default function Home() {
       <section className="section-y">
         <div className="container-px max-w-7xl mx-auto">
           <div className="max-w-2xl">
-            <p className="font-handwritten text-3xl text-brand-maroon">where to begin?</p>
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">where to begin?</p>
             <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Tell me who you are.</h2>
             <p className="text-brand-mute mt-4 text-lg">Pick the path that fits you. Every one leads to support from someone who actually marks the exams.</p>
           </div>
@@ -201,15 +201,15 @@ export default function Home() {
         <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
             <div className="absolute -inset-4 bg-brand-navySoft rounded-[2.5rem] -rotate-2" />
-            <img src={BRAND.avatar} alt="Georgina, founder of The Travelling Tutor X" className="relative w-full bg-brand-maroonSoft rounded-[2.5rem] aspect-square object-contain shadow-medium" />
+            <img src={BRAND.photo} alt="Georgina, founder of The Travelling Tutor X" className="relative w-full bg-brand-maroonSoft rounded-[2.5rem] aspect-square object-cover object-top shadow-medium" />
             <div className="absolute -bottom-6 right-6 bg-white rounded-3xl shadow-medium p-5 max-w-[260px] border border-border/50">
-              <p className="font-handwritten text-2xl text-brand-maroon leading-none">Hi, I'm Georgina —</p>
+              <p className="font-handwritten text-lg md:text-xl text-brand-maroon leading-none">Hi, I'm Georgina —</p>
               <p className="text-sm text-brand-mute mt-2">Head of Sociology, Director of Sixth Form & AQA examiner. I believe in every student I teach.</p>
             </div>
           </div>
 
           <div>
-            <p className="font-handwritten text-3xl text-brand-maroon">meet the teacher</p>
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">meet the teacher</p>
             <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Meet the Teacher Behind The Travelling Tutor X</h2>
             <p className="text-brand-mute mt-5 text-lg leading-relaxed">
               I've spent 9 years in education in leadership roles, including Head of Sociology and Director of Sixth Form, teaching thousands of students along the way. Throughout those 9 years I've also been an AQA Sociology Examiner marking real exam papers. That means I don't teach Sociology in theory — I teach it in exactly the language examiners look for when they award the top marks.
@@ -233,7 +233,7 @@ export default function Home() {
       <section className="section-y">
         <div className="container-px max-w-7xl mx-auto">
           <div className="text-center max-w-2xl mx-auto">
-            <p className="font-handwritten text-3xl text-brand-maroon">why parents & students trust me</p>
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">why parents & students trust me</p>
             <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Why families choose The Travelling Tutor X</h2>
           </div>
           <div className="mt-14 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -255,7 +255,7 @@ export default function Home() {
         <div className="container-px max-w-7xl mx-auto">
           <div className="flex items-end justify-between flex-wrap gap-6 mb-10">
             <div>
-              <p className="font-handwritten text-3xl text-brand-maroon">ways to learn</p>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">ways to learn</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Services built around results</h2>
             </div>
             <Link to="/courses" className="hidden md:inline-flex items-center gap-1 text-brand-maroon font-medium underline-grow">View all <ArrowUpRight className="w-4 h-4" /></Link>
@@ -283,7 +283,7 @@ export default function Home() {
         <div className="container-px max-w-7xl mx-auto">
           <div className="rounded-[2.5rem] bg-brand-navySoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center overflow-hidden relative">
             <div>
-              <p className="font-handwritten text-3xl text-brand-maroon">teach. inspire. earn.</p>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">teach. inspire. earn.</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">Become a Sociology Tutor Partner</h2>
               <p className="text-brand-ink/80 mt-5 text-lg leading-relaxed max-w-lg">
                 Join a growing Sociology education brand. Receive training, mentoring, resources, marketing and student leads while building a flexible and rewarding career on your terms.
@@ -300,22 +300,22 @@ export default function Home() {
             <div className="relative">
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-3xl p-6 bg-white border border-white shadow-soft">
-                  <p className="font-handwritten text-2xl text-brand-maroon">teach</p>
+                  <p className="font-handwritten text-lg md:text-xl text-brand-maroon">teach</p>
                   <p className="font-semibold text-brand-ink mt-1">1-1 & group Sociology sessions</p>
                   <p className="text-sm text-brand-mute mt-2">£40-80/hour 1-1 · £100-200/hour group</p>
                 </div>
                 <div className="rounded-3xl p-6 bg-white border border-white shadow-soft mt-8">
-                  <p className="font-handwritten text-2xl text-brand-maroon">create</p>
+                  <p className="font-handwritten text-lg md:text-xl text-brand-maroon">create</p>
                   <p className="font-semibold text-brand-ink mt-1">Resources, TikToks & essay plans</p>
                   <p className="text-sm text-brand-mute mt-2">Build a name and a real portfolio</p>
                 </div>
                 <div className="rounded-3xl p-6 bg-white border border-white shadow-soft -mt-4">
-                  <p className="font-handwritten text-2xl text-brand-maroon">grow</p>
+                  <p className="font-handwritten text-lg md:text-xl text-brand-maroon">grow</p>
                   <p className="font-semibold text-brand-ink mt-1">Training, mentoring & community</p>
                   <p className="text-sm text-brand-mute mt-2">We invest in you from day one</p>
                 </div>
                 <div className="rounded-3xl p-6 bg-white border border-white shadow-soft mt-4">
-                  <p className="font-handwritten text-2xl text-brand-maroon">earn</p>
+                  <p className="font-handwritten text-lg md:text-xl text-brand-maroon">earn</p>
                   <p className="font-semibold text-brand-ink mt-1">Flexible, rewarding income</p>
                   <p className="text-sm text-brand-mute mt-2">On your terms · remote-first</p>
                 </div>
@@ -328,7 +328,7 @@ export default function Home() {
       {/* FINAL CTA */}
       <section className="section-y">
         <div className="container-px max-w-5xl mx-auto text-center">
-          <p className="font-handwritten text-3xl text-brand-maroon">your best grade starts here</p>
+          <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">your best grade starts here</p>
           <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-2">Your next steps are waiting. Let's get you there.</h2>
           <p className="text-brand-mute mt-5 text-lg max-w-2xl mx-auto">University, an apprenticeship, your dream career — the right grades open every door. Book your tutoring today and give yourself the best possible chance of the results you deserve.</p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">

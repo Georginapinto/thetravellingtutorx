@@ -44,7 +44,7 @@ export default function Parents() {
       <section className="section-y">
         <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <p className="font-handwritten text-3xl text-brand-maroon">popular routes</p>
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">popular routes</p>
             <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">GCSE & A-Level Sociology support</h2>
             <p className="text-brand-mute mt-4 text-lg">Whether your child is just starting GCSE or sitting A-Level mocks, we'll find the right path together.</p>
             <ul className="mt-6 space-y-3">
@@ -60,7 +60,7 @@ export default function Parents() {
           </div>
 
           <div className="rounded-[2.5rem] bg-brand-maroonSoft p-8 md:p-12">
-            <p className="font-handwritten text-3xl text-brand-maroon">free for parents</p>
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">free for parents</p>
             <h3 className="text-3xl font-semibold text-brand-ink mt-1">Parent Guide to Sociology Success</h3>
             <p className="text-brand-mute mt-3">Revision advice, how to support without nagging, study planning and motivation tips — all in one short, practical guide.</p>
             <div className="mt-6 bg-white rounded-2xl p-6">

@@ -23,13 +23,14 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
-      <div className="container-px max-w-7xl mx-auto flex items-center justify-between h-20">
+      <div className="container-px max-w-7xl mx-auto flex items-center justify-between gap-6 h-20">
         <Link to="/" data-testid={NAV.logo} className="flex items-center gap-2">
           <SignatureLogo size="sm" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
-          {links.map((l) => (
+        {/* The logo links home, so the desktop menu skips "Home" to save space. */}
+        <nav className="hidden xl:flex items-center gap-6">
+          {links.filter((l) => l.to !== "/").map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
@@ -56,7 +57,7 @@ export const Navbar = () => {
           <button
             data-testid={NAV.mobileToggle}
             onClick={() => setOpen((s) => !s)}
-            className="lg:hidden p-2 rounded-full bg-brand-maroonSoft text-brand-maroon"
+            className="xl:hidden p-2 rounded-full bg-brand-maroonSoft text-brand-maroon"
             aria-label="Toggle menu"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -65,7 +66,7 @@ export const Navbar = () => {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border/60 bg-background">
+        <div className="xl:hidden border-t border-border/60 bg-background">
           <div className="container-px max-w-7xl mx-auto py-6 flex flex-col gap-1">
             {links.map((l) => (
               <NavLink

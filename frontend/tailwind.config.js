@@ -7,7 +7,7 @@ module.exports = {
       fontFamily: {
         heading: ["Outfit", "ui-sans-serif", "system-ui", "sans-serif"],
         body: ["'Plus Jakarta Sans'", "ui-sans-serif", "system-ui", "sans-serif"],
-        accent: ["Caveat", "cursive"],
+        accent: ["Fraunces", "Georgia", "serif"],
       },
       borderRadius: {
         lg: "var(--radius)",

@@ -106,7 +106,7 @@ export default function Shop() {
         <div className="container-px max-w-7xl mx-auto">
           <div className="flex items-end justify-between flex-wrap gap-4 mb-10">
             <div>
-              <p className="font-handwritten text-3xl text-brand-maroon">grade booster packs</p>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">grade booster packs</p>
               <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">Topic-by-topic A* essentials.</h2>
             </div>
             <p className="text-sm text-brand-mute max-w-sm">Instant PDF download after secure Stripe checkout. Lifetime access — yours to print, annotate and revise from.</p>
@@ -159,7 +159,7 @@ export default function Shop() {
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-brand-navyDeep text-xs font-semibold uppercase tracking-wide">
                 <MonitorPlay className="w-3.5 h-3.5" /> Full Course · Self-paced
               </span>
-              <p className="font-handwritten text-3xl text-brand-maroon mt-4">step inside</p>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon mt-4">step inside</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1">{course.title}</h2>
               <p className="text-sm text-brand-mute mt-2">{course.subtitle}</p>
               <p className="text-brand-ink/80 mt-5 text-lg max-w-lg leading-relaxed">{course.blurb}</p>
@@ -201,7 +201,7 @@ export default function Shop() {
               <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-brand-maroon text-xs font-semibold uppercase tracking-wide">
                 <Users className="w-3.5 h-3.5" /> For Tutors & Teachers · Cohort starts 20 July
               </span>
-              <p className="font-handwritten text-3xl text-brand-maroon mt-4">for tutors</p>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon mt-4">for tutors</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
                 Sociology Tutor Training 6 Week Programme
               </h2>
@@ -254,7 +254,7 @@ export default function Shop() {
 
       <section className="section-y bg-white">
         <div className="container-px max-w-4xl mx-auto text-center">
-          <p className="font-handwritten text-3xl text-brand-maroon">need something else?</p>
+          <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">need something else?</p>
           <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">More topics coming every cohort.</h3>
           <p className="text-brand-mute mt-4 max-w-xl mx-auto">Looking for a topic that isn't here yet? Drop me an email and I'll let you know when it lands.</p>
           <Button asChild className="mt-7 rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white">
