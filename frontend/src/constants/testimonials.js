@@ -1,9 +1,4 @@
 // Curated testimonials shown on the Testimonials page.
-//
-// Facebook recommendations: copy the text in exactly as written and add
-//   source: "facebook",
-//   url: "<link to the recommendation>",  // optional, falls back to the Page
-//   rating: 0,                            // Facebook recommendations have no stars
 export const TESTIMONIALS = [
   {
     id: "1",

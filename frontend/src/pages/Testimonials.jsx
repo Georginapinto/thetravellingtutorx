@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import PageHero from "@/components/PageHero";
 import { BRAND } from "@/constants/testIds";
 import { TESTIMONIALS } from "@/constants/testimonials";
+import { FACEBOOK_REVIEWS } from "@/constants/facebookReviews";
 import { Star, Quote, Facebook, ExternalLink } from "lucide-react";
 
 const filterTabs = [
@@ -48,26 +49,11 @@ export default function Testimonials() {
             {filtered.map((t) => (
               <div key={t.id} className="rounded-3xl p-7 bg-brand-warmWhite border border-border/60 shadow-soft hover:-translate-y-1 hover:shadow-hover transition-all relative">
                 <Quote className="absolute top-5 right-5 w-10 h-10 text-brand-pinkPastel" />
-                {t.rating > 0 && (
-                  <div className="flex gap-0.5 mb-3">{[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}</div>
-                )}
+                <div className="flex gap-0.5 mb-3">{[...Array(t.rating)].map((_, i) => <Star key={i} className="w-4 h-4 text-yellow-500 fill-yellow-500" />)}</div>
                 <p className="text-brand-ink text-lg leading-relaxed">"{t.quote}"</p>
-                <div className="mt-6 pt-5 border-t border-border/60 flex items-end justify-between gap-3">
-                  <div>
-                    <p className="font-semibold text-brand-ink">{t.name}</p>
-                    <p className="text-sm text-brand-mute">{t.role}</p>
-                  </div>
-                  {t.source === "facebook" && (
-                    <a
-                      href={t.url || BRAND.facebookUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      data-testid={`testimonial-facebook-${t.id}`}
-                      className="shrink-0 inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-[#1877F2]/10 text-[#1877F2] text-xs font-semibold hover:bg-[#1877F2]/20 transition-colors"
-                    >
-                      <Facebook className="w-3.5 h-3.5" /> via Facebook
-                    </a>
-                  )}
+                <div className="mt-6 pt-5 border-t border-border/60">
+                  <p className="font-semibold text-brand-ink">{t.name}</p>
+                  <p className="text-sm text-brand-mute">{t.role}</p>
                 </div>
               </div>
             ))}
@@ -123,6 +109,27 @@ export default function Testimonials() {
                 />
               </div>
             </div>
+
+            {FACEBOOK_REVIEWS.length > 0 && (
+              <div className="mt-12 columns-1 md:columns-2 lg:columns-3 gap-6" data-testid="facebook-review-embeds">
+                {FACEBOOK_REVIEWS.map((r) => (
+                  <div key={r.url} className="break-inside-avoid mb-6 rounded-3xl bg-white p-3 shadow-soft overflow-hidden">
+                    <iframe
+                      title="Facebook recommendation"
+                      src={`https://www.facebook.com/plugins/post.php?href=${encodeURIComponent(r.url)}&show_text=true&width=500`}
+                      width="100%"
+                      height={r.height || 260}
+                      style={{ border: "none", overflow: "hidden", width: "100%" }}
+                      scrolling="no"
+                      frameBorder="0"
+                      allowFullScreen={true}
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
         </div>
       </section>
