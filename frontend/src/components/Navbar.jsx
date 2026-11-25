@@ -23,20 +23,21 @@ export const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-50 bg-background/85 backdrop-blur-xl border-b border-border/60">
-      <div className="container-px max-w-7xl mx-auto flex items-center justify-between h-20">
+      <div className="container-px max-w-7xl mx-auto flex items-center justify-between gap-6 h-20">
         <Link to="/" data-testid={NAV.logo} className="flex items-center gap-2">
           <SignatureLogo size="sm" />
         </Link>
 
-        <nav className="hidden lg:flex items-center gap-7">
-          {links.map((l) => (
+        {/* The logo links home, so the desktop menu skips "Home" to save space. */}
+        <nav className="hidden xl:flex items-center gap-6">
+          {links.filter((l) => l.to !== "/").map((l) => (
             <NavLink
               key={l.to}
               to={l.to}
               data-testid={l.id}
               className={({ isActive }) =>
                 `text-sm font-medium transition-colors underline-grow whitespace-nowrap ${
-                  isActive ? "text-brand-pink" : "text-brand-ink hover:text-brand-pink"
+                  isActive ? "text-brand-maroon" : "text-brand-ink hover:text-brand-maroon"
                 }`
               }
             >
@@ -49,14 +50,14 @@ export const Navbar = () => {
           <Button
             data-testid={NAV.bookCta}
             asChild
-            className="hidden md:inline-flex bg-brand-pink hover:bg-brand-pinkDeep text-white rounded-full px-5 h-11 shadow-soft"
+            className="hidden md:inline-flex bg-brand-maroon hover:bg-brand-maroonDeep text-white rounded-full px-5 h-11 shadow-soft"
           >
             <Link to="/contact"><Mail className="w-4 h-4 mr-2" /> Get in Touch</Link>
           </Button>
           <button
             data-testid={NAV.mobileToggle}
             onClick={() => setOpen((s) => !s)}
-            className="lg:hidden p-2 rounded-full bg-brand-pinkSoft text-brand-pink"
+            className="xl:hidden p-2 rounded-full bg-brand-maroonSoft text-brand-maroon"
             aria-label="Toggle menu"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -65,7 +66,7 @@ export const Navbar = () => {
       </div>
 
       {open && (
-        <div className="lg:hidden border-t border-border/60 bg-background">
+        <div className="xl:hidden border-t border-border/60 bg-background">
           <div className="container-px max-w-7xl mx-auto py-6 flex flex-col gap-1">
             {links.map((l) => (
               <NavLink
@@ -74,7 +75,7 @@ export const Navbar = () => {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `py-3 px-4 rounded-2xl font-medium ${
-                    isActive ? "bg-brand-pinkSoft text-brand-pink" : "text-brand-ink hover:bg-muted"
+                    isActive ? "bg-brand-maroonSoft text-brand-maroon" : "text-brand-ink hover:bg-muted"
                   }`
                 }
               >
@@ -84,7 +85,7 @@ export const Navbar = () => {
             <Button
               asChild
               onClick={() => setOpen(false)}
-              className="mt-3 bg-brand-pink hover:bg-brand-pinkDeep text-white rounded-full h-12"
+              className="mt-3 bg-brand-maroon hover:bg-brand-maroonDeep text-white rounded-full h-12"
             >
               <Link to="/contact">Get in Touch</Link>
             </Button>

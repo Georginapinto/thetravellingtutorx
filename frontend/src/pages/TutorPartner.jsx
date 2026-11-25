@@ -38,7 +38,7 @@ const founderCreds = [
   { i: GraduationCap, t: "Qualified Teacher", d: "Years in the classroom across GCSE & A-Level Sociology." },
   { i: Award, t: "Director of Sixth Form", d: "Leading academic teams and shaping student outcomes." },
   { i: ClipboardCheck, t: "AQA Examiner Training", d: "Trained as an AQA Sociology examiner — knows the mark scheme inside out." },
-  { i: BookOpenCheck, t: "8 Years Marking Scripts", d: "Nearly a decade of marking real candidate scripts at the top end." },
+  { i: BookOpenCheck, t: "9 Years Marking Scripts", d: "9 years of marking real AQA candidate scripts at the top end." },
 ];
 
 const whatHappensNext = [
@@ -93,22 +93,22 @@ export default function TutorPartner() {
         eyebrow="AQA examiner-led · 6 weeks · cohort starts 20 July"
         title={
           <>
-            Sociology Tutor Training Programme <span className="font-handwritten text-brand-pink block mt-2">AQA Examiner-Led</span>
+            Sociology Tutor Training Programme <span className="font-handwritten text-brand-maroon block mt-2">AQA Examiner-Led</span>
           </>
         }
         lede="A focused 6-week training programme to become a confident, examiner-aware Sociology tutor. One live session per week, every session recorded, full private Google Classroom — and the brand-name partnership behind you."
-        accent="sage"
+        accent="navy"
       >
-        <Button asChild className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white">
+        <Button asChild className="rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white">
           <a href="#secure-place">Secure my place <Plane className="w-4 h-4 ml-2 -rotate-12" /></a>
         </Button>
-        <Button asChild variant="outline" className="rounded-full h-12 px-6 border-brand-pink/40 text-brand-pink hover:bg-brand-pinkSoft">
+        <Button asChild variant="outline" className="rounded-full h-12 px-6 border-brand-maroon/40 text-brand-maroon hover:bg-brand-maroonSoft">
           <a href="#whats-included">See what's included</a>
         </Button>
       </PageHero>
 
       {/* AT-A-GLANCE */}
-      <section className="bg-brand-pinkSoft py-10">
+      <section className="bg-brand-maroonSoft py-10">
         <div className="container-px max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {[
             { l: "Cohort starts", v: "Week of 20 July" },
@@ -128,21 +128,21 @@ export default function TutorPartner() {
       <section className="section-y bg-white">
         <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative">
-            <div className="absolute -inset-4 bg-brand-sageSoft rounded-[2.5rem] -rotate-2" />
-            <img src={BRAND.avatar} alt="Georgina — Founder, The Travelling Tutor X" className="relative bg-brand-pinkSoft rounded-[2.5rem] aspect-square object-contain w-full shadow-medium" />
+            <div className="absolute -inset-4 bg-brand-navySoft rounded-[2.5rem] -rotate-2" />
+            <img src={BRAND.photo} alt="Georgina — Founder, The Travelling Tutor X" className="relative bg-brand-maroonSoft rounded-[2.5rem] aspect-square object-cover object-top w-full shadow-medium" />
             <div className="absolute -bottom-5 right-5 bg-white rounded-2xl shadow-medium p-4 max-w-[240px] border border-border/50">
-              <p className="font-handwritten text-2xl text-brand-pink leading-none">A message from Georgina —</p>
+              <p className="font-handwritten text-lg md:text-xl text-brand-maroon leading-none">A message from Georgina —</p>
               <p className="text-sm text-brand-mute mt-2">"This is the training I wish existed when I started tutoring. Examiner-led, no fluff."</p>
             </div>
           </div>
           <div>
-            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-pinkSoft text-brand-pink text-xs font-semibold uppercase tracking-wide">About the Lead Tutor</span>
+            <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-maroonSoft text-brand-maroon text-xs font-semibold uppercase tracking-wide">About the Lead Tutor</span>
             <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-3">You'll learn directly from an AQA Sociology examiner.</h2>
             <p className="text-brand-mute mt-4 text-lg">No layers. No theory-only modules. Every session is led personally by Georgina — founder of The Travelling Tutor X.</p>
             <div className="mt-6 grid sm:grid-cols-2 gap-4">
               {founderCreds.map((c) => (
-                <div key={c.t} className="rounded-2xl p-4 bg-brand-warmWhite border border-border/60">
-                  <c.i className="w-6 h-6 text-brand-pink" />
+                <div key={c.t} className="rounded-2xl p-4 bg-brand-cream border border-border/60">
+                  <c.i className="w-6 h-6 text-brand-maroon" />
                   <p className="font-semibold text-brand-ink mt-2">{c.t}</p>
                   <p className="text-sm text-brand-mute mt-1">{c.d}</p>
                 </div>
@@ -155,13 +155,13 @@ export default function TutorPartner() {
       {/* WHO THIS IS FOR */}
       <section className="section-y">
         <div className="container-px max-w-5xl mx-auto">
-          <div className="rounded-[2.5rem] bg-brand-sageSoft p-8 md:p-14">
-            <p className="font-handwritten text-3xl text-brand-pink">this is for you if...</p>
+          <div className="rounded-[2.5rem] bg-brand-navySoft p-8 md:p-14">
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">this is for you if...</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">A clear fit — or not at all.</h2>
             <ul className="mt-8 grid sm:grid-cols-2 gap-3">
               {whoFor.map((t) => (
                 <li key={t} className="flex items-start gap-3 bg-white rounded-2xl p-4 border border-white">
-                  <CheckCircle2 className="w-5 h-5 text-brand-sageDeep flex-none mt-0.5" />
+                  <CheckCircle2 className="w-5 h-5 text-brand-navyDeep flex-none mt-0.5" />
                   <span className="text-brand-ink">{t}</span>
                 </li>
               ))}
@@ -185,8 +185,8 @@ export default function TutorPartner() {
               { i: MonitorPlay, t: "Content templates", d: "TikTok hooks, captions, evergreen post templates." },
               { i: Heart, t: "Community", d: "Ongoing alumni group after the programme ends." },
             ].map((s) => (
-              <div key={s.t} className="rounded-3xl p-6 bg-brand-warmWhite border border-border/60 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-brand-pink text-white grid place-items-center"><s.i className="w-6 h-6" /></div>
+              <div key={s.t} className="rounded-3xl p-6 bg-brand-cream border border-border/60 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-brand-maroon text-white grid place-items-center"><s.i className="w-6 h-6" /></div>
                 <p className="font-semibold text-brand-ink mt-4">{s.t}</p>
                 <p className="text-sm text-brand-mute mt-1.5">{s.d}</p>
               </div>
@@ -198,13 +198,13 @@ export default function TutorPartner() {
       {/* WHAT HAPPENS NEXT */}
       <section className="section-y">
         <div className="container-px max-w-5xl mx-auto">
-          <p className="font-handwritten text-3xl text-brand-pink text-center">straight after you pay</p>
+          <p className="font-handwritten text-xl md:text-2xl text-brand-maroon text-center">straight after you pay</p>
           <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink text-center mt-1">What happens next.</h2>
           <p className="text-brand-mute text-center mt-3 max-w-xl mx-auto">No mystery — here's exactly what arrives the moment your deposit clears.</p>
           <div className="mt-10 grid sm:grid-cols-2 gap-5">
             {whatHappensNext.map((s) => (
               <div key={s.t} className="rounded-3xl p-6 bg-white border border-border/60 shadow-soft">
-                <div className="w-12 h-12 rounded-2xl bg-brand-pinkSoft text-brand-pink grid place-items-center"><s.i className="w-6 h-6" /></div>
+                <div className="w-12 h-12 rounded-2xl bg-brand-maroonSoft text-brand-maroon grid place-items-center"><s.i className="w-6 h-6" /></div>
                 <p className="font-semibold text-brand-ink mt-4">{s.t}</p>
                 <p className="text-sm text-brand-mute mt-1.5">{s.d}</p>
               </div>
@@ -219,10 +219,10 @@ export default function TutorPartner() {
           <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink text-center">How it works</h2>
           <div className="mt-12 grid md:grid-cols-4 gap-6">
             {process.map((s) => (
-              <div key={s.n} className="rounded-3xl p-6 bg-brand-warmWhite border border-border/60 text-center">
-                <div className="relative w-14 h-14 mx-auto rounded-full bg-brand-pinkSoft text-brand-pink grid place-items-center">
+              <div key={s.n} className="rounded-3xl p-6 bg-brand-cream border border-border/60 text-center">
+                <div className="relative w-14 h-14 mx-auto rounded-full bg-brand-maroonSoft text-brand-maroon grid place-items-center">
                   <s.i className="w-6 h-6" />
-                  <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-brand-pink text-white text-xs font-semibold grid place-items-center">{s.n}</span>
+                  <span className="absolute -top-1 -right-1 w-7 h-7 rounded-full bg-brand-maroon text-white text-xs font-semibold grid place-items-center">{s.n}</span>
                 </div>
                 <h3 className="mt-4 font-semibold text-brand-ink">{s.t}</h3>
                 <p className="text-sm text-brand-mute mt-1">{s.d}</p>
@@ -235,11 +235,11 @@ export default function TutorPartner() {
       {/* PAYMENT / SECURE PLACE */}
       <section id="secure-place" className="section-y">
         <div className="container-px max-w-3xl mx-auto">
-          <div className="rounded-[2.5rem] bg-brand-pinkSoft p-8 md:p-12 relative overflow-hidden">
-            <span className="absolute -top-3 left-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-pink text-white text-xs font-semibold uppercase tracking-wide shadow-soft">
+          <div className="rounded-[2.5rem] bg-brand-maroonSoft p-8 md:p-12 relative overflow-hidden">
+            <span className="absolute -top-3 left-8 inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-maroon text-white text-xs font-semibold uppercase tracking-wide shadow-soft">
               <AlertCircle className="w-3.5 h-3.5" /> Small cohort — personalised feedback for every participant
             </span>
-            <p className="font-handwritten text-3xl text-brand-pink mt-3">secure your place</p>
+            <p className="font-handwritten text-xl md:text-2xl text-brand-maroon mt-3">secure your place</p>
             <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">Pay your deposit. Confirm your seat.</h2>
 
             <div className="mt-6 grid sm:grid-cols-2 gap-4 text-sm">
@@ -247,18 +247,18 @@ export default function TutorPartner() {
                 <p className="text-brand-mute">Programme total</p>
                 <p className="text-3xl font-semibold text-brand-ink mt-1">£{PROGRAMME.total.toFixed(2)}</p>
               </div>
-              <div className="bg-white rounded-2xl p-5 ring-2 ring-brand-pink">
-                <p className="text-brand-pink font-semibold">Deposit today</p>
+              <div className="bg-white rounded-2xl p-5 ring-2 ring-brand-maroon">
+                <p className="text-brand-maroon font-semibold">Deposit today</p>
                 <p className="text-3xl font-semibold text-brand-ink mt-1">£{PROGRAMME.deposit.toFixed(2)}</p>
                 <p className="text-xs text-brand-mute mt-1">Balance £{PROGRAMME.deposit.toFixed(2)} due by {PROGRAMME.balanceDue}</p>
               </div>
             </div>
 
             <ul className="mt-5 grid sm:grid-cols-2 gap-2 text-sm text-brand-ink">
-              <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-sageDeep" /> Secure card payment via Stripe</li>
-              <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-sageDeep" /> No hidden fees</li>
-              <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-sageDeep" /> Place confirmed once deposit received</li>
-              <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-sageDeep" /> Receipt + Google Classroom invite within 24h</li>
+              <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-navyDeep" /> Secure card payment via Stripe</li>
+              <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-navyDeep" /> No hidden fees</li>
+              <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-navyDeep" /> Place confirmed once deposit received</li>
+              <li className="flex items-center gap-2"><ShieldCheck className="w-4 h-4 text-brand-navyDeep" /> Receipt + Google Classroom invite within 24h</li>
             </ul>
 
             <form onSubmit={checkout} className="relative mt-7 bg-white rounded-2xl p-6 space-y-4">
@@ -271,7 +271,7 @@ export default function TutorPartner() {
                 data-testid="checkout-deposit-btn"
                 type="submit"
                 disabled={busy}
-                className="w-full h-13 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white text-base"
+                className="w-full h-13 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white text-base"
               >
                 {busy ? "Opening secure checkout..." : `Pay £${PROGRAMME.deposit.toFixed(2)} deposit & secure my place`}
               </Button>
@@ -284,9 +284,9 @@ export default function TutorPartner() {
 
       <section className="section-y bg-white">
         <div className="container-px max-w-5xl mx-auto text-center">
-          <p className="font-handwritten text-3xl text-brand-pink">teach. inspire. earn.</p>
+          <p className="font-handwritten text-xl md:text-2xl text-brand-maroon">teach. inspire. earn.</p>
           <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1 max-w-2xl mx-auto">A growing Sociology brand — and a place for you in it.</h3>
-          <p className="text-brand-mute mt-4 max-w-xl mx-auto">Questions? Email <a className="text-brand-pink underline-grow" href="mailto:help@thetravellingtutorx.co.uk">help@thetravellingtutorx.co.uk</a> — we reply within 24 hours.</p>
+          <p className="text-brand-mute mt-4 max-w-xl mx-auto">Questions? Email <a className="text-brand-maroon underline-grow" href="mailto:help@thetravellingtutorx.co.uk">help@thetravellingtutorx.co.uk</a> — we reply within 24 hours.</p>
         </div>
       </section>
     </>

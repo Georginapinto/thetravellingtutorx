@@ -47,15 +47,15 @@ export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pac
   if (done) {
     return (
       <div className="space-y-3">
-        <div className="flex items-start gap-3 p-5 rounded-2xl bg-brand-sageSoft border border-brand-sage/30">
-          <CheckCircle2 className="w-6 h-6 text-brand-sageDeep flex-none mt-0.5" />
+        <div className="flex items-start gap-3 p-5 rounded-2xl bg-brand-navySoft border border-brand-navy/30">
+          <CheckCircle2 className="w-6 h-6 text-brand-navyDeep flex-none mt-0.5" />
           <div>
             <p className="font-semibold text-brand-ink">You're on the list, {form.first_name || "friend"}.</p>
             <p className="text-brand-mute text-sm">{downloadUrl ? "Your download should have opened — if not, tap the button below." : "Check your inbox — your pack is on its way."}</p>
           </div>
         </div>
         {downloadUrl && (
-          <Button onClick={triggerDownload} data-testid="lead-redownload" className="w-full h-12 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white">
+          <Button onClick={triggerDownload} data-testid="lead-redownload" className="w-full h-12 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white">
             Download again
           </Button>
         )}
@@ -90,7 +90,7 @@ export const LeadMagnetForm = ({ audience, magnet, ctaLabel = "Download Free Pac
         data-testid={FORMS.leadSubmit}
         type="submit"
         disabled={busy}
-        className="w-full h-12 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white"
+        className="w-full h-12 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white"
       >
         {busy ? "Sending..." : ctaLabel}
       </Button>

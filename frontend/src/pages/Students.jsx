@@ -18,13 +18,13 @@ export default function Students() {
     <>
       <PageHero
         eyebrow="for students"
-        title="Top grades in GCSE & A-Level Sociology — without the panic."
-        lede="Learn from someone who actually marks AQA Sociology exams. Clear structure, examiner-tested essay frameworks, and the confidence to walk into any question."
+        title="You're more capable than you think. Let's prove it."
+        lede="Learn from an AQA Sociology Examiner and Head of Sociology who has taught thousands of students. I'll show you exactly what examiners reward, give you essay frameworks that work, and help you believe in yourself — some of my students have gone from E grades to A grades. Your next steps are waiting."
       >
-        <Button asChild className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white">
+        <Button asChild className="rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white">
           <Link to="/contact">Get one-to-one support</Link>
         </Button>
-        <Button asChild variant="outline" className="rounded-full h-12 px-6 border-brand-pink/40 text-brand-pink hover:bg-brand-pinkSoft">
+        <Button asChild variant="outline" className="rounded-full h-12 px-6 border-brand-maroon/40 text-brand-maroon hover:bg-brand-maroonSoft">
           <a href="#student-resource">Get the free essay guide</a>
         </Button>
       </PageHero>
@@ -34,11 +34,11 @@ export default function Students() {
           <h2 className="text-3xl md:text-4xl font-semibold text-brand-ink">Ways students learn with me</h2>
           <div className="mt-10 grid md:grid-cols-2 gap-6">
             {services.map((s) => (
-              <div key={s.t} className="rounded-3xl p-7 bg-brand-warmWhite border border-border/60 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all">
-                <div className="w-12 h-12 rounded-2xl bg-brand-pink text-white grid place-items-center"><s.icon className="w-6 h-6" /></div>
+              <div key={s.t} className="rounded-3xl p-7 bg-brand-cream border border-border/60 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all">
+                <div className="w-12 h-12 rounded-2xl bg-brand-maroon text-white grid place-items-center"><s.icon className="w-6 h-6" /></div>
                 <h3 className="mt-5 text-xl font-semibold text-brand-ink">{s.t}</h3>
                 <p className="text-brand-mute mt-2">{s.d}</p>
-                <Link to="/contact" className="mt-4 inline-flex items-center gap-1 text-brand-pink font-medium underline-grow">Enquire <ArrowUpRight className="w-4 h-4" /></Link>
+                <Link to="/contact" className="mt-4 inline-flex items-center gap-1 text-brand-maroon font-medium underline-grow">Enquire <ArrowUpRight className="w-4 h-4" /></Link>
               </div>
             ))}
           </div>
@@ -48,10 +48,10 @@ export default function Students() {
       {/* Student lead magnet — Essay Super Structure PDF */}
       <section id="student-resource" className="section-y">
         <div className="container-px max-w-7xl mx-auto">
-          <div className="rounded-[2.5rem] bg-brand-pinkSoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
+          <div className="rounded-[2.5rem] bg-brand-maroonSoft p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-brand-pink text-xs font-semibold tracking-wide uppercase">For Students · Free PDF</span>
-              <p className="font-handwritten text-3xl text-brand-pink mt-4">your free download</p>
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white text-brand-maroon text-xs font-semibold tracking-wide uppercase">For Students · Free PDF</span>
+              <p className="font-handwritten text-xl md:text-2xl text-brand-maroon mt-4">your free download</p>
               <h2 className="text-3xl md:text-5xl font-semibold text-brand-ink mt-1 leading-tight">
                 Essay Super Structure: Families &amp; Households (10-marker)
               </h2>
@@ -65,14 +65,14 @@ export default function Students() {
                   { i: Star, t: "Mark-scheme thinking — what gets you the marks" },
                   { i: BookOpenCheck, t: "Use it on your next 10-marker straight away" },
                 ].map(({ i: Icon, t }) => (
-                  <li key={t} className="flex items-center gap-2"><Icon className="w-5 h-5 text-brand-pink" /> {t}</li>
+                  <li key={t} className="flex items-center gap-2"><Icon className="w-5 h-5 text-brand-maroon" /> {t}</li>
                 ))}
               </ul>
               <p className="text-xs text-brand-mute mt-5">Designed for AQA A-Level Sociology students · GCSE-friendly examples included.</p>
             </div>
             <div className="bg-white rounded-3xl p-7 shadow-medium">
               <div className="flex items-center gap-3 mb-5">
-                <div className="w-12 h-12 rounded-xl bg-brand-pink text-white grid place-items-center"><FileDown className="w-6 h-6" /></div>
+                <div className="w-12 h-12 rounded-xl bg-brand-maroon text-white grid place-items-center"><FileDown className="w-6 h-6" /></div>
                 <div>
                   <p className="font-semibold text-brand-ink">Instant download</p>
                   <p className="text-xs text-brand-mute">Pop your details in — opens straight away.</p>

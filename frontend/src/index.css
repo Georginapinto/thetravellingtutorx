@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Fraunces:ital,opsz,wght@1,9..144,400;1,9..144,500;1,9..144,600&display=swap");
 
 @tailwind base;
 @tailwind components;
@@ -7,28 +7,28 @@
 @layer base {
   :root {
     /* Warm White background, deep plum-ink foreground */
-    --background: 34 38% 97%;
-    --foreground: 330 14% 14%;
+    --background: 40 45% 96%;
+    --foreground: 222 35% 16%;
     --card: 0 0% 100%;
-    --card-foreground: 330 14% 14%;
+    --card-foreground: 222 35% 16%;
     --popover: 0 0% 100%;
-    --popover-foreground: 330 14% 14%;
+    --popover-foreground: 222 35% 16%;
     /* Bold Pink */
-    --primary: 338 76% 50%;
+    --primary: 340 59% 30%;
     --primary-foreground: 0 0% 100%;
     /* Soft Pastel Pink */
-    --secondary: 340 71% 92%;
-    --secondary-foreground: 338 76% 30%;
-    --muted: 30 25% 94%;
-    --muted-foreground: 330 8% 38%;
+    --secondary: 18 38% 92%;
+    --secondary-foreground: 340 59% 24%;
+    --muted: 38 35% 93%;
+    --muted-foreground: 225 11% 40%;
     /* Soft Sage Green */
-    --accent: 95 19% 67%;
-    --accent-foreground: 330 14% 14%;
+    --accent: 218 32% 34%;
+    --accent-foreground: 0 0% 100%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 100%;
-    --border: 30 18% 88%;
-    --input: 30 18% 88%;
-    --ring: 338 76% 50%;
+    --border: 36 22% 86%;
+    --input: 36 22% 86%;
+    --ring: 340 59% 30%;
     --radius: 1rem;
   }
 }
@@ -41,11 +41,11 @@
     font-feature-settings: "ss01", "ss02", "cv11";
   }
   h1, h2, h3, h4, h5, h6 { @apply font-heading tracking-tight; }
-  ::selection { background: #FBD0DD; color: #2A1F26; }
+  ::selection { background: #E5CEC8; color: #1B2438; }
 }
 
 @layer utilities {
-  .font-handwritten { font-family: "Caveat", cursive; }
+  .font-handwritten { font-family: "Fraunces", Georgia, serif; font-style: italic; font-weight: 500; letter-spacing: -0.01em; }
   .container-px { @apply px-6 md:px-12 lg:px-20; }
   .section-y { @apply py-20 md:py-28; }
   .blob {

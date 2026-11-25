@@ -58,7 +58,7 @@ export const FORMS = {
 };
 
 export const BRAND = {
-  avatar: "/images/georgina-avatar.png",
+  photo: "/images/georgina.jpg",
   essayStructurePdf: "/resources/essay-super-structure-families.pdf",
   facebookUrl: "https://www.facebook.com/thetravellingtutorx/",
 };
