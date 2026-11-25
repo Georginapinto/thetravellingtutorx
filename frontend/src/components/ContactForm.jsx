@@ -64,7 +64,7 @@ export const ContactForm = () => {
         <Label>Message</Label>
         <Textarea data-testid={FORMS.contactMessage} required rows={5} value={form.message} onChange={u("message")} className="rounded-xl mt-1" />
       </div>
-      <Button data-testid={FORMS.contactSubmit} disabled={busy} type="submit" className="h-12 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white px-7">
+      <Button data-testid={FORMS.contactSubmit} disabled={busy} type="submit" className="h-12 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white px-7">
         <Send className="w-4 h-4 mr-2" /> {busy ? "Sending..." : "Let's Get Started"}
       </Button>
       <Honeypot value={form.website} onChange={(v) => setForm((s) => ({ ...s, website: v }))} />

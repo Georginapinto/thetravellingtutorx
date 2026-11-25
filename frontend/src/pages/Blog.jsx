@@ -18,7 +18,7 @@ export default function Blog() {
         title="Sociology insights, essays & examiner thinking."
         lede="A growing collection of examiner-led articles for students, parents and teachers. New posts launching soon."
       >
-        <Button asChild className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white">
+        <Button asChild className="rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white">
           <Link to="/free-resources">Join the newsletter</Link>
         </Button>
       </PageHero>
@@ -26,13 +26,13 @@ export default function Blog() {
       <section className="section-y bg-white">
         <div className="container-px max-w-7xl mx-auto grid md:grid-cols-3 gap-6">
           {posts.map((p) => (
-            <div key={p.t} className="rounded-3xl p-7 bg-brand-warmWhite border border-border/60 shadow-soft hover:-translate-y-1 hover:shadow-hover transition-all">
-              <BookOpen className="w-7 h-7 text-brand-pink" />
-              <span className="inline-block mt-4 text-xs px-3 py-1 rounded-full bg-brand-pinkSoft text-brand-pink font-medium">{p.tag}</span>
+            <div key={p.t} className="rounded-3xl p-7 bg-brand-cream border border-border/60 shadow-soft hover:-translate-y-1 hover:shadow-hover transition-all">
+              <BookOpen className="w-7 h-7 text-brand-maroon" />
+              <span className="inline-block mt-4 text-xs px-3 py-1 rounded-full bg-brand-maroonSoft text-brand-maroon font-medium">{p.tag}</span>
               <h3 className="mt-3 text-xl font-semibold text-brand-ink leading-snug">{p.t}</h3>
               <p className="text-brand-mute text-sm mt-2">{p.d}</p>
               <p className="text-xs text-brand-mute mt-5 flex items-center gap-1"><Calendar className="w-3.5 h-3.5" /> {p.date}</p>
-              <span className="mt-4 inline-flex items-center gap-1 text-brand-pink text-sm font-medium">Read more <ArrowUpRight className="w-4 h-4" /></span>
+              <span className="mt-4 inline-flex items-center gap-1 text-brand-maroon text-sm font-medium">Read more <ArrowUpRight className="w-4 h-4" /></span>
             </div>
           ))}
         </div>

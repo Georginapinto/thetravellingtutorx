@@ -23,13 +23,13 @@ export default function ResourceShop() {
       <section className="section-y bg-white">
         <div className="container-px max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {items.map((it) => (
-            <div key={it.t} className="rounded-3xl p-6 bg-brand-warmWhite border border-border/60 shadow-soft hover:-translate-y-1 hover:shadow-hover transition-all">
-              <div className="w-12 h-12 rounded-2xl bg-brand-sageSoft text-brand-sageDeep grid place-items-center"><it.i className="w-6 h-6" /></div>
+            <div key={it.t} className="rounded-3xl p-6 bg-brand-cream border border-border/60 shadow-soft hover:-translate-y-1 hover:shadow-hover transition-all">
+              <div className="w-12 h-12 rounded-2xl bg-brand-navySoft text-brand-navyDeep grid place-items-center"><it.i className="w-6 h-6" /></div>
               <h3 className="mt-4 text-lg font-semibold text-brand-ink">{it.t}</h3>
               <p className="text-brand-mute text-sm mt-2">{it.d}</p>
               <div className="mt-5 flex items-center justify-between">
-                <p className="font-semibold text-brand-pink">{it.price}</p>
-                <Button asChild className="rounded-full h-10 bg-brand-pink hover:bg-brand-pinkDeep text-white">
+                <p className="font-semibold text-brand-maroon">{it.price}</p>
+                <Button asChild className="rounded-full h-10 bg-brand-maroon hover:bg-brand-maroonDeep text-white">
                   <Link to="/contact">Pre-order</Link>
                 </Button>
               </div>

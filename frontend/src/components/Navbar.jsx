@@ -36,7 +36,7 @@ export const Navbar = () => {
               data-testid={l.id}
               className={({ isActive }) =>
                 `text-sm font-medium transition-colors underline-grow whitespace-nowrap ${
-                  isActive ? "text-brand-pink" : "text-brand-ink hover:text-brand-pink"
+                  isActive ? "text-brand-maroon" : "text-brand-ink hover:text-brand-maroon"
                 }`
               }
             >
@@ -49,14 +49,14 @@ export const Navbar = () => {
           <Button
             data-testid={NAV.bookCta}
             asChild
-            className="hidden md:inline-flex bg-brand-pink hover:bg-brand-pinkDeep text-white rounded-full px-5 h-11 shadow-soft"
+            className="hidden md:inline-flex bg-brand-maroon hover:bg-brand-maroonDeep text-white rounded-full px-5 h-11 shadow-soft"
           >
             <Link to="/contact"><Mail className="w-4 h-4 mr-2" /> Get in Touch</Link>
           </Button>
           <button
             data-testid={NAV.mobileToggle}
             onClick={() => setOpen((s) => !s)}
-            className="lg:hidden p-2 rounded-full bg-brand-pinkSoft text-brand-pink"
+            className="lg:hidden p-2 rounded-full bg-brand-maroonSoft text-brand-maroon"
             aria-label="Toggle menu"
           >
             {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
@@ -74,7 +74,7 @@ export const Navbar = () => {
                 onClick={() => setOpen(false)}
                 className={({ isActive }) =>
                   `py-3 px-4 rounded-2xl font-medium ${
-                    isActive ? "bg-brand-pinkSoft text-brand-pink" : "text-brand-ink hover:bg-muted"
+                    isActive ? "bg-brand-maroonSoft text-brand-maroon" : "text-brand-ink hover:bg-muted"
                   }`
                 }
               >
@@ -84,7 +84,7 @@ export const Navbar = () => {
             <Button
               asChild
               onClick={() => setOpen(false)}
-              className="mt-3 bg-brand-pink hover:bg-brand-pinkDeep text-white rounded-full h-12"
+              className="mt-3 bg-brand-maroon hover:bg-brand-maroonDeep text-white rounded-full h-12"
             >
               <Link to="/contact">Get in Touch</Link>
             </Button>

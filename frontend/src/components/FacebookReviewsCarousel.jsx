@@ -25,7 +25,7 @@ export default function FacebookReviewsCarousel() {
   if (FACEBOOK_REVIEWS.length === 0) return null;
 
   const arrow =
-    "w-11 h-11 rounded-full bg-white border border-brand-pink/30 text-brand-pink grid place-items-center hover:bg-brand-pinkPastel transition-colors";
+    "w-11 h-11 rounded-full bg-white border border-brand-maroon/30 text-brand-maroon grid place-items-center hover:bg-brand-maroonPastel transition-colors";
 
   return (
     <div data-testid="home-facebook-carousel" className="min-w-0 w-full">
@@ -65,7 +65,7 @@ export default function FacebookReviewsCarousel() {
                 onClick={() => api?.scrollTo(i)}
                 aria-label={`Go to review ${i + 1}`}
                 aria-current={i === current}
-                className={`h-2.5 rounded-full transition-all ${i === current ? "w-6 bg-brand-pink" : "w-2.5 bg-brand-pink/30"}`}
+                className={`h-2.5 rounded-full transition-all ${i === current ? "w-6 bg-brand-maroon" : "w-2.5 bg-brand-maroon/30"}`}
               />
             ))}
           </div>

@@ -10,7 +10,7 @@ const packs = [
     magnet: "essay-super-structure-families",
     title: "Essay Super Structure: Families & Households (10m)",
     desc: "For students. Georgina's recommended essay structure with a full annotated model answer for the AQA Sociology Families & Households 10-marker.",
-    color: "bg-brand-pinkSoft",
+    color: "bg-brand-maroonSoft",
     icon: FileDown,
     cta: "Get my free essay guide",
     downloadUrl: BRAND.essayStructurePdf,
@@ -21,7 +21,7 @@ const packs = [
     magnet: "parent-guide",
     title: "Parent Guide to Sociology Success",
     desc: "For parents. Revision advice, how parents can help, study planning and motivation tips.",
-    color: "bg-brand-sageSoft",
+    color: "bg-brand-navySoft",
     icon: Compass,
     cta: "Send Me the Parent Guide",
   },
@@ -30,7 +30,7 @@ const packs = [
     magnet: "teacher-resources",
     title: "Free Sociology Teaching Resources",
     desc: "For teachers. Lesson activities, essay planner, retrieval quiz, CPD updates and tutor opportunities.",
-    color: "bg-brand-pinkPastel",
+    color: "bg-brand-maroonPastel",
     icon: BookOpenCheck,
     cta: "Join the Teacher Community",
   },
@@ -49,7 +49,7 @@ export default function FreeResources() {
         <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-3 gap-8">
           {packs.map((p) => (
             <div key={p.audience} className={`rounded-[2rem] p-7 ${p.color} border border-white shadow-soft`}>
-              <div className="w-14 h-14 rounded-2xl bg-white grid place-items-center text-brand-pink"><p.icon className="w-6 h-6" /></div>
+              <div className="w-14 h-14 rounded-2xl bg-white grid place-items-center text-brand-maroon"><p.icon className="w-6 h-6" /></div>
               <span className="inline-block mt-4 text-xs px-3 py-1 rounded-full bg-white/70 text-brand-ink font-semibold tracking-wide uppercase">For {p.audience}s</span>
               <h3 className="mt-3 text-2xl font-semibold text-brand-ink leading-tight">{p.title}</h3>
               <p className="text-brand-mute mt-2">{p.desc}</p>

@@ -58,7 +58,7 @@ export default function InstallPrompt() {
       data-testid="install-prompt"
       className="fixed left-1/2 -translate-x-1/2 bottom-4 z-[60] w-[calc(100%-2rem)] max-w-md bg-white border border-border/60 shadow-medium rounded-2xl p-4 flex items-start gap-3 animate-fade-up"
     >
-      <div className="w-10 h-10 rounded-xl bg-brand-pinkSoft text-brand-pink grid place-items-center flex-none">
+      <div className="w-10 h-10 rounded-xl bg-brand-maroonSoft text-brand-maroon grid place-items-center flex-none">
         {iosHint && !show ? <Smartphone className="w-5 h-5" /> : <Download className="w-5 h-5" />}
       </div>
       <div className="flex-1">
@@ -72,7 +72,7 @@ export default function InstallPrompt() {
           <Button
             data-testid="install-prompt-cta"
             onClick={install}
-            className="mt-2.5 h-9 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white text-sm px-4"
+            className="mt-2.5 h-9 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white text-sm px-4"
           >
             Install app
           </Button>

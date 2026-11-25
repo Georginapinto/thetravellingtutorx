@@ -39,7 +39,7 @@ export const NewsletterSignup = ({ source = "footer", className = "" }) => {
   return (
     <div className={`bg-white rounded-[2rem] shadow-medium border border-border/60 p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center ${className}`}>
       <div>
-        <p className="font-handwritten text-3xl text-brand-sageDeep">it's free — sign up today</p>
+        <p className="font-handwritten text-3xl text-brand-navyDeep">it's free — sign up today</p>
         <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">
           Get your best results — and unlock your next steps.
         </h3>
@@ -60,13 +60,13 @@ export const NewsletterSignup = ({ source = "footer", className = "" }) => {
             placeholder="Your best email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="h-14 rounded-full px-6 bg-brand-warmWhite border-border"
+            className="h-14 rounded-full px-6 bg-brand-cream border-border"
           />
           <Button
             data-testid={FORMS.newsletterSubmit}
             type="submit"
             disabled={busy}
-            className="h-14 rounded-full bg-brand-pink hover:bg-brand-pinkDeep text-white px-7"
+            className="h-14 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white px-7"
           >
             {busy ? "Joining..." : "Yes, Send My Free Resources"}
           </Button>
@@ -75,7 +75,7 @@ export const NewsletterSignup = ({ source = "footer", className = "" }) => {
         <ul className="mt-4 space-y-1.5">
           {perks.map((p) => (
             <li key={p} className="flex items-center gap-2 text-sm text-brand-ink/85">
-              <CheckCircle2 className="w-4 h-4 text-brand-sageDeep shrink-0" /> {p}
+              <CheckCircle2 className="w-4 h-4 text-brand-navyDeep shrink-0" /> {p}
             </li>
           ))}
         </ul>

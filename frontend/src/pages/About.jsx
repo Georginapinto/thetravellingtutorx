@@ -15,7 +15,7 @@ export default function About() {
         lede="AQA Sociology Examiner, Head of Sociology and Director of Sixth Form, with 9 years in education helping students across the UK turn confusion into confidence — and confidence into top-band marks."
         image={BRAND.avatar}
       >
-        <Button asChild className="rounded-full h-12 px-6 bg-brand-pink hover:bg-brand-pinkDeep text-white">
+        <Button asChild className="rounded-full h-12 px-6 bg-brand-maroon hover:bg-brand-maroonDeep text-white">
           <Link to="/contact">Get in touch</Link>
         </Button>
       </PageHero>
@@ -23,7 +23,7 @@ export default function About() {
       <section className="section-y bg-white">
         <div className="container-px max-w-5xl mx-auto">
           <div className="prose prose-lg max-w-none text-brand-ink/90 leading-relaxed">
-            <p className="text-xl text-brand-mute">Hi, I'm Georgina — founder of The Travelling Tutor X. I've spent 9 years in education in leadership roles, including Head of Sociology and Director of Sixth Form, and taught thousands of students. For 8 of those years I've also marked exams for AQA. This site exists because I kept seeing students who knew their content but didn't know how to <em>show</em> it on paper. So I built the support I wished they all had.</p>
+            <p className="text-xl text-brand-mute">Hi, I'm Georgina — founder of The Travelling Tutor X. I've spent 9 years in education in leadership roles, including Head of Sociology and Director of Sixth Form, and taught thousands of students. Throughout those 9 years I've also marked exams for AQA. This site exists because I kept seeing students who knew their content but didn't know how to <em>show</em> it on paper. So I built the support I wished they all had.</p>
             <p className="mt-6">My approach is simple: examiner-led, calm, structured and warm. I teach you exactly what mark schemes reward — and I make sure you can do it under exam conditions, not just in your notes.</p>
           </div>
 
@@ -36,8 +36,8 @@ export default function About() {
               { icon: Heart, t: "Founder, The Travelling Tutor X", d: "Building a UK Sociology brand that puts students, parents and teachers at the centre." },
               { icon: Star, t: "Sociology Specialist", d: "Deep expertise in AQA Sociology — Education, Families, Beliefs, Crime, Theory & Methods." },
             ].map((b) => (
-              <div key={b.t} className="rounded-3xl p-6 bg-brand-pinkSoft border border-white">
-                <b.icon className="w-7 h-7 text-brand-pink" />
+              <div key={b.t} className="rounded-3xl p-6 bg-brand-maroonSoft border border-white">
+                <b.icon className="w-7 h-7 text-brand-maroon" />
                 <h4 className="mt-4 font-semibold text-brand-ink">{b.t}</h4>
                 <p className="text-sm text-brand-mute mt-1">{b.d}</p>
               </div>
