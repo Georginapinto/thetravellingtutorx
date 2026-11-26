@@ -18,6 +18,7 @@ export const NAV_ITEMS = [
     children: [
       { label: "Grade Booster Packs", to: "/resources#grade-booster-packs", desc: "Topic packs with A* model answers" },
       { label: "Learning Tables", to: "/resources#learning-tables", desc: "Every topic on a page" },
+      { label: "Unseen Practice Papers", to: "/resources#unseen-practice-papers", desc: "Papers 1, 2 & 3 with detailed mark schemes" },
       { label: "Grade Transformation Course", to: "/resources#grade-transformation-course", desc: "Our flagship self-paced course" },
     ],
   },

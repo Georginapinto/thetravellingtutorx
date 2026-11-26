@@ -8,6 +8,7 @@ import { BOOSTER_PACKS, COURSE } from "@/constants/site";
 import {
   Sparkles, FileText, ClipboardCheck, Star, BookOpenCheck, GraduationCap, Globe, BarChart3,
   Building2, MonitorPlay, ArrowUpRight, ShieldCheck, Award, Table2, School, Gift, Mail,
+  Timer, BookX, CalendarCheck, FileQuestion,
 } from "lucide-react";
 
 // Every Grade Booster Pack includes the same four things.
@@ -123,8 +124,54 @@ export default function Resources() {
         </div>
       </section>
 
+      {/* UNSEEN PRACTICE PAPERS */}
+      <section id="unseen-practice-papers" className="section-y bg-white">
+        <div className="container-px max-w-7xl mx-auto">
+          <SectionHeader
+            eyebrow="unseen practice papers"
+            title="Exam papers you've never seen before."
+            lede="I've written brand-new Paper 1, Paper 2 and Paper 3 practice papers that students won't have seen anywhere else, each with a detailed mark scheme. They cover a wide range of questions, including predictions for questions that could come up in future exams."
+          />
+
+          <div className="mt-8 grid md:grid-cols-3 gap-6">
+            {["Paper 1", "Paper 2", "Paper 3"].map((paper) => (
+              <article key={paper} className="rounded-3xl p-7 bg-white border border-border/70 shadow-soft flex flex-col">
+                <div className="w-14 h-14 rounded-2xl bg-brand-maroonSoft grid place-items-center text-brand-maroon">
+                  <FileQuestion className="w-7 h-7" />
+                </div>
+                <h3 className="mt-6 text-2xl font-semibold text-brand-ink">{paper}</h3>
+                <ul className="mt-4 space-y-2 text-brand-ink/80">
+                  <li className="flex items-center gap-2"><Star className="w-4 h-4 text-brand-maroon shrink-0" /> Never-seen-before questions</li>
+                  <li className="flex items-center gap-2"><ClipboardCheck className="w-4 h-4 text-brand-maroon shrink-0" /> Detailed mark scheme</li>
+                  <li className="flex items-center gap-2"><Sparkles className="w-4 h-4 text-brand-maroon shrink-0" /> Predicted future questions</li>
+                </ul>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8 rounded-[2rem] bg-brand-cream p-8 md:p-10 grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+            <div>
+              <h3 className="text-2xl md:text-3xl font-semibold text-brand-ink">Up for a challenge?</h3>
+              <p className="text-brand-ink/80 mt-3 max-w-2xl leading-relaxed">
+                Try these papers closed book and timed, just like the real exam. They're especially helpful for preparing for mock exams.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {[{ i: BookX, t: "Closed book" }, { i: Timer, t: "Timed" }, { i: CalendarCheck, t: "Perfect for mocks" }].map(({ i: Icon, t }) => (
+                  <span key={t} className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white text-sm font-medium text-brand-navyDeep">
+                    <Icon className="w-4 h-4 text-brand-maroon" /> {t}
+                  </span>
+                ))}
+              </div>
+            </div>
+            <Button asChild data-testid="unseen-papers-cta" className="rounded-full h-12 px-7 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
+              <Link to="/contact?subject=Unseen%20practice%20papers">Ask about the papers <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
+            </Button>
+          </div>
+        </div>
+      </section>
+
       {/* GRADE TRANSFORMATION COURSE */}
-      <section id="grade-transformation-course" className="section-y bg-white">
+      <section id="grade-transformation-course" className="section-y">
         <div className="container-px max-w-7xl mx-auto">
           <div className="rounded-[2rem] bg-brand-navyDeep text-white p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center">
             <div>
