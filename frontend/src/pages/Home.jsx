@@ -112,91 +112,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 2. WHY STUDENTS STRUGGLE */}
-      <section className="section-y">
-        <div className="container-px max-w-7xl mx-auto">
-          <SectionHeader
-            eyebrow="why students struggle"
-            title="Knowing the content isn't enough."
-            lede="Most students lose marks in the same five places. As an examiner, I see it in every script — and I teach students exactly how to fix it."
-            center
-          />
-          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
-            {struggles.map((s) => (
-              <div key={s.title} className="rounded-3xl bg-white border border-border/60 p-6 shadow-soft flex flex-col">
-                <div className="w-12 h-12 rounded-2xl bg-brand-maroonSoft text-brand-maroon grid place-items-center"><s.icon className="w-6 h-6" /></div>
-                <h3 className="mt-5 text-lg font-semibold text-brand-ink">{s.title}</h3>
-                <p className="text-brand-mute text-sm mt-1.5 flex-1">{s.problem}</p>
-                <p className="mt-4 pt-4 border-t border-border/60 text-sm font-medium text-brand-navyDeep flex gap-2">
-                  <CheckCircle2 className="w-4 h-4 text-brand-maroon shrink-0 mt-0.5" /> {s.fix}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 3. EXPLORE WHAT YOU NEED */}
-      <section className="section-y bg-white">
-        <div className="container-px max-w-7xl mx-auto">
-          <SectionHeader eyebrow="explore what you need" title="Find the right support for you." />
-          <div className="mt-12 grid md:grid-cols-3 gap-6">
-            {pathways.map((p) => (
-              <div key={p.title} className="rounded-3xl bg-brand-cream border border-border/60 p-8 flex flex-col hover:shadow-hover transition-shadow">
-                <div className="w-14 h-14 rounded-2xl bg-brand-maroon text-white grid place-items-center"><p.icon className="w-7 h-7" /></div>
-                <h3 className="mt-6 text-2xl font-semibold text-brand-ink">{p.title}</h3>
-                <p className="text-brand-mute mt-2">{p.desc}</p>
-                <ul className="mt-5 space-y-1 flex-1">
-                  {p.items.map(([label, to]) => (
-                    <li key={label}>
-                      <Link to={to} className="flex items-center justify-between py-2 border-b border-border/60 text-brand-ink hover:text-brand-maroon">
-                        {label} <ArrowUpRight className="w-4 h-4 opacity-50" />
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-                <Button asChild className="mt-7 rounded-full h-12 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
-                  <Link to={p.to}>{p.cta}</Link>
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 4. FEATURED COURSE */}
-      <section className="section-y">
-        <div className="container-px max-w-7xl mx-auto">
-          <div className="rounded-[2rem] bg-brand-navyDeep text-white p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center relative overflow-hidden">
-            <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-brand-maroon/30 blur-3xl" aria-hidden />
-            <div className="relative">
-              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wider">
-                <Sparkles className="w-3.5 h-3.5" /> Flagship course
-              </span>
-              <h2 className="text-3xl md:text-5xl font-semibold mt-4 leading-tight">The {COURSE.title}</h2>
-              <p className="text-white/80 mt-5 text-lg max-w-lg leading-relaxed">{COURSE.blurb}</p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <Button asChild className="rounded-full h-12 px-7 bg-white text-brand-maroon hover:bg-brand-cream font-semibold">
-                  <a href={COURSE.url} target="_blank" rel="noreferrer">Enrol now <ArrowUpRight className="w-4 h-4 ml-1" /></a>
-                </Button>
-                <Button asChild variant="outline" className="rounded-full h-12 px-7 bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white">
-                  <Link to="/resources#grade-transformation-course">Find out more</Link>
-                </Button>
-              </div>
-            </div>
-            <ul className="relative grid sm:grid-cols-2 gap-4">
-              {[[MonitorPlay, COURSE.bullets[0]], [Star, COURSE.bullets[1]], [ClipboardCheck, COURSE.bullets[2]], [Award, COURSE.bullets[3]]].map(([Icon, t]) => (
-                <li key={t} className="rounded-2xl bg-white/[0.07] border border-white/10 p-5">
-                  <Icon className="w-6 h-6 text-brand-maroonPastel" />
-                  <p className="font-medium mt-3">{t}</p>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      {/* 5. EXAMINER INSIGHT */}
+      {/* 2. EXAMINER INSIGHT */}
       <section className="section-y bg-white">
         <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
           <div className="relative max-w-md mx-auto w-full lg:order-2">
@@ -231,8 +147,92 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 6. TESTIMONIALS */}
+      {/* 3. TESTIMONIALS */}
       <TestimonialsSection className="" />
+
+      {/* 4. WHY STUDENTS STRUGGLE */}
+      <section className="section-y bg-white">
+        <div className="container-px max-w-7xl mx-auto">
+          <SectionHeader
+            eyebrow="why students struggle"
+            title="Knowing the content isn't enough."
+            lede="Most students lose marks in the same five places. As an examiner, I see it in every script — and I teach students exactly how to fix it."
+            center
+          />
+          <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-5 gap-5">
+            {struggles.map((s) => (
+              <div key={s.title} className="rounded-3xl bg-white border border-border/60 p-6 shadow-soft flex flex-col">
+                <div className="w-12 h-12 rounded-2xl bg-brand-maroonSoft text-brand-maroon grid place-items-center"><s.icon className="w-6 h-6" /></div>
+                <h3 className="mt-5 text-lg font-semibold text-brand-ink">{s.title}</h3>
+                <p className="text-brand-mute text-sm mt-1.5 flex-1">{s.problem}</p>
+                <p className="mt-4 pt-4 border-t border-border/60 text-sm font-medium text-brand-navyDeep flex gap-2">
+                  <CheckCircle2 className="w-4 h-4 text-brand-maroon shrink-0 mt-0.5" /> {s.fix}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 5. EXPLORE WHAT YOU NEED */}
+      <section className="section-y">
+        <div className="container-px max-w-7xl mx-auto">
+          <SectionHeader eyebrow="explore what you need" title="Find the right support for you." />
+          <div className="mt-12 grid md:grid-cols-3 gap-6">
+            {pathways.map((p) => (
+              <div key={p.title} className="rounded-3xl bg-brand-cream border border-border/60 p-8 flex flex-col hover:shadow-hover transition-shadow">
+                <div className="w-14 h-14 rounded-2xl bg-brand-maroon text-white grid place-items-center"><p.icon className="w-7 h-7" /></div>
+                <h3 className="mt-6 text-2xl font-semibold text-brand-ink">{p.title}</h3>
+                <p className="text-brand-mute mt-2">{p.desc}</p>
+                <ul className="mt-5 space-y-1 flex-1">
+                  {p.items.map(([label, to]) => (
+                    <li key={label}>
+                      <Link to={to} className="flex items-center justify-between py-2 border-b border-border/60 text-brand-ink hover:text-brand-maroon">
+                        {label} <ArrowUpRight className="w-4 h-4 opacity-50" />
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild className="mt-7 rounded-full h-12 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
+                  <Link to={p.to}>{p.cta}</Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 6. FEATURED COURSE */}
+      <section className="section-y bg-white">
+        <div className="container-px max-w-7xl mx-auto">
+          <div className="rounded-[2rem] bg-brand-navyDeep text-white p-8 md:p-14 grid lg:grid-cols-2 gap-10 items-center relative overflow-hidden">
+            <div className="absolute -right-24 -top-24 w-80 h-80 rounded-full bg-brand-maroon/30 blur-3xl" aria-hidden />
+            <div className="relative">
+              <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 text-xs font-semibold uppercase tracking-wider">
+                <Sparkles className="w-3.5 h-3.5" /> Flagship course
+              </span>
+              <h2 className="text-3xl md:text-5xl font-semibold mt-4 leading-tight">The {COURSE.title}</h2>
+              <p className="text-white/80 mt-5 text-lg max-w-lg leading-relaxed">{COURSE.blurb}</p>
+              <div className="mt-8 flex flex-wrap gap-3">
+                <Button asChild className="rounded-full h-12 px-7 bg-white text-brand-maroon hover:bg-brand-cream font-semibold">
+                  <a href={COURSE.url} target="_blank" rel="noreferrer">Enrol now <ArrowUpRight className="w-4 h-4 ml-1" /></a>
+                </Button>
+                <Button asChild variant="outline" className="rounded-full h-12 px-7 bg-transparent border-white/30 text-white hover:bg-white/10 hover:text-white">
+                  <Link to="/resources#grade-transformation-course">Find out more</Link>
+                </Button>
+              </div>
+            </div>
+            <ul className="relative grid sm:grid-cols-2 gap-4">
+              {[[MonitorPlay, COURSE.bullets[0]], [Star, COURSE.bullets[1]], [ClipboardCheck, COURSE.bullets[2]], [Award, COURSE.bullets[3]]].map(([Icon, t]) => (
+                <li key={t} className="rounded-2xl bg-white/[0.07] border border-white/10 p-5">
+                  <Icon className="w-6 h-6 text-brand-maroonPastel" />
+                  <p className="font-medium mt-3">{t}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
 
       {/* 7. SCHOOLS */}
       <section className="pb-20 md:pb-28">
