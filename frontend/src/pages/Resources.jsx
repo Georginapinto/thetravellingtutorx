@@ -4,7 +4,7 @@ import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
-import { BOOSTER_PACKS, COURSE } from "@/constants/site";
+import { BOOSTER_PACKS, COURSE, UNSEEN_PAPERS } from "@/constants/site";
 import {
   Sparkles, FileText, ClipboardCheck, Star, BookOpenCheck, GraduationCap, Globe, BarChart3,
   Building2, MonitorPlay, ArrowUpRight, ShieldCheck, Award, Table2, School, Gift, Mail,
@@ -133,23 +133,30 @@ export default function Resources() {
             lede="I've written brand-new Paper 1, Paper 2 and Paper 3 practice papers that students won't have seen anywhere else, each with a detailed mark scheme. They cover a wide range of questions, including predictions for questions that could come up in future exams."
           />
 
-          <div className="mt-8 grid md:grid-cols-3 gap-6">
-            {["Paper 1", "Paper 2", "Paper 3"].map((paper) => (
-              <article key={paper} className="rounded-3xl p-7 bg-white border border-border/70 shadow-soft flex flex-col">
-                <div className="w-14 h-14 rounded-2xl bg-brand-maroonSoft grid place-items-center text-brand-maroon">
-                  <FileQuestion className="w-7 h-7" />
+          <div className="mt-8 grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {UNSEEN_PAPERS.map((p) => (
+              <article key={p.id} className="rounded-3xl p-7 bg-white border border-border/70 shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all flex flex-col">
+                <div className="flex items-start justify-between">
+                  <div className="w-14 h-14 rounded-2xl bg-brand-maroonSoft grid place-items-center text-brand-maroon">
+                    <FileQuestion className="w-7 h-7" />
+                  </div>
+                  <span className="text-xs px-3 py-1 rounded-full bg-brand-navySoft text-brand-navyDeep font-semibold">{p.paper}</span>
                 </div>
-                <h3 className="mt-6 text-2xl font-semibold text-brand-ink">{paper}</h3>
-                <ul className="mt-4 space-y-2 text-brand-ink/80">
+                <h3 className="mt-6 text-xl font-semibold text-brand-ink leading-snug">{p.topics}</h3>
+                <p className="text-xs uppercase tracking-wide font-semibold text-brand-mute mt-1">AQA A-Level Sociology · {p.paper}</p>
+                <ul className="mt-4 space-y-2 text-sm text-brand-ink/80 flex-1">
                   <li className="flex items-center gap-2"><Star className="w-4 h-4 text-brand-maroon shrink-0" /> Never-seen-before questions</li>
                   <li className="flex items-center gap-2"><ClipboardCheck className="w-4 h-4 text-brand-maroon shrink-0" /> Detailed mark scheme</li>
                   <li className="flex items-center gap-2"><Sparkles className="w-4 h-4 text-brand-maroon shrink-0" /> Predicted future questions</li>
                 </ul>
+                <Button asChild data-testid={`unseen-buy-${p.id}`} className="mt-6 rounded-full h-11 px-5 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
+                  <a href={p.url} target="_blank" rel="noreferrer">Buy now <ArrowUpRight className="w-4 h-4 ml-1" /></a>
+                </Button>
               </article>
             ))}
           </div>
 
-          <div className="mt-8 rounded-[2rem] bg-brand-cream p-8 md:p-10 grid lg:grid-cols-[1fr_auto] gap-8 items-center">
+          <div className="mt-8 rounded-[2rem] bg-brand-cream p-8 md:p-10">
             <div>
               <h3 className="text-2xl md:text-3xl font-semibold text-brand-ink">Up for a challenge?</h3>
               <p className="text-brand-ink/80 mt-3 max-w-2xl leading-relaxed">
@@ -163,9 +170,6 @@ export default function Resources() {
                 ))}
               </div>
             </div>
-            <Button asChild data-testid="unseen-papers-cta" className="rounded-full h-12 px-7 bg-brand-maroon hover:bg-brand-maroonDeep text-white font-semibold">
-              <Link to="/contact?subject=Unseen%20practice%20papers">Ask about the papers <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
-            </Button>
           </div>
         </div>
       </section>

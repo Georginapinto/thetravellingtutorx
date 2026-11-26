@@ -45,6 +45,14 @@ export const NAV_ITEMS = [
 
 export const GET_STARTED = { label: "Get Started", to: "/contact" };
 
+// Unseen practice papers, each paid for through its own checkout link.
+export const UNSEEN_PAPERS = [
+  { id: "paper-1-education", paper: "Paper 1", topics: "Education and Theory & Methods", url: "https://tr.ee/FAzIvP" },
+  { id: "paper-2-families-beliefs", paper: "Paper 2", topics: "Families & Households and Beliefs", url: "https://tr.ee/QBIWhq" },
+  { id: "paper-2-families-media", paper: "Paper 2", topics: "Families & Households and the Media", url: "https://tr.ee/wpM6D2" },
+  { id: "paper-3-crime", paper: "Paper 3", topics: "Crime & Deviance and Theory & Methods", url: "https://tr.ee/MpnKfC" },
+];
+
 export const BOOSTER_PACKS = [
   {
     id: "globalisation",
