@@ -103,6 +103,18 @@ export const COURSE = {
 // app screenshots; other users' avatars and names are blurred in the images.
 export const TIKTOK_URL = "https://www.tiktok.com/@thetravellingtutorx";
 export const TIKTOK_CLIPS = {
+  realists: {
+    image: "/images/tiktok-realists.jpg",
+    alt: "TikTok lesson: Paper 3 Crime & Deviance, left vs right realist theories of crime",
+    topic: "Paper 3: realist theories of crime",
+    stats: [["125.8K", "views"], ["13.9K", "likes"], ["7,029", "saves"], ["2,711", "shares"]],
+  },
+  families: {
+    image: "/images/tiktok-families.jpg",
+    alt: "TikTok mini lesson: Families & Households, domestic division of labour, with a student comment saying it was so helpful",
+    topic: "Families: domestic division of labour",
+    stats: [["16.2K", "views"], ["1,469", "likes"], ["631", "saves"], ["143", "shares"]],
+  },
   crime: {
     image: "/images/tiktok-crime.jpg",
     alt: "TikTok lesson: left vs right realists crime prevention",

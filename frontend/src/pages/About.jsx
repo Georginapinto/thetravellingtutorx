@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import TestimonialsSection from "@/components/TestimonialsSection";
+import TikTokFeature from "@/components/TikTokFeature";
+import { TIKTOK_CLIPS } from "@/constants/site";
 import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { BRAND } from "@/constants/testIds";
@@ -111,6 +113,15 @@ export default function About() {
       </section>
 
       <TestimonialsSection id="testimonials" />
+
+      <TikTokFeature
+        clip={TIKTOK_CLIPS.crime}
+        eyebrow="me in the classroom"
+        title="How I teach, in under a minute."
+        lede="Quick, memorable breakdowns of the theories students mix up most — like this one on left and right realist crime prevention, watched over 42,000 times."
+        reverse
+        className=""
+      />
 
       {/* FAQS */}
       <section id="faqs" className="section-y">

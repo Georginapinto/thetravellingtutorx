@@ -13,7 +13,7 @@ const perks = [
 export const PROOF = [
   [Award, "9 years as an AQA examiner"],
   [Users, "1,000s of students taught"],
-  [Play, "42K+ views on TikTok lessons"],
+  [Play, "125K+ views on one TikTok lesson"],
 ];
 
 // The main mailing-list card: exam countdown, the free guide offer and proof.

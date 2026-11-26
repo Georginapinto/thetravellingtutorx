@@ -153,10 +153,10 @@ export default function Home() {
 
       {/* TIKTOK */}
       <TikTokFeature
-        clip={TIKTOK_CLIPS.crime}
+        clip={TIKTOK_CLIPS.realists}
         eyebrow="as seen on tiktok"
         title="Thousands of students already learn with me."
-        lede="My bite-sized TikTok lessons break down the topics students find hardest. This one on left and right realism has been watched over 42,000 times — and saved by thousands for revision."
+        lede="My bite-sized TikTok lessons break down the topics students find hardest. This one on left and right realist theories of crime has been watched over 125,000 times — and saved over 7,000 times for revision."
         reverse
         signupSource="home-tiktok"
       />

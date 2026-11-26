@@ -1,6 +1,8 @@
 import React from "react";
 import PageHero from "@/components/PageHero";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
+import TikTokFeature from "@/components/TikTokFeature";
+import { TIKTOK_CLIPS } from "@/constants/site";
 import { BRAND } from "@/constants/testIds";
 import { Compass, FileDown } from "lucide-react";
 
@@ -57,6 +59,14 @@ export default function FreeResources() {
           ))}
         </div>
       </section>
+
+      <TikTokFeature
+        clip={TIKTOK_CLIPS.families}
+        eyebrow="see it in action"
+        title="Families & Households, made simple."
+        lede="My 5-minute TikTok lesson on the domestic division of labour — the same topic as the free essay guide above. It’s been watched over 16,000 times. “This was so helpful oh my gosh!”"
+        className=""
+      />
     </>
   );
 }
