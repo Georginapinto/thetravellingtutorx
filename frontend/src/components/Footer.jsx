@@ -16,7 +16,7 @@ export const Footer = () => {
           <div className="md:col-span-2">
             <SignatureLogo />
             <p className="text-brand-mute mt-4 max-w-sm">
-              Examiner-led Sociology tutoring and resources from an AQA Sociology Examiner, Head of Sociology and
+              Examiner-led Psychology tutoring and resources from an AQA Psychology Examiner, Head of Social Sciences and
               Director of Sixth Form. Building self-belief and helping students achieve their best grades.
             </p>
             <div className="flex gap-3 mt-6">
