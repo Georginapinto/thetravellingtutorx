@@ -39,7 +39,7 @@ const pathways = [
   {
     icon: Users,
     title: "For Teachers",
-    desc: "Training and mentoring for Sociology teachers and tutors.",
+    desc: "Training and mentoring for Psychology teachers and tutors.",
     to: "/teachers",
     cta: "Explore teacher support",
     items: [["Tutor Training Programme", "/tutor-partner"], ["Mentoring", "/teachers#mentoring"]],
@@ -55,13 +55,13 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-border text-sm text-brand-navyDeep font-medium">
-                <Award className="w-4 h-4 text-brand-maroon" /> AQA Sociology Examiner · 9 years
+                <Award className="w-4 h-4 text-brand-maroon" /> AQA Psychology Examiner · 9 years
               </span>
               <h1 className="mt-6 font-bold tracking-tight uppercase">
-                <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-navyDeep">Where Sociology grades improve.</span>
+                <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-navyDeep">Where Psychology grades improve.</span>
                 <span className="block mt-3 text-2xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] text-brand-maroon">Gain the examiner's edge.</span>
               </h1>
-              <p className="mt-6 text-xl md:text-2xl text-brand-navyDeep font-medium">AQA Sociology tuition led by an examiner.</p>
+              <p className="mt-6 text-xl md:text-2xl text-brand-navyDeep font-medium">AQA Psychology tuition led by an examiner.</p>
               <ul className="mt-5 flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 text-brand-ink">
                 {["Build stronger essays", "Master exam technique", "Improve your grades"].map((t) => (
                   <li key={t} className="flex items-center gap-2 font-medium"><CheckCircle2 className="w-5 h-5 text-brand-maroon" /> {t}</li>
@@ -81,7 +81,7 @@ export default function Home() {
               <div className="absolute -inset-4 bg-brand-maroonSoft rounded-[2.5rem] rotate-2" />
               <img
                 src={BRAND.photo}
-                alt="Georgina, AQA Sociology Examiner and founder of The Travelling Tutor X"
+                alt="Georgina, AQA Psychology Examiner and founder of The Travelling Tutor X"
                 className="relative w-full aspect-[4/5] object-cover object-top rounded-[2rem] shadow-medium"
               />
               <div className="absolute -bottom-5 -left-4 sm:-left-8 bg-white rounded-2xl shadow-medium px-4 py-3 border border-border/50">
@@ -103,7 +103,7 @@ export default function Home() {
       {/* TRUST STRIP */}
       <section className="bg-brand-navyDeep text-white">
         <div className="container-px max-w-7xl mx-auto py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
-          {[["9 years", "AQA Sociology examiner"], ["Head of Sociology", "& Director of Sixth Form"], ["1,000s", "of students taught"], ["GCSE & A-Level", "AQA specialist"]].map(([a, b]) => (
+          {[["AQA EXAMINER", "9 years"], ["DIRECTOR OF SIXTH FORM", "Head of Social Sciences"], ["1,000s", "of students taught"], ["GCSE & A-Level", "AQA specialist"]].map(([a, b]) => (
             <div key={a}>
               <p className="font-semibold text-lg">{a}</p>
               <p className="text-white/65 text-sm">{b}</p>
@@ -207,7 +207,7 @@ export default function Home() {
             <SectionHeader
               eyebrow="examiner insight"
               title="Learn from someone who marks the exams."
-              lede="For 9 years I've marked real AQA Sociology scripts. I know exactly what examiners look for — and what costs students marks. That insight goes into every lesson and resource."
+              lede="For 9 years I've marked real AQA Psychology scripts. I know exactly what examiners look for — and what costs students marks. That insight goes into every lesson and resource."
             />
             <ul className="mt-7 space-y-4">
               {[
@@ -242,7 +242,7 @@ export default function Home() {
             <div>
               <p className="flex items-center gap-2 text-sm font-semibold uppercase tracking-wider text-white/75"><BadgePercent className="w-4 h-4" /> For schools</p>
               <h2 className="text-2xl md:text-3xl font-semibold mt-2">Exclusive discounts on resources for schools.</h2>
-              <p className="text-white/80 mt-2 max-w-2xl">Give your Sociology department examiner-written resources at exclusive discounted school rates.</p>
+              <p className="text-white/80 mt-2 max-w-2xl">Give your Psychology department examiner-written resources at exclusive discounted school rates.</p>
             </div>
             <Button asChild className="rounded-full h-12 px-7 bg-white text-brand-maroon hover:bg-brand-cream font-semibold">
               <Link to="/schools">Enquire for your school <ArrowUpRight className="w-4 h-4 ml-1" /></Link>
