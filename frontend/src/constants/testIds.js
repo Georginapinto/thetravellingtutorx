@@ -59,6 +59,7 @@ export const FORMS = {
 
 export const BRAND = {
   photo: "/images/georgina.jpg",
+  heroPhoto: "/images/georgina-hero.jpg",
   essayStructurePdf: "/resources/essay-super-structure-families.pdf",
   facebookUrl: "https://www.facebook.com/thetravellingtutorx/",
 };

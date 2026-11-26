@@ -5,6 +5,8 @@ import SectionHeader from "@/components/SectionHeader";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
 import { Button } from "@/components/ui/button";
 import { BRAND } from "@/constants/testIds";
+import { TIKTOK_CLIPS } from "@/constants/site";
+import TikTokFeature from "@/components/TikTokFeature";
 import {
   GraduationCap, Users, MonitorPlay, ArrowUpRight, CheckCircle2, Sparkles, BookOpenCheck,
   CalendarDays, FileDown, ClipboardCheck, FileText, Star, MessageSquareText, Target, TrendingUp,
@@ -144,6 +146,15 @@ export default function Tuition() {
           </div>
         </div>
       </section>
+
+      {/* TIKTOK LIVE */}
+      <TikTokFeature
+        clip={TIKTOK_CLIPS.live}
+        eyebrow="live on tiktok"
+        title="Lessons students get excited about."
+        lede="I regularly teach live on TikTok, answering questions in real time. It's the same energy and examiner insight students get in my tuition sessions."
+        reverse
+      />
 
       {/* RECORDED */}
       <section id="recorded" className="section-y bg-white">

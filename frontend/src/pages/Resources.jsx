@@ -4,7 +4,8 @@ import PageHero from "@/components/PageHero";
 import SectionHeader from "@/components/SectionHeader";
 import { Button } from "@/components/ui/button";
 import LeadMagnetForm from "@/components/LeadMagnetForm";
-import { BOOSTER_PACKS, COURSE, UNSEEN_PAPERS } from "@/constants/site";
+import { BOOSTER_PACKS, COURSE, UNSEEN_PAPERS, TIKTOK_CLIPS } from "@/constants/site";
+import TikTokFeature from "@/components/TikTokFeature";
 import {
   Sparkles, FileText, ClipboardCheck, Star, BookOpenCheck, GraduationCap, Globe, BarChart3,
   Building2, MonitorPlay, ArrowUpRight, ShieldCheck, Award, Table2, School, Gift, Mail,
@@ -210,6 +211,14 @@ export default function Resources() {
           </div>
         </div>
       </section>
+
+      {/* TIKTOK */}
+      <TikTokFeature
+        clip={TIKTOK_CLIPS.beliefs}
+        eyebrow="free revision on tiktok"
+        title="Get a taste of how I teach."
+        lede="The same clear, memorable breakdowns you'll find in my resources — like this Beliefs lesson on religious organisations, saved by hundreds of students for revision."
+      />
 
       {/* FREE + SCHOOLS */}
       <section className="section-y">

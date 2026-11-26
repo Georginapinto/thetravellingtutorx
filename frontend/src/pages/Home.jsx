@@ -9,7 +9,8 @@ import SectionHeader from "@/components/SectionHeader";
 import TestimonialsSection from "@/components/TestimonialsSection";
 import NewsletterSignup from "@/components/NewsletterSignup";
 import { HOME, BRAND } from "@/constants/testIds";
-import { COURSE } from "@/constants/site";
+import { COURSE, TIKTOK_CLIPS } from "@/constants/site";
+import TikTokFeature from "@/components/TikTokFeature";
 
 const struggles = [
   { icon: PenLine, title: "Essay writing", problem: "Knowing the content but not how to structure a top-band essay.", fix: "Clear, reusable essay frameworks." },
@@ -80,7 +81,7 @@ export default function Home() {
             <div className="lg:col-span-5 relative max-w-md mx-auto w-full">
               <div className="absolute -inset-4 bg-brand-maroonSoft rounded-[2.5rem] rotate-2" />
               <img
-                src={BRAND.photo}
+                src={BRAND.heroPhoto}
                 alt="Georgina, AQA Psychology Examiner and founder of The Travelling Tutor X"
                 className="relative w-full aspect-[4/5] object-cover object-top rounded-[2rem] shadow-medium"
               />
@@ -149,6 +150,15 @@ export default function Home() {
 
       {/* 3. TESTIMONIALS */}
       <TestimonialsSection className="" />
+
+      {/* TIKTOK */}
+      <TikTokFeature
+        clip={TIKTOK_CLIPS.crime}
+        eyebrow="as seen on tiktok"
+        title="Thousands of students already learn with me."
+        lede="My bite-sized TikTok lessons break down the topics students find hardest. This one on left and right realism has been watched over 42,000 times — and saved by thousands for revision."
+        reverse
+      />
 
       {/* 4. WHY STUDENTS STRUGGLE */}
       <section className="section-y bg-white">

@@ -98,3 +98,27 @@ export const COURSE = {
     "Lifetime access · learn at your pace",
   ],
 };
+
+// TikTok teaching clips shown around the site. Stats copied from the TikTok
+// app screenshots; other users' avatars and names are blurred in the images.
+export const TIKTOK_URL = "https://www.tiktok.com/@thetravellingtutorx";
+export const TIKTOK_CLIPS = {
+  crime: {
+    image: "/images/tiktok-crime.jpg",
+    alt: "TikTok lesson: left vs right realists crime prevention",
+    topic: "Crime & Deviance: left vs right realists",
+    stats: [["42.6K", "views"], ["5,630", "likes"], ["2,740", "saves"], ["657", "shares"]],
+  },
+  beliefs: {
+    image: "/images/tiktok-beliefs.jpg",
+    alt: "TikTok lesson: Beliefs Paper 2, religious organisations",
+    topic: "Beliefs: religious organisations",
+    stats: [["12.4K", "views"], ["1,233", "likes"], ["479", "saves"]],
+  },
+  live: {
+    image: "/images/tiktok-live.jpg",
+    alt: "TikTok LIVE revision session with a student comment: best Sociology teacher ever",
+    topic: "LIVE revision: dual burden & Ann Oakley",
+    stats: [["3.2K", "likes"], ["LIVE", "Q&A"]],
+  },
+};
