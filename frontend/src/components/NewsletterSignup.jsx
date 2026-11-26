@@ -44,7 +44,7 @@ export const NewsletterSignup = ({ source = "footer", className = "" }) => {
           Get your best results — and unlock your next steps.
         </h3>
         <p className="text-brand-mute mt-3 max-w-md">
-          Straight from an AQA Sociology Examiner to your inbox: the exact techniques that have helped some of my students climb
+          Straight from an <strong className="text-brand-ink">AQA EXAMINER</strong> to your inbox: the exact techniques that have helped some of my students climb
           from E grades to A grades. Don't leave your grades to chance — the university place, apprenticeship or career
           you want could depend on it.
         </p>
