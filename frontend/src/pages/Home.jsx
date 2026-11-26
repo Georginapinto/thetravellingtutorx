@@ -58,7 +58,7 @@ export default function Home() {
                 <Award className="w-4 h-4 text-brand-maroon" /> AQA Sociology Examiner · 9 years
               </span>
               <h1 className="mt-6 font-bold tracking-tight uppercase">
-                <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-ink">Where Sociology grades improve.</span>
+                <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-navyDeep">Where Sociology grades improve.</span>
                 <span className="block mt-3 text-2xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] text-brand-maroon">Gain the examiner's edge.</span>
               </h1>
               <p className="mt-6 text-xl md:text-2xl text-brand-navyDeep font-medium">AQA Sociology tuition led by an examiner.</p>
