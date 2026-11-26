@@ -105,7 +105,7 @@ export default function Home() {
         <div className="container-px max-w-7xl mx-auto py-6 grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
           {[["AQA EXAMINER", "9 years"], ["DIRECTOR OF SIXTH FORM", "Head of Social Sciences"], ["1,000s", "of students taught"], ["GCSE & A-Level", "AQA specialist"]].map(([a, b]) => (
             <div key={a}>
-              <p className="font-semibold text-lg">{a}</p>
+              <p className="font-bold text-lg">{a}</p>
               <p className="text-white/65 text-sm">{b}</p>
             </div>
           ))}
