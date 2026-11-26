@@ -55,7 +55,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-center">
             <div className="lg:col-span-7">
               <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-border text-sm text-brand-navyDeep font-medium">
-                <Award className="w-4 h-4 text-brand-maroon" /> AQA Psychology Examiner · 9 years
+                <Award className="w-4 h-4 text-brand-maroon" /> AQA Expert Examiner
               </span>
               <h1 className="mt-6 font-bold tracking-tight uppercase">
                 <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-navyDeep">Where Sociology and Psychology grades improve.</span>
