@@ -58,10 +58,10 @@ export default function Home() {
                 <Award className="w-4 h-4 text-brand-maroon" /> AQA Psychology Examiner · 9 years
               </span>
               <h1 className="mt-6 font-bold tracking-tight uppercase">
-                <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-navyDeep">Where Psychology grades improve.</span>
+                <span className="block text-[2.4rem] sm:text-6xl lg:text-[4rem] leading-[1.02] text-brand-navyDeep">Where Sociology and Psychology grades improve.</span>
                 <span className="block mt-3 text-2xl sm:text-4xl lg:text-[2.6rem] leading-[1.1] text-brand-maroon">Gain the examiner's edge.</span>
               </h1>
-              <p className="mt-6 text-xl md:text-2xl text-brand-navyDeep font-medium">AQA Psychology tuition led by an examiner.</p>
+              <p className="mt-6 text-xl md:text-2xl text-brand-navyDeep font-medium">AQA tuition led by an examiner.</p>
               <ul className="mt-5 flex flex-col sm:flex-row sm:flex-wrap gap-x-6 gap-y-2 text-brand-ink">
                 {["Build stronger essays", "Master exam technique", "Improve your grades"].map((t) => (
                   <li key={t} className="flex items-center gap-2 font-medium"><CheckCircle2 className="w-5 h-5 text-brand-maroon" /> {t}</li>
