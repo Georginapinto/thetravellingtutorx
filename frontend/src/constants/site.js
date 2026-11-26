@@ -122,3 +122,17 @@ export const TIKTOK_CLIPS = {
     stats: [["3.2K", "likes"], ["LIVE", "Q&A"]],
   },
 };
+
+// First AQA paper of each subject in the coming exam season. Update these
+// each year once AQA publishes the timetable; a passed date stops showing.
+export const EXAM_DATES = [
+  { subject: "Sociology", date: "2027-05-14" },
+  { subject: "Psychology", date: "2027-05-18" },
+];
+
+// The free guide every email sign-up gets (downloads straight away).
+export const SIGNUP_GUIDE = {
+  name: "A* Essay Super-Structure",
+  url: "/resources/essay-super-structure-families.pdf",
+  filename: "Essay-Super-Structure-Families-and-Households-10m.pdf",
+};

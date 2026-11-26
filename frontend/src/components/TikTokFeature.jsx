@@ -1,11 +1,13 @@
 import React from "react";
 import { ArrowUpRight, Play } from "lucide-react";
 import SectionHeader from "@/components/SectionHeader";
+import InlineSignup from "@/components/InlineSignup";
 import { TIKTOK_URL } from "@/constants/site";
 
 // A TikTok screenshot in a phone frame with its view/like counts, beside a
 // short pitch and a link to the channel. `reverse` puts the phone on the left.
-export default function TikTokFeature({ clip, eyebrow = "learn with me on tiktok", title, lede, reverse = false, className = "bg-white", id }) {
+// `signupSource` adds an email sign-up strip underneath.
+export default function TikTokFeature({ clip, eyebrow = "learn with me on tiktok", title, lede, reverse = false, className = "bg-white", id, signupSource }) {
   return (
     <section id={id} className={`section-y ${className}`}>
       <div className="container-px max-w-7xl mx-auto grid lg:grid-cols-2 gap-12 items-center">
@@ -39,6 +41,11 @@ export default function TikTokFeature({ clip, eyebrow = "learn with me on tiktok
           </figcaption>
         </figure>
       </div>
+      {signupSource && (
+        <div className="container-px max-w-7xl mx-auto mt-14 md:mt-16">
+          <InlineSignup source={signupSource} />
+        </div>
+      )}
     </section>
   );
 }

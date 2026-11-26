@@ -158,6 +158,7 @@ export default function Home() {
         title="Thousands of students already learn with me."
         lede="My bite-sized TikTok lessons break down the topics students find hardest. This one on left and right realism has been watched over 42,000 times — and saved by thousands for revision."
         reverse
+        signupSource="home-tiktok"
       />
 
       {/* 4. WHY STUDENTS STRUGGLE */}

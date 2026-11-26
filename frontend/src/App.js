@@ -18,6 +18,7 @@ import Blog from "@/pages/Blog";
 import NotFound from "@/pages/NotFound";
 import InstallPrompt from "@/components/InstallPrompt";
 import ScrollManager from "@/components/ScrollManager";
+import { SignupPopup, StickySignupBar } from "@/components/SignupPopup";
 
 function App() {
   return (
@@ -50,6 +51,8 @@ function App() {
         </main>
         <Footer />
         <InstallPrompt />
+        <SignupPopup />
+        <StickySignupBar />
         <Toaster position="top-center" richColors />
       </BrowserRouter>
     </div>

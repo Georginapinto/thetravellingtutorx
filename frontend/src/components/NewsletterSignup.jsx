@@ -1,87 +1,52 @@
-import React, { useState } from "react";
-import { CheckCircle2 } from "lucide-react";
-import { toast } from "sonner";
-import { FORMS } from "../constants/testIds";
-import { api } from "../lib/api";
-import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import { Honeypot } from "./Honeypot";
+import React from "react";
+import { CheckCircle2, Users, Play, Award } from "lucide-react";
+import ExamCountdown from "@/components/ExamCountdown";
+import SignupForm from "@/components/SignupForm";
 
 const perks = [
-  "Free examiner-written revision resources",
-  "Insider tips on exactly what AQA examiners reward",
+  "The essay structure examiners reward, with an annotated A* model answer",
+  "Insider tips on exactly what AQA examiners look for",
   "Revision strategies that build real exam confidence",
   "First access to bootcamps, workshops & tutoring places",
 ];
 
-// The mailing-list signup card. `source` is saved with the subscriber so you
-// can see which placement on the site brought them in.
-export const NewsletterSignup = ({ source = "footer", className = "" }) => {
-  const [email, setEmail] = useState("");
-  const [website, setWebsite] = useState("");
-  const [busy, setBusy] = useState(false);
+export const PROOF = [
+  [Award, "9 years as an AQA examiner"],
+  [Users, "1,000s of students taught"],
+  [Play, "42K+ views on TikTok lessons"],
+];
 
-  const submit = async (e) => {
-    e.preventDefault();
-    if (!email) return;
-    setBusy(true);
-    try {
-      await api.post("/newsletter", { email, source, website });
-      toast.success("You're in! Check your inbox for your first free resources.");
-      setEmail("");
-    } catch {
-      toast.error("Something went wrong — please try again.");
-    } finally {
-      setBusy(false);
-    }
-  };
-
-  return (
-    <div className={`bg-white rounded-[2rem] shadow-medium border border-border/60 p-8 md:p-12 grid md:grid-cols-2 gap-8 items-center ${className}`}>
-      <div>
-        <p className="font-handwritten text-xl md:text-2xl text-brand-navyDeep">it's free — sign up today</p>
-        <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-1">
-          Get your best results — and unlock your next steps.
-        </h3>
-        <p className="text-brand-mute mt-3 max-w-md">
-          Straight from an <strong className="text-brand-ink">AQA EXAMINER</strong> to your inbox: the exact techniques that have helped some of my students climb
-          from E grades to A grades. Don't leave your grades to chance — the university place, apprenticeship or career
-          you want could depend on it.
-        </p>
-      </div>
-      <div>
-        <form onSubmit={submit} className="relative flex flex-col sm:flex-row gap-3">
-          <Honeypot value={website} onChange={setWebsite} />
-          <Input
-            data-testid={FORMS.newsletterEmail}
-            type="email"
-            required
-            aria-label="Email address"
-            placeholder="Your best email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="h-14 rounded-full px-6 bg-brand-cream border-border"
-          />
-          <Button
-            data-testid={FORMS.newsletterSubmit}
-            type="submit"
-            disabled={busy}
-            className="h-14 rounded-full bg-brand-maroon hover:bg-brand-maroonDeep text-white px-7"
-          >
-            {busy ? "Joining..." : "Yes, Send My Free Resources"}
-          </Button>
-        </form>
-        <p className="text-xs text-brand-mute mt-3">100% free. No spam, unsubscribe any time.</p>
-        <ul className="mt-4 space-y-1.5">
-          {perks.map((p) => (
-            <li key={p} className="flex items-center gap-2 text-sm text-brand-ink/85">
-              <CheckCircle2 className="w-4 h-4 text-brand-navyDeep shrink-0" /> {p}
-            </li>
-          ))}
-        </ul>
+// The main mailing-list card: exam countdown, the free guide offer and proof.
+export const NewsletterSignup = ({ source = "footer", className = "" }) => (
+  <div className={`bg-white rounded-[2rem] shadow-medium border border-border/60 p-8 md:p-12 grid md:grid-cols-2 gap-8 md:gap-12 items-center ${className}`}>
+    <div>
+      <ExamCountdown />
+      <h3 className="text-3xl md:text-4xl font-semibold text-brand-ink mt-6 leading-tight">
+        Get my free A* essay structure — before the clock runs out.
+      </h3>
+      <p className="text-brand-mute mt-3 max-w-md">
+        Straight from an <strong className="text-brand-ink">AQA EXAMINER</strong>: the exact essay structure that has helped some of
+        my students climb from E grades to A grades. Every week you wait is a week less to practise it.
+      </p>
+    </div>
+    <div>
+      <SignupForm source={source} />
+      <ul className="mt-5 space-y-1.5">
+        {perks.map((p) => (
+          <li key={p} className="flex items-start gap-2 text-sm text-brand-ink/85">
+            <CheckCircle2 className="w-4 h-4 text-brand-navyDeep shrink-0 mt-0.5" /> {p}
+          </li>
+        ))}
+      </ul>
+      <div className="mt-5 pt-5 border-t border-border/60 flex flex-wrap gap-x-5 gap-y-2">
+        {PROOF.map(([Icon, t]) => (
+          <span key={t} className="flex items-center gap-1.5 text-xs font-semibold text-brand-navyDeep">
+            <Icon className="w-4 h-4 text-brand-maroon" /> {t}
+          </span>
+        ))}
       </div>
     </div>
-  );
-};
+  </div>
+);
 
 export default NewsletterSignup;

@@ -218,6 +218,7 @@ export default function Resources() {
         eyebrow="free revision on tiktok"
         title="Get a taste of how I teach."
         lede="The same clear, memorable breakdowns you'll find in my resources — like this Beliefs lesson on religious organisations, saved by hundreds of students for revision."
+        signupSource="resources-tiktok"
       />
 
       {/* FREE + SCHOOLS */}

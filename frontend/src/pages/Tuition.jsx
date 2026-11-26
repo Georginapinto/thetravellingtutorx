@@ -154,6 +154,7 @@ export default function Tuition() {
         title="Lessons students get excited about."
         lede="I regularly teach live on TikTok, answering questions in real time. It's the same energy and examiner insight students get in my tuition sessions."
         reverse
+        signupSource="tuition-tiktok"
       />
 
       {/* RECORDED */}
